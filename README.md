@@ -91,9 +91,14 @@ matches the original single-file build.
 
 ## Notes
 
+- **Type is in `rem`, at exactly the Figma pixel size** (`rem = px / 16`), so it
+  also follows the reader's own browser font size. `rem` does not shrink with
+  the viewport, so the type tokens in `tokens.css` are restated smaller at
+  1400 / 1024 / 768 in `mobile.css` — change a size there and everything using
+  that token follows.
 - The design is sized against a 1920px frame. Widths that must hold their
   proportion (the hero card, its paragraph, the CTA band) are written in `vw`
   with the Figma value as the maximum, so the layout reads the same at any
-  width. Breakpoints: 1200 / 1024 / 768 / 640 / 560 / 480.
+  width. Breakpoints: 1400 / 1200 / 1024 / 768 / 640 / 560 / 480.
 - The contact form posts nowhere yet — wire it to Contact Form 7, Gravity Forms
   or WPForms, or point the `<form action>` at your own handler.

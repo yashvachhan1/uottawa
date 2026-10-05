@@ -223,7 +223,7 @@
 .facts li{
   padding-left:clamp(14px, 1.2vw, 23px);
   border-left:1px solid var(--black);
-  font-size:clamp(17px, 1.4583vw, 28px);
+  font-size:1.75rem;
   line-height:1.25;
   font-weight:700;
   color:var(--ink);
@@ -429,7 +429,7 @@
   padding:clamp(22px, 1.93vw, 37px) clamp(20px, 1.74vw, 33px) clamp(24px, 1.93vw, 37px);
 }
 .enquiry__title{
-  font-size:clamp(21px, 1.4928vw, 28.661px);
+  font-size:1.791313rem;
   line-height:1.1;
   font-weight:700;
   color:var(--white);
@@ -446,7 +446,7 @@
 .enquiry__field label{
   display:block;
   margin-bottom:6px;
-  font-size:clamp(12px, 0.7464vw, 14.33px);
+  font-size:0.895625rem;
   line-height:1.4;
   font-weight:400;
   color:var(--white);
@@ -462,7 +462,7 @@
   border:0;
   border-radius:3.583px;
   font-family:inherit;
-  font-size:clamp(13px, 0.8333vw, 16px);
+  font-size:1rem;
 }
 .enquiry__field select{
   /* keep the native arrow but match the input height on every browser */
@@ -486,7 +486,7 @@
   justify-content:center;
   background:var(--red);
   color:var(--white);
-  font-size:clamp(14px, 0.8708vw, 16.719px);
+  font-size:1.044938rem;
   padding:clamp(11px, 0.75vw, 14.33px);
   border-radius:999px;
 }
@@ -494,7 +494,7 @@
 
 .enquiry__note{
   margin-top:clamp(12px, 1vw, 19px);
-  font-size:clamp(10px, 0.5729vw, 11px);
+  font-size:0.6875rem;
   line-height:1.36;
   font-weight:400;
   color:var(--white);

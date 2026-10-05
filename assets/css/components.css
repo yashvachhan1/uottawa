@@ -25,14 +25,13 @@
 .btn--lang{ background:var(--white); color:var(--red); border:1px solid var(--red); }
 .btn--lang:hover{ background:var(--red); color:var(--white); }
 
-/* One modifier per size the design actually uses, each scaled in vw like the
-   rest of the page:
-     header 13 | hero 14 | "Read more" 15.91 | programme 20 | pill 23       */
-.btn--sm      { font-size:13px;                           padding:9px 18px; }
-.btn--hero    { font-size:clamp(13px, 0.7292vw, 14px);    padding:clamp(9px, 0.5729vw, 11px) clamp(18px, 1.3542vw, 26px); }
-.btn--read    { font-size:clamp(13px, 0.8286vw, 15.91px); padding:clamp(6px, 0.3729vw, 7.159px) clamp(13px, 0.9115vw, 17.501px); }
-.btn--program { font-size:clamp(15px, 1.0417vw, 20px);    padding:clamp(8px, 0.4688vw, 9px) clamp(16px, 1.1458vw, 22px); }
-.btn--pill    { font-size:clamp(16px, 1.1979vw, 23px);    padding:clamp(9px, 0.5391vw, 10.35px) clamp(18px, 1.3177vw, 25.3px); }
+/* One modifier per size the design actually uses, in rem at the Figma pixel
+   size: header 13 | hero 14 | "Read more" 15.91 | programme 20 | pill 23   */
+.btn--sm      { font-size:0.8125rem;                           padding:9px 18px; }
+.btn--hero    { font-size:0.875rem;    padding:clamp(9px, 0.5729vw, 11px) clamp(18px, 1.3542vw, 26px); }
+.btn--read    { font-size:0.994375rem; padding:clamp(6px, 0.3729vw, 7.159px) clamp(13px, 0.9115vw, 17.501px); }
+.btn--program { font-size:1.25rem;    padding:clamp(8px, 0.4688vw, 9px) clamp(16px, 1.1458vw, 22px); }
+.btn--pill    { font-size:1.4375rem;    padding:clamp(9px, 0.5391vw, 10.35px) clamp(18px, 1.3177vw, 25.3px); }
 
 /* ==========================================================================
    HEADER
@@ -70,7 +69,7 @@
 
 /* Sits immediately to the right of the menu, before the two CTA buttons. */
 .header-lang{ flex:none; }
-.header-lang .btn{ font-size:13px; line-height:18px; padding:9px 14px; border-radius:20px; }
+.header-lang .btn{ font-size:0.8125rem; line-height:1.125rem; padding:9px 14px; border-radius:20px; }
 
 .header-actions{ display:flex; gap:10px; flex:none; }
 
@@ -193,7 +192,7 @@
 .faq-item__marker{
   flex:none;
   width:12px;
-  font-size:13px;
+  font-size:0.8125rem;
   line-height:1;
   color:var(--red);
 }
@@ -229,7 +228,7 @@
   overflow:hidden;
 }
 .article-card__media img{ width:100%; height:100%; object-fit:cover; }
-.article-card__placeholder{ font-size:12px; line-height:1.4; font-weight:400; color:var(--boulder); }
+.article-card__placeholder{ font-size:0.75rem; line-height:1.4; font-weight:400; color:var(--boulder); }
 .article-card__body{ padding:20px; display:flex; flex-direction:column; align-items:flex-start; gap:6px; }
 .article-card__kicker { font-size:var(--fs-body-sm); line-height:1.2; font-weight:400; color:var(--americano); }
 .article-card__title  { font-size:var(--fs-h3);      line-height:1.375; color:var(--red); }
@@ -263,8 +262,8 @@
   align-items:start;
 }
 .cta__title{
-  font-size:clamp(32px, 3.9583vw, 76px);
-  line-height:clamp(30px, 3.75vw, 72px);
+  font-size:var(--fs-cta-title);   /* 76px */
+  line-height:0.947;               /* 72px at 76px, and keeps that ratio */
   color:var(--white);
 }
 .cta__text-body{
@@ -277,7 +276,7 @@
   flex-direction:column;
   justify-content:center;
   font-size:var(--fs-body);
-  line-height:clamp(20px, 1.5104vw, 29px);
+  line-height:1.8125rem;
   font-weight:400;
   color:var(--gallery);
 }
@@ -290,7 +289,7 @@
   column-gap:0;
 }
 .cta__action .btn{
-  font-size:clamp(14px, 1.2238vw, 23.497px);
+  font-size:1.468562rem;
   line-height:1.36;
   padding:clamp(7px, 0.673vw, 12.924px) clamp(14px, 1.4686vw, 28.197px) clamp(6px, 0.6119vw, 11.749px);
 }
@@ -299,8 +298,8 @@
 .cta__action p{
   margin-top:clamp(12px, 1.2735vw, 24.45px);
   padding-left:min(0.5728vw, 11px);
-  font-size:clamp(14px, 1.2238vw, 23.497px);
-  line-height:clamp(18px, 1.4074vw, 27.022px);
+  font-size:1.468562rem;
+  line-height:1.688875rem;
   font-weight:400;
   color:var(--white);
 }
@@ -316,4 +315,4 @@
   text-align:center;
 }
 /* Figma: 12px text in a 16px box, 16px padding all round -> 48px tall */
-.site-footer p{ font-size:12px; line-height:16px; color:var(--silver); }
+.site-footer p{ font-size:0.75rem; line-height:1rem; color:var(--silver); }

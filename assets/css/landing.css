@@ -81,7 +81,7 @@
   .uottawa-lp .logo{display:flex;align-items:center;gap:10px;}
   .uottawa-lp .logo svg{width:40px;height:40px;display:block;}
   .uottawa-lp .logo span{
-    font-size:25px;font-weight:600;letter-spacing:-0.2px;color:var(--ink);
+    font-size:1.5625rem;font-weight:600;letter-spacing:-0.2px;color:var(--ink);
   }
 
   .uottawa-lp .nav-panel{
@@ -98,7 +98,7 @@
     gap:65px;                       /* 1:282-1:285 spacing */
   }
   .uottawa-lp header nav a{
-    font-size:16px;                 /* text widths 119/87/136/111 */
+    font-size:1rem;                 /* text widths 119/87/136/111 */
     font-weight:400;
     color:var(--ink);
     text-decoration:none;
@@ -118,7 +118,7 @@
     justify-content:center;
     padding:9px 18px;               /* 1:277 / 1:279 */
     border-radius:999px;
-    font-size:13px;
+    font-size:0.8125rem;
     text-decoration:none;
     white-space:nowrap;
     cursor:pointer;
@@ -158,14 +158,14 @@
   }
   .uottawa-lp .hero-content h1{
     max-width:1180px;               /* 1:62 */
-    font-size:clamp(20px, 3.35vw, 64px);   /* = 64px at the 1922 design width */
+    font-size:4rem;   /* = 64px at the 1922 design width */
     font-weight:700;
     line-height:1.03;               /* 66/64 */
   }
   .uottawa-lp .hero-content p{
     max-width:1180px;
     margin-top:12px;                /* gap 10 + pt 2 */
-    font-size:clamp(15px, 1.67vw, 32px);   /* = 32px at 1922 */
+    font-size:2rem;   /* = 32px at 1922 */
     font-weight:400;
     line-height:1.25;
   }
@@ -185,7 +185,7 @@
   .uottawa-lp .stat{padding-right:24px;}
   .uottawa-lp .stat:last-child{padding-right:0;}
   .uottawa-lp .stat .label{
-    font-size:20px;                 /* 1:70 */
+    font-size:1.25rem;                 /* 1:70 */
     font-weight:400;
     text-transform:uppercase;
     letter-spacing:.5px;            /* letter spacing/0_5 */
@@ -194,16 +194,16 @@
     margin-bottom:4px;              /* item spacing/xxs */
   }
   .uottawa-lp .stat .value{
-    font-size:28px;                 /* 1:71 */
+    font-size:1.75rem;                 /* 1:71 */
     font-weight:700;
-    line-height:32px;
+    line-height:2rem;
     color:var(--ink);
   }
   .uottawa-lp .footnotes{
     margin-top:8px;          /* 1:84 top 814 */
-    font-size:12px;                 /* 1:85 */
+    font-size:0.75rem;                 /* 1:85 */
     font-weight:400;
-    line-height:18px;
+    line-height:1.125rem;
     color:var(--americano);
   }
 
@@ -222,7 +222,7 @@
     align-items:start;
   }
   .uottawa-lp .why h2{
-    font-size:40px;                 /* 1:88 */
+    font-size:2.5rem;                 /* 1:88 */
     min-height:108px;               /* 1:87 block 128 - 18 pb - 2 border */
     font-weight:700;
     line-height:normal;
@@ -240,9 +240,9 @@
     display:block;                  /* NOT flex: it makes <b> its own item and
                                        eats the space after the label */
     padding:12px 0 12px 24px;       /* 32 line + 12 + 12 = 56 */
-    font-size:24px;                 /* 1:94 */
+    font-size:1.5rem;                 /* 1:94 */
     font-weight:400;
-    line-height:32px;
+    line-height:2rem;
     color:var(--ink);
   }
   .uottawa-lp .why li::before{
@@ -250,9 +250,9 @@
     position:absolute;left:0;top:50%;
     transform:translateY(-50%);
     color:var(--garnet);
-    font-size:18px;                 /* font size/18 */
+    font-size:1.125rem;                 /* font size/18 */
     font-weight:700;
-    line-height:25.2px;             /* line height/25_2 */
+    line-height:1.575rem;             /* line height/25_2 */
   }
   .uottawa-lp .why li b{font-weight:700;}
 
@@ -265,22 +265,22 @@
     color:#fff;
   }
   .uottawa-lp .card h3{
-    font-size:28.661px;             /* 1:127 */
+    font-size:1.791313rem;             /* 1:127 */
     font-weight:700;
-    line-height:28.422px;
+    line-height:1.776375rem;
   }
   .uottawa-lp .card .sub{
     margin-top:14px;
     margin-bottom:18px;
-    font-size:16.719px;             /* 1:129 */
+    font-size:1.044938rem;             /* 1:129 */
     font-weight:400;
-    line-height:28.422px;
+    line-height:1.776375rem;
     color:#fff;
   }
   .uottawa-lp .field{margin-bottom:6px;}
   .uottawa-lp .field label{
     display:block;
-    font-size:14.33px;              /* 1:132 */
+    font-size:0.895625rem;              /* 1:132 */
     font-weight:400;
     color:#fff;
     margin-bottom:6px;
@@ -293,7 +293,7 @@
     border-radius:3.583px;
     padding:0 12px;
     font-family:inherit;
-    font-size:15px;
+    font-size:0.9375rem;
     color:var(--ink);
   }
   .uottawa-lp .field input:focus{outline:2px solid var(--garnet);}
@@ -311,7 +311,7 @@
     border:none;
     border-radius:23.884px;
     font-family:inherit;
-    font-size:16.719px;
+    font-size:1.044938rem;
     font-weight:700;
     line-height:1.36;
     cursor:pointer;
@@ -319,7 +319,7 @@
   .uottawa-lp .card .submit:hover{background:var(--garnet-dark);}
   .uottawa-lp .card .disclaimer{
     margin-top:14px;
-    font-size:11px;                 /* 1:154 */
+    font-size:0.6875rem;                 /* 1:154 */
     font-weight:400;
     line-height:1.45;
     color:#fff;
@@ -355,7 +355,7 @@
     background:none;
     border:none;
     font-family:inherit;
-    font-size:20px;                 /* 1:157 */
+    font-size:1.25rem;                 /* 1:157 */
     font-weight:400;
     color:#fff;
     padding:16px 22px;              /* py-16 px-22 */
@@ -374,7 +374,7 @@
   .uottawa-lp .panel.active{display:block;}
 
   .uottawa-lp .panel h2{
-    font-size:40px;                 /* 1:317 / 1:608 / 1:684 */
+    font-size:2.5rem;                 /* 1:317 / 1:608 / 1:684 */
     font-weight:700;
     line-height:normal;
     color:var(--ink);
@@ -385,15 +385,15 @@
     margin:18px 0 48px;
   }
   .uottawa-lp .panel h3{
-    font-size:24px;
+    font-size:1.5rem;
     font-weight:700;
     color:var(--ink);
     margin-bottom:20px;
   }
   .uottawa-lp .panel p{
-    font-size:24px;                 /* 1:612 / 1:690 / 1:701 */
+    font-size:1.5rem;                 /* 1:612 / 1:690 / 1:701 */
     font-weight:400;
-    line-height:33px;
+    line-height:2.0625rem;
     color:var(--ink);
     margin-bottom:24px;
   }
@@ -437,13 +437,13 @@
     max-width:100%;
   }
   .uottawa-lp .fcard h4{
-    font-size:24px;                 /* 1:185 */
+    font-size:1.5rem;                 /* 1:185 */
     font-weight:700;
     line-height:1.35;
     margin-bottom:9.3px;
   }
   .uottawa-lp .fcard p{
-    font-size:20px;                 /* 1:187 */
+    font-size:1.25rem;                 /* 1:187 */
     font-weight:400;
     line-height:1.5;
     color:var(--alto);
@@ -459,7 +459,7 @@
     background:var(--garnet);
     color:#fff;
     border-radius:28.632px;
-    font-size:20.043px;
+    font-size:1.252687rem;
     font-weight:700;
     line-height:normal;
     text-decoration:none;
@@ -474,8 +474,8 @@
     padding:18px 24px 24px;
     margin-bottom:22px;
   }
-  .uottawa-lp .banner h4{font-size:24px;font-weight:700;margin-bottom:9.3px;}
-  .uottawa-lp .banner p{font-size:20px;line-height:1.5;color:var(--alto);margin:0;}
+  .uottawa-lp .banner h4{font-size:1.5rem;font-weight:700;margin-bottom:9.3px;}
+  .uottawa-lp .banner p{font-size:1.25rem;line-height:1.5;color:var(--alto);margin:0;}
 
   .uottawa-lp .two-col{
     display:grid;
@@ -489,11 +489,11 @@
     padding:18px 24px 24px;
   }
   .uottawa-lp .dcard.center{text-align:center;}
-  .uottawa-lp .dcard h4{font-size:24px;font-weight:700;line-height:1.35;margin-bottom:9.3px;}
-  .uottawa-lp .dcard .op{font-size:20px;margin:16px 0;}
-  .uottawa-lp .dcard .strong{font-size:20px;font-weight:700;}
-  .uottawa-lp .dcard .thin{font-size:20px;color:var(--alto);}
-  .uottawa-lp .dcard p{font-size:20px;line-height:1.5;color:var(--alto);margin:0;}
+  .uottawa-lp .dcard h4{font-size:1.5rem;font-weight:700;line-height:1.35;margin-bottom:9.3px;}
+  .uottawa-lp .dcard .op{font-size:1.25rem;margin:16px 0;}
+  .uottawa-lp .dcard .strong{font-size:1.25rem;font-weight:700;}
+  .uottawa-lp .dcard .thin{font-size:1.25rem;color:var(--alto);}
+  .uottawa-lp .dcard p{font-size:1.25rem;line-height:1.5;color:var(--alto);margin:0;}
   .uottawa-lp .dcard h4 + p{margin-top:9.3px;}
 
   /* course levels — 1:350-1:353 (4 cols, 40px gutter) */
@@ -504,12 +504,12 @@
     margin-bottom:56px;
   }
   .uottawa-lp .levels h5{
-    font-size:24px;
+    font-size:1.5rem;
     font-weight:700;
     color:var(--ink);
     margin-bottom:20px;
   }
-  .uottawa-lp .levels p{font-size:24px;line-height:33px;margin:0;}
+  .uottawa-lp .levels p{font-size:1.5rem;line-height:2.0625rem;margin:0;}
 
   /* areas of study — 1:362-1:373 (3 cols, 75px rows) */
   .uottawa-lp .areas{
@@ -528,7 +528,7 @@
   .uottawa-lp .areas-grid span{
     position:relative;
     padding-left:24px;
-    font-size:24px;
+    font-size:1.5rem;
     font-weight:700;
     color:var(--ink);
   }
@@ -536,14 +536,14 @@
     content:"+";
     position:absolute;left:0;top:0;
     color:var(--garnet);
-    font-size:18px;
+    font-size:1.125rem;
     font-weight:700;
   }
   .uottawa-lp .areas img{width:100%;height:280px;object-fit:cover;display:block;}
 
   /* ---------- ACCORDIONS — 1:615 / 1:376 ---------- */
   .uottawa-lp .yearlbl{
-    font-size:24px;
+    font-size:1.5rem;
     font-weight:700;
     color:var(--ink);
     margin:36px 0 18px;
@@ -554,7 +554,7 @@
     color:#fff;
     padding:16px 20px;
     border-radius:2px;              /* corner radius/2 */
-    font-size:24px;                 /* 1:618 */
+    font-size:1.5rem;                 /* 1:618 */
     font-weight:700;
     line-height:normal;
     cursor:pointer;
@@ -564,31 +564,31 @@
     gap:12px;                       /* item spacing/12 */
   }
   .uottawa-lp details.acc summary::-webkit-details-marker{display:none;}
-  .uottawa-lp details.acc summary::before{content:"\25BA";font-size:20.959px;}
-  .uottawa-lp details.acc[open] summary::before{content:"\25BC";font-size:13px;}
+  .uottawa-lp details.acc summary::before{content:"\25BA";font-size:1.309937rem;}
+  .uottawa-lp details.acc[open] summary::before{content:"\25BC";font-size:0.8125rem;}
   .uottawa-lp details.acc summary:hover{background:var(--dark-hover);}
 
   .uottawa-lp .acc-body{padding:25px 20px 5px 44px;}   /* 1:619 */
   .uottawa-lp .acc-body p{
-    font-size:24px;
-    line-height:30px;
+    font-size:1.5rem;
+    line-height:1.875rem;
     color:var(--ink);
     margin-bottom:12px;
   }
   .uottawa-lp .acc-body a{
     display:inline-block;
     color:var(--garnet);
-    font-size:20px;                 /* 1:383 */
+    font-size:1.25rem;                 /* 1:383 */
     font-weight:700;
     text-decoration:none;
   }
   .uottawa-lp .acc-body a:hover{text-decoration:underline;}
 
-  .uottawa-lp .acc-body.rich p{font-size:24px;line-height:30px;margin-bottom:12px;}
+  .uottawa-lp .acc-body.rich p{font-size:1.5rem;line-height:1.875rem;margin-bottom:12px;}
   .uottawa-lp .acc-body.rich p:last-child{margin-bottom:0;}
   .uottawa-lp .acc-body.rich b{font-weight:700;}
   .uottawa-lp .acc-body.rich ul{list-style:disc;padding-left:36px;margin-top:0;}
-  .uottawa-lp .acc-body.rich li{font-size:24px;line-height:30px;color:var(--ink);}
+  .uottawa-lp .acc-body.rich li{font-size:1.5rem;line-height:1.875rem;color:var(--ink);}
   /* relevant-course links read as body text in Figma, not as the garnet CTA */
   .uottawa-lp .acc-body.rich li a{
     color:inherit;font-size:inherit;font-weight:inherit;text-decoration:none;
@@ -598,8 +598,8 @@
   /* ---------- ADMISSIONS ---------- */
   .uottawa-lp ul.reqs{list-style:disc;padding-left:36px;margin-bottom:46px;}
   .uottawa-lp ul.reqs li{
-    font-size:24px;                 /* 1:690 */
-    line-height:44px;
+    font-size:1.5rem;                 /* 1:690 */
+    line-height:2.75rem;
     color:var(--ink);
   }
   .uottawa-lp .split.tuition h2{margin-top:0;}
@@ -608,7 +608,7 @@
   .uottawa-lp .group-end + .cta-btn{margin-top:60px;}
   .uottawa-lp .note-italic{
     font-style:italic;              /* 1:693 / 1:694 */
-    font-size:24px;
+    font-size:1.5rem;
     line-height:normal;
     color:var(--ink);
     margin-top:44px;
@@ -622,7 +622,7 @@
     text-align:center;
   }
   .uottawa-lp .success h3{
-    font-size:40px;                 /* 1:643 */
+    font-size:2.5rem;                 /* 1:643 */
     font-weight:700;
     color:var(--ink);
   }
@@ -633,16 +633,16 @@
   }
   .uottawa-lp .success-grid{display:grid;grid-template-columns:repeat(3,1fr);}
   .uottawa-lp .success .num{
-    font-size:70.894px;             /* 1:663 */
+    font-size:4.430875rem;             /* 1:663 */
     font-weight:700;
     line-height:normal;
     color:var(--ink);
     margin-bottom:26px;
   }
   .uottawa-lp .success .lbl{
-    font-size:29.191px;             /* 1:664 */
+    font-size:1.824437rem;             /* 1:664 */
     font-weight:400;
-    line-height:32.319px;
+    line-height:2.019938rem;
     color:var(--ink);
   }
 
@@ -669,31 +669,31 @@
     column-gap:52px;                /* 1049 -> 1445 */
   }
   .uottawa-lp .final-cta h2{
-    font-size:76px;                 /* 1:651 */
+    font-size:4.75rem;                 /* 1:651 */
     font-weight:700;
-    line-height:72px;
+    line-height:4.5rem;
     color:#fff;
     max-width:842px;
     margin-bottom:14px;             /* item spacing/14 */
   }
   .uottawa-lp .final-cta .lede{
-    font-size:24px;                 /* 1:653 */
+    font-size:1.5rem;                 /* 1:653 */
     font-weight:400;
-    line-height:29px;
+    line-height:1.8125rem;
     color:var(--grey-bar);
     max-width:728px;
     margin:0;
   }
   .uottawa-lp .final-cta .cta-btn{
     padding:12.924px 28.197px 11.749px;
-    font-size:23.497px;             /* 1:655 */
+    font-size:1.468562rem;             /* 1:655 */
     border-radius:999px;
     margin-bottom:22px;
   }
   .uottawa-lp .final-cta .cta-note{
-    font-size:23.497px;             /* 1:657 */
+    font-size:1.468562rem;             /* 1:657 */
     font-weight:400;
-    line-height:27.022px;
+    line-height:1.688875rem;
     color:#fff;
     max-width:312px;
     margin:0;
@@ -707,7 +707,7 @@
   }
   .uottawa-lp .site-footer a,
   .uottawa-lp .site-footer span{
-    font-size:12px;                 /* 1:645 */
+    font-size:0.75rem;                 /* 1:645 */
     color:var(--silver);
     text-decoration:none;
   }
@@ -726,9 +726,9 @@
     .uottawa-lp .success{min-height:0;}
     .uottawa-lp header nav{gap:40px;}
     .uottawa-lp .header-actions{margin-left:40px;}
-    .uottawa-lp .why h2{font-size:36px;min-height:0;}
-    .uottawa-lp .panel h2,.uottawa-lp .success h3{font-size:36px;}
-    .uottawa-lp .final-cta h2{font-size:60px;line-height:64px;}
+    .uottawa-lp .why h2{font-size:2.25rem;min-height:0;}
+    .uottawa-lp .panel h2,.uottawa-lp .success h3{font-size:2.25rem;}
+    .uottawa-lp .final-cta h2{font-size:3.75rem;line-height:4rem;}
     .uottawa-lp .final-cta .container{padding-left:64px;}
   }
   @media (max-width:1500px){
@@ -738,7 +738,7 @@
     .uottawa-lp .header-actions{margin-left:32px;}
     .uottawa-lp .why h2,
     .uottawa-lp .panel h2,
-    .uottawa-lp .success h3{font-size:32px;}
+    .uottawa-lp .success h3{font-size:2rem;}
     .uottawa-lp .why li,
     .uottawa-lp .panel p,
     .uottawa-lp .levels p,
@@ -748,24 +748,24 @@
     .uottawa-lp .acc-body.rich li,
     .uottawa-lp ul.reqs li,
     .uottawa-lp .note-italic,
-    .uottawa-lp details.acc summary{font-size:19px;}
-    .uottawa-lp ul.reqs li{line-height:34px;}
+    .uottawa-lp details.acc summary{font-size:1.1875rem;}
+    .uottawa-lp ul.reqs li{line-height:2.125rem;}
     .uottawa-lp .acc-body p,
     .uottawa-lp .acc-body.rich p,
-    .uottawa-lp .acc-body.rich li{line-height:26px;}
-    .uottawa-lp .stat .label{font-size:15px;}
-    .uottawa-lp .stat .value{font-size:22px;line-height:28px;}
-    .uottawa-lp .tabbar button{font-size:16px;padding:14px 18px;}
-    .uottawa-lp .fcard h4,.uottawa-lp .dcard h4,.uottawa-lp .banner h4{font-size:19px;}
+    .uottawa-lp .acc-body.rich li{line-height:1.625rem;}
+    .uottawa-lp .stat .label{font-size:0.9375rem;}
+    .uottawa-lp .stat .value{font-size:1.375rem;line-height:1.75rem;}
+    .uottawa-lp .tabbar button{font-size:1rem;padding:14px 18px;}
+    .uottawa-lp .fcard h4,.uottawa-lp .dcard h4,.uottawa-lp .banner h4{font-size:1.1875rem;}
     .uottawa-lp .fcard p,.uottawa-lp .dcard p,.uottawa-lp .banner p,
-    .uottawa-lp .dcard .op,.uottawa-lp .dcard .strong,.uottawa-lp .dcard .thin{font-size:16px;}
+    .uottawa-lp .dcard .op,.uottawa-lp .dcard .strong,.uottawa-lp .dcard .thin{font-size:1rem;}
     .uottawa-lp .fcard svg{width:72px;height:75px;}
-    .uottawa-lp .final-cta h2{font-size:48px;line-height:52px;}
+    .uottawa-lp .final-cta h2{font-size:3rem;line-height:3.25rem;}
     .uottawa-lp .final-cta .lede,
     .uottawa-lp .final-cta .cta-note,
-    .uottawa-lp .final-cta .cta-btn{font-size:18px;}
-    .uottawa-lp .success .num{font-size:56px;}
-    .uottawa-lp .success .lbl{font-size:20px;line-height:26px;}
+    .uottawa-lp .final-cta .cta-btn{font-size:1.125rem;}
+    .uottawa-lp .success .num{font-size:3.5rem;}
+    .uottawa-lp .success .lbl{font-size:1.25rem;line-height:1.625rem;}
     .uottawa-lp .final-cta .container{padding-left:64px;}
     .uottawa-lp .areas-grid{row-gap:30px;}
     .uottawa-lp .card{width:500px;}
@@ -805,13 +805,13 @@
     .uottawa-lp header nav{
       flex-direction:column;align-items:flex-start;gap:20px;width:100%;margin-left:0;
     }
-    .uottawa-lp header nav a{font-size:17px;}
+    .uottawa-lp header nav a{font-size:1.0625rem;}
     .uottawa-lp .header-actions{
       margin-left:0;margin-top:auto;   /* pin the CTAs to the bottom of the panel */
       width:100%;flex-direction:column;align-items:stretch;gap:10px;
       padding-top:26px;
     }
-    .uottawa-lp .header-actions .btn{width:100%;padding:12px 18px;font-size:15px;}
+    .uottawa-lp .header-actions .btn{width:100%;padding:12px 18px;font-size:0.9375rem;}
     .uottawa-lp .nav-backdrop{
       position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.45);
     }
@@ -819,13 +819,13 @@
     .uottawa-lp .hero{height:auto;min-height:460px;}
     .uottawa-lp .hero .container{padding-top:140px;padding-bottom:40px;}
     .uottawa-lp .stats-grid{grid-template-columns:repeat(2,1fr);gap:28px;}
-    .uottawa-lp .stat .value{font-size:20px;line-height:26px;}
-    .uottawa-lp .stat .label{font-size:14px;}
+    .uottawa-lp .stat .value{font-size:1.25rem;line-height:1.625rem;}
+    .uottawa-lp .stat .label{font-size:0.875rem;}
     .uottawa-lp .why{padding:40px 0 48px;}
     .uottawa-lp .why .container{grid-template-columns:1fr;gap:40px;}
     .uottawa-lp .why-content{padding-top:0;}
-    .uottawa-lp .why h2{font-size:28px;}
-    .uottawa-lp .why li{font-size:17px;line-height:26px;padding:8px 0 8px 22px;min-height:0;}
+    .uottawa-lp .why h2{font-size:1.75rem;}
+    .uottawa-lp .why li{font-size:1.0625rem;line-height:1.625rem;padding:8px 0 8px 22px;min-height:0;}
     .uottawa-lp .card{width:100%;max-width:497px;}
     .uottawa-lp .split,.uottawa-lp .split.reverse,
     .uottawa-lp .split.adm,.uottawa-lp .split.tuition{grid-template-columns:1fr;row-gap:26px;}
@@ -835,9 +835,9 @@
     .uottawa-lp .cards{grid-template-columns:1fr;}
     .uottawa-lp .fcard svg{width:56px;height:58px;}
     .uottawa-lp .panel{padding:40px 0 56px;}
-    .uottawa-lp .panel h2{font-size:26px;}
+    .uottawa-lp .panel h2{font-size:1.625rem;}
     .uottawa-lp .panel .rule{margin:14px 0 28px;}
-    .uottawa-lp .panel p{font-size:16px;line-height:26px;}
+    .uottawa-lp .panel p{font-size:1rem;line-height:1.625rem;}
     .uottawa-lp .two-col{grid-template-columns:1fr;}
     .uottawa-lp .levels{grid-template-columns:repeat(2,1fr);row-gap:34px;column-gap:28px;}
     .uottawa-lp .areas{grid-template-columns:1fr;row-gap:32px;}
@@ -845,66 +845,66 @@
     .uottawa-lp .areas img{height:220px;}
     .uottawa-lp .final-cta{padding-top:48px;min-height:0;}
     .uottawa-lp .final-cta .container{grid-template-columns:1fr;row-gap:34px;padding-left:32px;}
-    .uottawa-lp .final-cta h2{font-size:34px;line-height:38px;}
+    .uottawa-lp .final-cta h2{font-size:2.125rem;line-height:2.375rem;}
   }
 
   /* ---------- TABLET PORTRAIT ---------- */
   @media (max-width:900px){
     .uottawa-lp .tabbar{-webkit-overflow-scrolling:touch;scrollbar-width:none;}
     .uottawa-lp .tabbar::-webkit-scrollbar{display:none;}
-    .uottawa-lp .tabbar button{font-size:15px;padding:13px 16px;}
-    .uottawa-lp details.acc summary{font-size:17px;padding:14px 18px;gap:10px;}
+    .uottawa-lp .tabbar button{font-size:0.9375rem;padding:13px 16px;}
+    .uottawa-lp details.acc summary{font-size:1.0625rem;padding:14px 18px;gap:10px;}
     .uottawa-lp details.acc summary::before,
-    .uottawa-lp details.acc[open] summary::before{font-size:12px;}
+    .uottawa-lp details.acc[open] summary::before{font-size:0.75rem;}
     .uottawa-lp .acc-body{padding:18px 18px 12px 30px;}
     .uottawa-lp .acc-body p,.uottawa-lp .acc-body.rich p,
-    .uottawa-lp .acc-body.rich li{font-size:16px;line-height:25px;}
-    .uottawa-lp .acc-body a{font-size:15px;}
+    .uottawa-lp .acc-body.rich li{font-size:1rem;line-height:1.5625rem;}
+    .uottawa-lp .acc-body a{font-size:0.9375rem;}
     .uottawa-lp .acc-body.rich ul{padding-left:22px;}
     .uottawa-lp ul.reqs{padding-left:22px;}
-    .uottawa-lp ul.reqs li{font-size:16px;line-height:28px;}
-    .uottawa-lp .note-italic{font-size:16px;margin-top:28px;}
-    .uottawa-lp .yearlbl{font-size:18px;margin:28px 0 14px;}
-    .uottawa-lp .levels h5,.uottawa-lp .areas-grid span{font-size:17px;}
-    .uottawa-lp .levels p{font-size:16px;line-height:26px;}
-    .uottawa-lp .cta-btn{font-size:16px;padding:13px 26px;}
+    .uottawa-lp ul.reqs li{font-size:1rem;line-height:1.75rem;}
+    .uottawa-lp .note-italic{font-size:1rem;margin-top:28px;}
+    .uottawa-lp .yearlbl{font-size:1.125rem;margin:28px 0 14px;}
+    .uottawa-lp .levels h5,.uottawa-lp .areas-grid span{font-size:1.0625rem;}
+    .uottawa-lp .levels p{font-size:1rem;line-height:1.625rem;}
+    .uottawa-lp .cta-btn{font-size:1rem;padding:13px 26px;}
     .uottawa-lp .success{padding:32px 0 40px;}
-    .uottawa-lp .success h3{font-size:24px;}
+    .uottawa-lp .success h3{font-size:1.5rem;}
     .uottawa-lp .success .rule{margin:14px 0 36px;}
-    .uottawa-lp .success .num{font-size:48px;margin-bottom:12px;}
-    .uottawa-lp .success .lbl{font-size:18px;line-height:24px;}
+    .uottawa-lp .success .num{font-size:3rem;margin-bottom:12px;}
+    .uottawa-lp .success .lbl{font-size:1.125rem;line-height:1.5rem;}
     .uottawa-lp .final-cta .cta-btn,
-    .uottawa-lp .final-cta .cta-note{font-size:17px;line-height:24px;}
+    .uottawa-lp .final-cta .cta-note{font-size:1.0625rem;line-height:1.5rem;}
     .uottawa-lp .banner{padding:20px;}
-    .uottawa-lp .banner h4,.uottawa-lp .dcard h4,.uottawa-lp .fcard h4{font-size:18px;}
+    .uottawa-lp .banner h4,.uottawa-lp .dcard h4,.uottawa-lp .fcard h4{font-size:1.125rem;}
     .uottawa-lp .banner p,.uottawa-lp .dcard p,.uottawa-lp .fcard p,
-    .uottawa-lp .dcard .op,.uottawa-lp .dcard .strong,.uottawa-lp .dcard .thin{font-size:15px;}
+    .uottawa-lp .dcard .op,.uottawa-lp .dcard .strong,.uottawa-lp .dcard .thin{font-size:0.9375rem;}
   }
 
   /* ---------- PHONE ---------- */
   @media (max-width:640px){
     :root{--page-l:20px;--page-r:20px;}
-    .uottawa-lp .logo span{font-size:20px;}
+    .uottawa-lp .logo span{font-size:1.25rem;}
     .uottawa-lp header nav{gap:16px;}
-    .uottawa-lp header nav a{font-size:15px;}
+    .uottawa-lp header nav a{font-size:0.9375rem;}
     .uottawa-lp .hero{min-height:380px;}
     .uottawa-lp .hero .container{padding-top:90px;padding-bottom:28px;}
     .uottawa-lp .stats-grid{grid-template-columns:1fr;gap:20px;}
     .uottawa-lp .stat{padding-right:0;}
     .uottawa-lp .field-row{grid-template-columns:1fr;gap:0;}
     .uottawa-lp .card{padding:26px 20px;}
-    .uottawa-lp .card h3{font-size:22px;line-height:26px;}
-    .uottawa-lp .card .sub{font-size:15px;line-height:22px;}
+    .uottawa-lp .card h3{font-size:1.375rem;line-height:1.625rem;}
+    .uottawa-lp .card .sub{font-size:0.9375rem;line-height:1.375rem;}
     .uottawa-lp .success-grid{grid-template-columns:1fr;row-gap:30px;}
-    .uottawa-lp .success .num{font-size:40px;}
+    .uottawa-lp .success .num{font-size:2.5rem;}
     .uottawa-lp .levels,.uottawa-lp .areas-grid{grid-template-columns:1fr;}
-    .uottawa-lp .tabbar button{font-size:14px;padding:12px 14px;}
-    .uottawa-lp details.acc summary{font-size:15px;padding:13px 14px;}
+    .uottawa-lp .tabbar button{font-size:0.875rem;padding:12px 14px;}
+    .uottawa-lp details.acc summary{font-size:0.9375rem;padding:13px 14px;}
     .uottawa-lp .acc-body{padding:14px 14px 10px 22px;}
     .uottawa-lp .acc-body p,.uottawa-lp .acc-body.rich p,
-    .uottawa-lp .acc-body.rich li{font-size:15px;line-height:23px;}
+    .uottawa-lp .acc-body.rich li{font-size:0.9375rem;line-height:1.4375rem;}
     .uottawa-lp .final-cta .cta-col{grid-template-columns:1fr;row-gap:24px;}
-    .uottawa-lp .final-cta h2{font-size:28px;line-height:32px;}
+    .uottawa-lp .final-cta h2{font-size:1.75rem;line-height:2rem;}
     .uottawa-lp .cta-btn{width:100%;}
     .uottawa-lp .split img,.uottawa-lp .split.reverse img,
     .uottawa-lp .split.adm img,.uottawa-lp .split.tuition img,
@@ -916,8 +916,8 @@
     .uottawa-lp .header-actions{width:100%;}
     .uottawa-lp .btn{flex:1;}
     .uottawa-lp .hero{min-height:340px;}
-    .uottawa-lp .success .num{font-size:34px;}
-    .uottawa-lp .final-cta h2{font-size:24px;line-height:28px;}
+    .uottawa-lp .success .num{font-size:2.125rem;}
+    .uottawa-lp .final-cta h2{font-size:1.5rem;line-height:1.75rem;}
   }
 
   /* ---------- Forminator overrides (match the Figma card) ---------- */
@@ -965,7 +965,7 @@
   }
   .uottawa-lp .forminator-card-wrapper .forminator-label{
     display:block !important;
-    font-size:14.33px !important;
+    font-size:0.895625rem !important;
     font-weight:400 !important;
     color:#fff !important;
     margin-bottom:6px !important;
@@ -980,7 +980,7 @@
     border-radius:3.583px !important;
     padding:0 12px !important;
     font-family:inherit !important;
-    font-size:15px !important;
+    font-size:0.9375rem !important;
     color:var(--ink) !important;
   }
   .uottawa-lp .forminator-card-wrapper .forminator-input:focus{outline:2px solid var(--garnet) !important;}
@@ -993,7 +993,7 @@
     border:none !important;
     border-radius:23.884px !important;
     font-family:inherit !important;
-    font-size:16.719px !important;
+    font-size:1.044938rem !important;
     font-weight:700 !important;
     cursor:pointer !important;
     display:flex !important;
