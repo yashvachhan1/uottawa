@@ -1,0 +1,5 @@
+# Normalise line endings in the repo so the theme ships LF to the server.
+* text=auto eol=lf
+*.jpg binary
+*.png binary
+*.webp binary

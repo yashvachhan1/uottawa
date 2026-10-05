@@ -1,0 +1,19 @@
+/*
+Theme Name: uOttawa Online
+Theme URI: https://online.uottawa.ca
+Author: uOttawa Online
+Description: Custom theme for the uOttawa Online site, converted from the static HTML/CSS build of the Figma design.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: uottawa-online
+*/
+
+/*
+The real styles are split across assets/css/ and loaded from functions.php
+in this order: tokens -> base -> components -> sections -> mobile.
+This file only carries the theme header WordPress reads.
+*/

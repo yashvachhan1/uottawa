@@ -1,0 +1,307 @@
+/* ==========================================================================
+   Components
+   Pieces that appear on more than one page.
+   ========================================================================== */
+/* --------------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------------- */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  line-height:1.35;
+  border-radius:999px;
+  text-align:center;
+  transition:background-color .15s ease, color .15s ease;
+}
+.btn--red{ background:var(--red); color:var(--white); }
+.btn--red:hover{ background:#730015; }
+.btn--outline-light{ color:var(--white); border:1px solid var(--white); }
+.btn--outline-light:hover{ background:var(--white); color:var(--ink); }
+.btn--outline-dark{ background:var(--white); color:var(--ink); border:1px solid var(--black); }
+.btn--outline-dark:hover{ background:var(--ink); color:var(--white); border-color:var(--ink); }
+
+.btn--sm { font-size:13px;                padding:9px 18px;  }
+.btn--md { font-size:clamp(14px,0.9vw,16px); padding:11px 26px; }
+.btn--lg { font-size:clamp(16px,1.2vw,23px); padding:clamp(9px,0.55vw,11px) clamp(18px,1.4vw,26px); }
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:var(--white);
+}
+.site-header .container{
+  display:flex;
+  align-items:center;
+  gap:24px;
+  min-height:70px;
+  padding-top:12px;
+  padding-bottom:12px;
+}
+
+.logo{ display:flex; align-items:flex-end; gap:9px; flex:none; }
+.logo__mark{ width:32px; height:38px; }
+.logo__word{ width:95px; height:19px; margin-bottom:3px; }
+
+.nav{ margin-left:auto; }
+.nav ul{ display:flex; gap:clamp(20px, 3.2vw, 65px); }
+.nav a{
+  font-size:var(--fs-nav);
+  line-height:1.7;
+  font-weight:400;
+  color:var(--ink);
+  white-space:nowrap;
+  border-bottom:2px solid transparent;
+}
+.nav a:hover{ border-bottom-color:var(--red); }
+
+.header-actions{ display:flex; gap:10px; flex:none; }
+
+.nav-toggle{
+  display:none;
+  width:44px; height:44px;
+  margin-left:auto;
+  align-items:center; justify-content:center;
+}
+.nav-toggle span{
+  display:block; position:relative;
+  width:22px; height:2px; background:var(--ink);
+}
+.nav-toggle span::before,
+.nav-toggle span::after{
+  content:""; position:absolute; left:0;
+  width:22px; height:2px; background:var(--ink);
+}
+.nav-toggle span::before{ top:-7px; }
+.nav-toggle span::after { top:7px;  }
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+/* The photo is its own band, exactly the Figma size: 1920 x 772.
+   The dark card sits on top of it and hangs over the bottom edge onto
+   the white page — that overhang is why the container is pulled up.
+     image height  = 772 / 1920 = 40.2083vw
+     card top      = 415 / 1920 = 21.6146vw   (from the top of the photo)
+     pull-up       = 40.2083 - 21.6146 = 18.5937vw                        */
+.hero{ position:relative; }
+
+.hero__bg{
+  width:100%;
+  aspect-ratio:1920 / 772;
+  overflow:hidden;
+}
+.hero__bg img{ width:100%; height:100%; object-fit:cover; object-position:center 35%; }
+
+.hero .container{
+  position:relative;
+  margin-top:-18.5937vw;
+  padding-top:0;
+  /* The gap to the next block is that section's own padding-top (Figma leaves
+     94-125px below the card depending on the page), so none is added here. */
+  padding-bottom:0;
+}
+
+/* The card and its paragraph are sized in vw, not fixed px, so they keep the
+   same proportions as the design on every screen — the type scales with vw
+   too, so the text breaks into the same lines at any width.
+     card  1134 / 1920 = 59.0625vw
+     text  1010 / 1920 = 52.6042vw
+     indent  45 / 1920 =  2.34vw   (Figma card x=150, content starts at 105) */
+.hero__card{
+  margin-left:clamp(0px, 2.34vw, 45px);
+  width:min(59.0625vw, 1134px);
+  max-width:100%;
+  background:var(--ink);
+  padding:clamp(24px, 2.66vw, 51px);
+}
+.hero__eyebrow{
+  font-size:var(--fs-hero-eyebrow);
+  line-height:1.375;
+  font-weight:400;
+  color:var(--silver);
+}
+.hero__title{
+  margin-top:clamp(4px, 0.5vw, 10px);
+  font-size:var(--fs-h1);
+  line-height:1.2;
+  color:var(--white);
+}
+.hero__tagline{
+  margin-top:clamp(8px, 0.8vw, 15px);
+  font-size:var(--fs-hero-tag);
+  line-height:1.2;
+  font-weight:600;
+  color:var(--gallery);
+}
+.hero__text{
+  margin-top:clamp(14px, 1.4vw, 27px);
+  width:min(52.6042vw, 1010px);
+  max-width:100%;
+  font-size:var(--fs-body);
+  line-height:1.5;
+  color:var(--gallery);
+}
+.hero__actions{
+  margin-top:clamp(20px, 2.1vw, 40px);
+  display:flex; flex-wrap:wrap; gap:16px;
+}
+
+/* Inner pages use a shorter card (1134 x 338 at y621), so it sits lower
+   on the photo:  card top = 551 / 1920 = 28.6979vw
+                  pull-up  = 40.2083 - 28.6979 = 11.5104vw                */
+.hero--page .container{ margin-top:-11.5104vw; }
+.hero--page .hero__text p + p{ margin-top:12px; }
+
+/* ==========================================================================
+   FAQ
+   ========================================================================== */
+.faq-list{
+  margin-top:clamp(24px, 1.7vw, 32px);
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.faq-item__q{
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:var(--ink);
+  border-radius:2px;
+  padding:16px 20px;
+  text-align:left;
+}
+.faq-item__q:hover{ background:#3b3b3a; }
+.faq-item__marker{
+  flex:none;
+  width:12px;
+  font-size:13px;
+  line-height:1;
+  color:var(--red);
+}
+.faq-item__q span:last-child{
+  font-size:var(--fs-h3);
+  line-height:1.375;
+  font-weight:700;
+  color:var(--white);
+}
+.faq-item__a{
+  padding:16px 20px 0 44px;
+  font-size:var(--fs-body);
+  line-height:1.25;
+  font-weight:400;
+}
+.faq-item:not(.is-open) .faq-item__a{ display:none; }
+
+/* ==========================================================================
+   FEATURED ARTICLES
+   ========================================================================== */
+.articles-grid{
+  margin-top:clamp(26px, 1.7vw, 32px);
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:20px;
+}
+.article-card{ border:1px solid var(--concrete); display:flex; flex-direction:column; }
+.article-card__media{
+  aspect-ratio:825 / 255;
+  background:var(--alto);
+  border-bottom:1px solid var(--concrete);
+  display:flex; align-items:center; justify-content:center;
+  overflow:hidden;
+}
+.article-card__media img{ width:100%; height:100%; object-fit:cover; }
+.article-card__placeholder{ font-size:12px; line-height:1.4; font-weight:400; color:var(--boulder); }
+.article-card__body{ padding:20px; display:flex; flex-direction:column; align-items:flex-start; gap:6px; }
+.article-card__kicker { font-size:var(--fs-body-sm); line-height:1.2; font-weight:400; color:var(--americano); }
+.article-card__title  { font-size:var(--fs-h3);      line-height:1.375; color:var(--red); }
+.article-card__excerpt{ font-size:var(--fs-body-sm); line-height:1.5; font-weight:400; }
+.article-card__meta   { font-size:var(--fs-small);   line-height:1.55; font-weight:400; color:var(--americano); margin-bottom:6px; }
+
+/* ==========================================================================
+   CTA BAND
+   ========================================================================== */
+.cta{
+  margin-top:var(--space-section);
+  background:var(--ink);
+  border-top:1px solid var(--tundora);
+  border-bottom:1px solid var(--tundora);
+}
+/* Exact Figma geometry for the band (section 1920 x 383):
+     padding   left 132 | right 139 | top 77 | bottom 74
+     columns   842 + 76 gap + 731            (132+842+76+731+139 = 1920)
+     title     76px / 72px line-height, then a 14px gap to the paragraph
+     buttons   left 1050 and 1446, tops 91 and 90, widths 273.4 and 345.4
+   Everything is in vw so the band keeps these proportions at any width. */
+.cta .container{
+  max-width:1920px;
+  padding-left:clamp(16px, 6.875vw, 132px);
+  padding-right:clamp(16px, 7.2396vw, 139px);
+  padding-top:clamp(40px, 4.0104vw, 77px);
+  padding-bottom:clamp(40px, 3.8542vw, 74px);
+  display:grid;
+  grid-template-columns:minmax(0, 842fr) minmax(0, 731fr);
+  column-gap:clamp(24px, 3.9583vw, 76px);
+  align-items:start;
+}
+.cta__title{
+  font-size:clamp(32px, 3.9583vw, 76px);
+  line-height:clamp(30px, 3.75vw, 72px);
+  color:var(--white);
+}
+.cta__text-body{
+  margin-top:clamp(10px, 0.7292vw, 14px);
+  width:min(37.9167vw, 728px);
+  max-width:100%;
+  /* Figma gives this paragraph a 74px box with the text centred in it */
+  min-height:clamp(44px, 3.8542vw, 74px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  font-size:var(--fs-body);
+  line-height:clamp(20px, 1.5104vw, 29px);
+  font-weight:400;
+  color:var(--gallery);
+}
+
+.cta__actions{
+  /* button 1 column is 396 wide (1446 - 1050), button 2 column is 335 */
+  margin-top:clamp(8px, 0.7292vw, 14px);
+  display:grid;
+  grid-template-columns:minmax(0, 396fr) minmax(0, 335fr);
+  column-gap:0;
+}
+.cta__action .btn{
+  font-size:clamp(14px, 1.2238vw, 23.497px);
+  line-height:1.36;
+  padding:clamp(7px, 0.673vw, 12.924px) clamp(14px, 1.4686vw, 28.197px) clamp(6px, 0.6119vw, 11.749px);
+}
+.cta__action:nth-child(1) .btn{ width:min(14.2393vw, 273.394px); }
+.cta__action:nth-child(2) .btn{ width:min(17.9902vw, 345.412px); }
+.cta__action p{
+  margin-top:clamp(12px, 1.2735vw, 24.45px);
+  padding-left:min(0.5728vw, 11px);
+  font-size:clamp(14px, 1.2238vw, 23.497px);
+  line-height:clamp(18px, 1.4074vw, 27.022px);
+  font-weight:400;
+  color:var(--white);
+}
+.cta__action:nth-child(1) p{ width:min(15.0530vw, 289.018px); max-width:100%; }
+.cta__action:nth-child(2) p{ width:min(16.2768vw, 312.515px); max-width:100%; }
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer{
+  background:var(--black);
+  padding:16px;
+  text-align:center;
+}
+/* Figma: 12px text in a 16px box, 16px padding all round -> 48px tall */
+.site-footer p{ font-size:12px; line-height:16px; color:var(--silver); }

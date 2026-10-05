@@ -1,0 +1,146 @@
+/* ==========================================================================
+   Breakpoints
+   1200 / 1024 / 768 / 640 / 560 / 480 - every media query lives here.
+   ========================================================================== */
+/* ==========================================================================
+   BREAKPOINTS
+   ========================================================================== */
+
+/* Laptops — drop the reason cards to two columns */
+@media (max-width:1200px){
+  .reasons-grid{ grid-template-columns:repeat(2, 1fr); }
+}
+
+/* Tablets */
+@media (max-width:1024px){
+  .nav, .header-actions{ display:none; }
+  .nav-toggle{ display:flex; }
+
+  .site-header.is-open .nav,
+  .site-header.is-open .header-actions{
+    display:flex;
+    order:3;
+    flex-basis:100%;
+  }
+  .site-header.is-open .nav ul{ flex-direction:column; gap:14px; }
+  .site-header.is-open .nav{ margin-left:0; padding-top:16px; }
+  .site-header.is-open .header-actions{ padding-bottom:16px; }
+  .site-header .container{ flex-wrap:wrap; }
+
+  /* A 1920x772 strip is too thin on a tablet — give the photo more height
+     and reduce how far the card hangs over it. */
+  /* On a tablet the card uses the full column, so drop the indent and caps. */
+  .hero__card{ width:100%; max-width:none; margin-left:0; }
+  .hero__text{ width:100%; }
+  .hero__bg{ aspect-ratio:16 / 9; }
+  .hero .container,
+  .hero--page .container{ margin-top:-14vw; }
+
+  .beyond-grid{ grid-template-columns:repeat(2, 1fr); }
+
+  .day-row,
+  .day-row--reverse{ grid-template-columns:1fr; }
+  .day-row--reverse .day-card{ order:0; }
+  .day-row--reverse .day-media{ order:0; }
+  .day-media img{ aspect-ratio:16 / 9; }
+
+  /* Stacked: card, then photo, then the button last */
+  .day-col{ display:contents; }
+  .day-row .day-card { order:1; }
+  .day-row .day-media{ order:2; }
+  .day-row .day__cta { order:3; justify-self:start; margin-top:clamp(20px, 3vw, 34px); }
+
+  .cta .container{ grid-template-columns:1fr; row-gap:clamp(28px, 3vw, 44px); }
+  .cta__actions{ grid-template-columns:repeat(2, 1fr); column-gap:clamp(20px, 2.4vw, 32px); }
+  .cta__action .btn,
+  .cta__action:nth-child(1) .btn,
+  .cta__action:nth-child(2) .btn{ width:100%; }
+  .cta__action p,
+  .cta__action:nth-child(1) p,
+  .cta__action:nth-child(2) p{ width:100%; padding-left:0; }
+}
+
+/* Large phones */
+@media (max-width:768px){
+  .audience-grid{ grid-template-columns:1fr; }
+  .reasons-grid{ grid-template-columns:1fr; }
+  .beyond-grid{ grid-template-columns:1fr; }
+  .articles-grid{ grid-template-columns:1fr; }
+  .cta__actions{ grid-template-columns:1fr; }
+
+  .hero__bg{ aspect-ratio:3 / 2; }
+  .hero__bg img{ object-position:center 30%; }
+  .hero .container,
+  .hero--page .container{ margin-top:-16vw; }
+
+  .faq-item__q span:last-child{ white-space:normal; }
+}
+
+/* Small tablets / big phones — stats stop fitting three across here */
+@media (max-width:640px){
+  .stats-row{ grid-template-columns:1fr; gap:28px; }
+}
+
+/* Small phones */
+@media (max-width:480px){
+  .hero__actions .btn,
+  .program-card .btn,
+  .day .btn,
+  .next .btn{ width:100%; }
+
+  .faq-item__q{ padding:14px 16px; }
+  .faq-item__a{ padding-left:32px; }
+}
+
+/* ---------- Student experience ---------- */
+@media (max-width:1200px){
+  .facts{ grid-template-columns:repeat(3, 1fr); row-gap:clamp(20px,2vw,28px); }
+  .facts li:nth-child(4){ border-left:0; padding-left:0; }
+  .outcomes-grid{ grid-template-columns:repeat(2, 1fr); }
+}
+
+@media (max-width:1024px){
+  .reasons-icon-grid{ grid-template-columns:repeat(2, 1fr); }
+}
+
+@media (max-width:768px){
+  .facts{ grid-template-columns:repeat(2, 1fr); }
+  .facts li:nth-child(odd){ border-left:0; padding-left:0; }
+  .facts li:nth-child(even){ border-left:1px solid var(--black); }
+  .reasons-icon-grid{ grid-template-columns:1fr; }
+  .support-grid{ grid-template-columns:1fr; }
+}
+
+@media (max-width:480px){
+  .facts{ grid-template-columns:1fr; gap:18px; }
+  .facts li,
+  .facts li:nth-child(even){ border-left:0; padding-left:0; }
+  .outcomes-grid{ grid-template-columns:1fr; }
+  .matters .btn,
+  .reasons .btn{ width:100%; }
+}
+
+/* ---------- News & events ---------- */
+@media (max-width:1024px){
+  .articles-grid--3{ grid-template-columns:repeat(2, 1fr); }
+}
+
+@media (max-width:768px){
+  .articles-grid--3{ grid-template-columns:1fr; }
+}
+
+/* ---------- Contact ---------- */
+@media (max-width:1024px){
+  .contact-row{ grid-template-columns:1fr; gap:clamp(32px, 4vw, 48px); }
+  /* The column is full width here, so drop the Figma width caps — keeping
+     them would squeeze the copy into a narrow strip. */
+  .contact-row .section-title,
+  .contact-points p,
+  .contact-lead,
+  .enquiry__note{ max-width:none; }
+}
+
+@media (max-width:560px){
+  .enquiry__grid{ grid-template-columns:1fr; }
+  .contact-links{ gap:20px; }
+}

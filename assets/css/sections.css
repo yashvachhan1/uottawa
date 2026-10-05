@@ -1,0 +1,502 @@
+/* ==========================================================================
+   Sections
+   Blocks that belong to one page each.
+   ========================================================================== */
+/* ==========================================================================
+   STATS
+   ========================================================================== */
+.stats-row{
+  margin-top:clamp(32px, 3.6vw, 68px);
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:clamp(24px, 2.6vw, 50px);
+}
+.stat__value{
+  font-size:var(--fs-stat);
+  line-height:1.12;
+  font-weight:700;
+  color:var(--red);
+}
+.stat__label{
+  margin-top:6px;
+  font-size:var(--fs-body);
+  line-height:1.25;
+  font-weight:400;
+}
+
+/* ==========================================================================
+   AUDIENCE  ("A degree that's built for you")
+   ========================================================================== */
+.audience-grid{
+  margin-top:clamp(32px, 3.4vw, 64px);
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:clamp(28px, 2.6vw, 50px) clamp(28px, 3.1vw, 60px);
+  align-items:start;
+}
+.audience-item__icon{ width:clamp(52px, 3.9vw, 75px); height:auto; }
+.audience-item--flip .audience-item__icon{ transform:rotate(180deg) scaleY(-1); }
+.audience-item h4{
+  margin-top:clamp(10px, 0.85vw, 16px);
+  font-size:var(--fs-h3);
+  line-height:1.375;
+}
+.audience-item p{
+  margin-top:clamp(8px, 0.6vw, 12px);
+  font-size:var(--fs-body);
+  line-height:1.5;
+  font-weight:400;
+}
+
+/* ==========================================================================
+   REASONS  ("Why learners choose uOttawa Online")
+   ========================================================================== */
+.reasons-grid{
+  margin-top:clamp(32px, 3.6vw, 68px);
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:clamp(20px, 1.5vw, 28px);
+}
+.reason-card{
+  background:var(--ink);
+  border-radius:4px;
+  padding:clamp(20px, 1.25vw, 24px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.reason-card--red{ background:var(--red); }
+.reason-card h4{
+  font-size:var(--fs-h3);
+  line-height:1.375;
+  color:var(--white);
+}
+.reason-card p{
+  margin-top:9px;
+  font-size:var(--fs-body);
+  line-height:1.25;
+  font-weight:400;
+  color:var(--mercury);
+}
+
+/* ==========================================================================
+   BEYOND THE CREDENTIAL
+   ========================================================================== */
+.beyond-grid{
+  margin-top:clamp(32px, 4.1vw, 78px);
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:clamp(20px, 1.04vw, 20px);
+}
+.beyond-item__media{
+  aspect-ratio:556 / 209;
+  background:var(--ink);
+  border-bottom:1px solid var(--concrete);
+  box-shadow:0 4px 4px rgba(0,0,0,.25);
+  overflow:hidden;
+}
+.beyond-item__media img{ width:100%; height:100%; object-fit:cover; }
+.beyond-item__body{ padding:20px; }
+.beyond-item h4{
+  font-size:var(--fs-body-sm);
+  line-height:1.35;
+}
+.beyond-item p{
+  margin-top:8px;
+  font-size:var(--fs-body-sm);
+  line-height:1.5;
+  font-weight:400;
+}
+.sup{ font-size:.65em; color:var(--red); vertical-align:super; }
+
+.sources{
+  margin-top:clamp(24px, 2.4vw, 46px);
+  font-size:var(--fs-small);
+  line-height:1.45;
+  font-style:italic;
+  font-weight:400;
+}
+
+/* ==========================================================================
+   PROGRAMS
+   ========================================================================== */
+.program-card{
+  margin-top:clamp(28px, 2.9vw, 54px);
+  border:1px solid var(--alto);
+  padding:clamp(20px, 1.35vw, 26px);
+}
+.program-card h4{
+  font-size:var(--fs-h3);
+  line-height:1.375;
+  color:var(--red);
+}
+.program-card p{
+  margin-top:clamp(14px, 1.1vw, 21px);
+  font-size:var(--fs-body);
+  line-height:1.25;
+  font-weight:400;
+}
+.program-card .btn{ margin-top:clamp(18px, 1.3vw, 25px); }
+
+/* ==========================================================================
+   A FLEXIBLE DAY, YOUR WAY
+   ========================================================================== */
+.day-row{
+  margin-top:clamp(32px, 3.2vw, 60px);
+  display:grid;
+  grid-template-columns:minmax(0,917fr) minmax(0,818fr);
+  gap:clamp(24px, 2.1vw, 40px);
+  align-items:start;
+}
+.day-row--reverse{ grid-template-columns:minmax(0,822fr) minmax(0,815fr); }
+.day-row--reverse .day-card{ order:2; }
+.day-row--reverse .day-media{ order:1; }
+
+.day-card{
+  border-bottom:1px solid var(--concrete);
+  border-right:1px solid var(--concrete);
+  padding:clamp(20px, 1.35vw, 26px) clamp(20px, 1.35vw, 26px) clamp(26px, 1.98vw, 38px);
+}
+.day-card h4{
+  font-size:var(--fs-day-title);
+  line-height:1.375;
+}
+.day-list{ margin-top:clamp(18px, 1.25vw, 24px); }
+.day-list dt{
+  font-size:var(--fs-body);
+  line-height:1.375;
+  font-weight:700;
+  color:var(--red);
+}
+.day-list dd{
+  margin:clamp(4px, 0.4vw, 8px) 0 0;
+  font-size:var(--fs-body);
+  line-height:1.375;
+  font-weight:400;
+}
+.day-list dd + dt{ margin-top:clamp(16px, 1.25vw, 24px); }
+
+.day-media{ overflow:hidden; }
+.day-media img{ width:100%; height:100%; object-fit:cover; aspect-ratio:818 / 612; }
+
+/* Left column of the last row: card, then the button right under it (34px in Figma) */
+.day-col{ display:flex; flex-direction:column; align-items:flex-start; }
+.day__cta{ margin-top:clamp(20px, 1.8vw, 34px); }
+
+/* ==========================================================================
+   YOUR NEXT STEP
+   ========================================================================== */
+.steps{
+  margin-top:clamp(28px, 2.6vw, 50px);
+  display:flex;
+  flex-direction:column;
+  gap:clamp(20px, 1.25vw, 24px);
+}
+.steps h3{
+  font-size:var(--fs-h3);
+  line-height:1.25;
+  color:var(--red);
+}
+.steps p{
+  margin-top:6px;
+  font-size:var(--fs-body);
+  line-height:1.25;
+  font-weight:400;
+}
+.next .btn{ margin-top:clamp(28px, 2.4vw, 46px); }
+
+/* ---------- Student experience ---------- */
+/* ==========================================================================
+   STUDENT EXPERIENCE page — sections that only exist here
+   Figma node 26:177 (1920 x 8309)
+   ========================================================================== */
+
+/* The shorter inner-page hero lives in the shared stylesheet as .hero--page */
+
+/* ---- Fact strip (6 bold facts separated by thin rules) ---- */
+/* No margin-top here — the wrapping .section already supplies the gap. */
+.facts{
+  display:grid;
+  grid-template-columns:repeat(6, 1fr);
+  gap:clamp(16px, 1.5vw, 28px);
+}
+.facts li{
+  padding-left:clamp(14px, 1.2vw, 23px);
+  border-left:1px solid var(--black);
+  font-size:clamp(17px, 1.46vw, 28px);
+  line-height:1.25;
+  font-weight:700;
+  color:var(--ink);
+}
+.facts li:first-child{ border-left:0; padding-left:0; }
+
+/* ---- "Why students choose" — six icon blocks, no card chrome ---- */
+.reasons-icon-grid{
+  margin-top:clamp(32px, 3.4vw, 64px);
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:clamp(28px, 2.6vw, 50px) clamp(28px, 3.1vw, 57px);
+  align-items:start;
+}
+.reason-icon__img{ width:clamp(44px, 3.23vw, 62px); height:auto; }
+.reason-icon h4{
+  margin-top:clamp(10px, 0.85vw, 16px);
+  font-size:var(--fs-h3);
+  line-height:1.375;
+}
+.reason-icon p{
+  margin-top:clamp(8px, 0.6vw, 12px);
+  font-size:var(--fs-body);
+  line-height:1.5;
+  font-weight:400;
+}
+
+/* ---- "What matters most" — plain heading + paragraph blocks ---- */
+.matters{
+  margin-top:clamp(28px, 2.6vw, 50px);
+  display:flex;
+  flex-direction:column;
+  gap:clamp(22px, 1.6vw, 30px);
+}
+.matters h3{
+  font-size:var(--fs-h3);
+  line-height:1.375;
+  color:var(--ink);
+}
+.matters p{
+  margin-top:clamp(6px, 0.5vw, 10px);
+  font-size:var(--fs-body);
+  line-height:1.5;
+  font-weight:400;
+}
+
+/* ---- "What you'll graduate with" — four photo + caption cards ---- */
+.outcomes-grid{
+  margin-top:clamp(32px, 3.4vw, 64px);
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:clamp(20px, 2.4vw, 47px);
+}
+.outcome__media{
+  aspect-ratio:393 / 209;
+  background:var(--ink);
+  border-bottom:1px solid var(--concrete);
+  overflow:hidden;
+}
+.outcome__media img{ width:100%; height:100%; object-fit:cover; }
+.outcome__body{ padding:20px; }
+.outcome h4{ font-size:var(--fs-h3); line-height:1.375; }
+.outcome p{
+  margin-top:8px;
+  font-size:var(--fs-body);
+  line-height:1.33;
+  font-weight:400;
+}
+
+/* ---- "A team in your corner" — three columns with a rule on the left ---- */
+.support-grid{
+  margin-top:clamp(28px, 2.3vw, 44px);
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:clamp(24px, 3vw, 57px);
+}
+.support-grid li{
+  padding-left:clamp(16px, 1.7vw, 33px);
+  border-left:1px solid var(--black);
+}
+.support-grid h3{ font-size:var(--fs-h3); line-height:1.375; color:var(--ink); }
+.support-grid p{
+  margin-top:8px;
+  font-size:var(--fs-body);
+  line-height:1.33;
+  font-weight:400;
+}
+
+/* ---------- News & events ---------- */
+/* ==========================================================================
+   NEWS & EVENTS page — sections that only exist here
+   Figma node 26:450 (1920 x 3265)
+   The shorter inner-page hero lives in the shared stylesheet as .hero--page
+   ========================================================================== */
+
+/* ---- Article grids on this page are three across (555px cards) ---- */
+.articles-grid--3{ grid-template-columns:repeat(3, 1fr); }
+
+/* ---- "Filter by:" row above the latest articles ---- */
+.filter-bar{
+  margin-top:clamp(20px, 1.9vw, 36px);
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:clamp(12px, 1.1vw, 21px);
+  font-size:var(--fs-body);
+  line-height:1.5;
+}
+.filter-bar__label{ font-weight:700; color:var(--ink); }
+.filter-bar a{
+  font-weight:400;
+  color:var(--ink);
+  border-bottom:1px solid transparent;
+}
+.filter-bar a:hover{ border-bottom-color:currentColor; }
+.filter-bar a.is-active{
+  color:var(--red);
+  border-bottom-color:currentColor;
+}
+
+/* The latest-articles grid follows the filter row, so it needs less space */
+.latest .articles-grid{ margin-top:clamp(20px, 1.7vw, 32px); }
+
+/* ---------- Contact ---------- */
+/* ==========================================================================
+   CONTACT page — sections that only exist here
+   Figma node 26:61 (1920 x 1839).  No hero photo on this page.
+   Two columns: text 1131 / form 545, 32px apart (1131 + 32 + 545 = 1708).
+   ========================================================================== */
+
+.contact-row{
+  display:grid;
+  grid-template-columns:minmax(0, 1131fr) minmax(0, 545fr);
+  gap:clamp(28px, 1.7vw, 32px);
+  align-items:start;
+}
+.contact-row + .contact-row{ margin-top:var(--space-section); }
+
+/* Figma holds the left column narrower than its grid cell:
+     rule under each heading 1080 / 1920 = 56.25vw
+     body copy              1054 / 1920 = 54.8958vw   (this is what makes
+                                                       "…and graduate" wrap) */
+.contact-row .section-title{ max-width:min(56.25vw, 1080px); }
+
+/* ---- Left column: a heading then three short blocks ---- */
+.contact-points{
+  margin-top:clamp(24px, 2.1vw, 40px);
+  display:flex;
+  flex-direction:column;
+  gap:clamp(28px, 3.3333vw, 64px);
+}
+.contact-points h3{
+  font-size:var(--fs-h3);
+  line-height:1.375;
+  color:var(--ink);
+}
+.contact-points p{
+  margin-top:8px;
+  max-width:min(54.8958vw, 1054px);
+  font-size:var(--fs-body);
+  line-height:1.33;
+  font-weight:400;
+}
+
+/* ---- Contact links (icon + underlined red link) ---- */
+.contact-links{
+  margin-top:clamp(24px, 2.1vw, 40px);
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:clamp(24px, 3vw, 58px);
+}
+.contact-link{
+  display:flex;
+  align-items:center;
+  gap:clamp(14px, 1.1vw, 22px);
+}
+.contact-link img{ flex:none; width:clamp(44px, 3.8vw, 73px); height:auto; }
+.contact-link--sm img{ width:clamp(28px, 2.14vw, 41px); }
+.contact-link--check img{ width:clamp(34px, 2.76vw, 53px); }
+.contact-link a{
+  font-size:var(--fs-body);
+  line-height:1.33;
+  color:var(--red);
+  text-decoration:underline;
+}
+.contact-link a:hover{ text-decoration:none; }
+
+.contact-lead{
+  margin-top:clamp(20px, 1.8vw, 35px);
+  max-width:min(50.2604vw, 965px);   /* Figma text node width */
+  font-size:var(--fs-body);
+  line-height:1.33;
+  font-weight:400;
+}
+
+/* ==========================================================================
+   Enquiry form (the dark card on the right)
+   ========================================================================== */
+.enquiry{
+  background:var(--ink);
+  border-radius:5px;
+  padding:clamp(22px, 1.93vw, 37px) clamp(20px, 1.74vw, 33px) clamp(24px, 1.93vw, 37px);
+}
+.enquiry__title{
+  font-size:clamp(21px, 1.49vw, 28.66px);
+  line-height:1.1;
+  font-weight:700;
+  color:var(--white);
+}
+
+.enquiry__grid{
+  margin-top:clamp(18px, 1.5vw, 29px);
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:clamp(12px, 0.9vw, 17px) clamp(12px, 1.6vw, 30px);
+}
+.enquiry__field--wide{ grid-column:1 / -1; }
+
+.enquiry__field label{
+  display:block;
+  margin-bottom:6px;
+  font-size:clamp(12px, 0.75vw, 14.33px);
+  line-height:1.4;
+  font-weight:400;
+  color:var(--white);
+}
+.enquiry__field input,
+.enquiry__field select{
+  display:block;
+  width:100%;
+  height:clamp(38px, 2.36vw, 45.38px);
+  padding:0 12px;
+  background:var(--white);
+  color:var(--ink);
+  border:0;
+  border-radius:3.583px;
+  font-family:inherit;
+  font-size:clamp(13px, 0.83vw, 16px);
+}
+.enquiry__field select{
+  /* keep the native arrow but match the input height on every browser */
+  appearance:none;
+  background-image:linear-gradient(45deg, transparent 50%, var(--ink) 50%),
+                   linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+  background-position:calc(100% - 18px) 50%, calc(100% - 12px) 50%;
+  background-size:6px 6px, 6px 6px;
+  background-repeat:no-repeat;
+  padding-right:34px;
+}
+.enquiry__field input:focus,
+.enquiry__field select:focus{
+  outline:2px solid var(--red);
+  outline-offset:1px;
+}
+
+.enquiry__submit{
+  width:100%;
+  margin-top:clamp(18px, 1.5vw, 29px);
+  justify-content:center;
+  background:var(--red);
+  color:var(--white);
+  font-size:clamp(14px, 0.87vw, 16.72px);
+  padding:clamp(11px, 0.75vw, 14.33px);
+  border-radius:999px;
+}
+.enquiry__submit:hover{ background:#730015; }
+
+.enquiry__note{
+  margin-top:clamp(12px, 1vw, 19px);
+  font-size:clamp(10px, 0.57vw, 11px);
+  line-height:1.36;
+  font-weight:400;
+  color:var(--white);
+  max-width:34ch;
+}
