@@ -8,25 +8,28 @@ Classic WordPress theme built from the Figma design
 1. Zip this folder (or use `uottawa-online.zip` next to it).
 2. WordPress admin → **Appearance → Themes → Add New → Upload Theme** → activate.
 
-## Set up the pages
+## Set up
 
-Create four pages; WordPress picks the right template from the slug.
+Activating the theme does the setup for you. On activation it:
+
+- creates the four pages below, published and with the right slugs;
+- sets **Home** as the static front page;
+- creates a **Primary** menu (Online programs, Student experience,
+  News & events) and assigns it to the header;
+- switches on `/%postname%/` permalinks if no structure is set yet.
 
 | Page title | Slug | Template used |
 |---|---|---|
-| Home | `home` | `front-page.php` (set as the static front page) |
+| Home | `home` | `front-page.php` |
 | Student experience | `student-experience` | `page-student-experience.php` |
 | News & events | `news-events` | `page-news-events.php` |
 | Contact | `contact` | `page-contact.php` |
 
-Then:
+Nothing that already exists is touched, so re-activating — or re-deploying
+through WP Pusher — is safe and will not duplicate anything.
 
-- **Settings → Reading** → *Your homepage displays* → a static page → Home.
-- **Appearance → Menus** → create a menu with the three nav pages and assign it
-  to **Primary navigation (header)**. Without a menu the header falls back to
-  those three links automatically.
-- **Appearance → Customize → uOttawa Online** → set the *Apply now* and
-  *Request info* links and the footer text.
+The only manual step left: **Appearance → Customize → uOttawa Online** to set
+the *Apply now* and *Request info* links and the footer text.
 
 ## Articles
 

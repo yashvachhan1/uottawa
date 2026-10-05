@@ -222,6 +222,124 @@ function uottawa_article_card( $card ) {
 }
 
 /* -------------------------------------------------------------------------
+ * First-run setup
+ *
+ * Activating the theme builds the four designed pages, points the front page
+ * at Home, fills the header menu and switches on pretty permalinks. Anything
+ * that already exists is left alone, so re-activating is safe.
+ * ---------------------------------------------------------------------- */
+
+function uottawa_first_run() {
+	$pages = array(
+		'home'               => array( __( 'Home', 'uottawa-online' ), '' ),
+		'student-experience' => array( __( 'Student experience', 'uottawa-online' ), 'page-student-experience.php' ),
+		'news-events'        => array( __( 'News & events', 'uottawa-online' ), 'page-news-events.php' ),
+		'contact'            => array( __( 'Contact', 'uottawa-online' ), 'page-contact.php' ),
+	);
+
+	$ids = array();
+
+	foreach ( $pages as $slug => $page ) {
+		$existing = get_page_by_path( $slug );
+
+		if ( $existing ) {
+			$ids[ $slug ] = $existing->ID;
+		} else {
+			$id = wp_insert_post(
+				array(
+					'post_type'    => 'page',
+					'post_name'    => $slug,
+					'post_title'   => $page[0],
+					'post_status'  => 'publish',
+					'post_content' => '',
+				)
+			);
+
+			if ( is_wp_error( $id ) ) {
+				continue;
+			}
+
+			$ids[ $slug ] = $id;
+		}
+
+		// page-<slug>.php already wins by slug; the meta keeps the right
+		// template if someone later renames the page.
+		if ( $page[1] ) {
+			update_post_meta( $ids[ $slug ], '_wp_page_template', $page[1] );
+		}
+	}
+
+	// Static front page.
+	if ( isset( $ids['home'] ) ) {
+		update_option( 'show_on_front', 'page' );
+		update_option( 'page_on_front', $ids['home'] );
+	}
+
+	uottawa_first_run_menu( $ids );
+
+	// Pretty permalinks, unless the site already has a structure set.
+	if ( ! get_option( 'permalink_structure' ) ) {
+		update_option( 'permalink_structure', '/%postname%/' );
+	}
+	flush_rewrite_rules();
+}
+add_action( 'after_switch_theme', 'uottawa_first_run' );
+
+/**
+ * Build the header menu and assign it, without touching an existing one.
+ */
+function uottawa_first_run_menu( $ids ) {
+	if ( has_nav_menu( 'primary' ) ) {
+		return;
+	}
+
+	$name = __( 'Primary', 'uottawa-online' );
+	$menu = wp_get_nav_menu_object( $name );
+
+	if ( $menu ) {
+		$menu_id = $menu->term_id;
+	} else {
+		$menu_id = wp_create_nav_menu( $name );
+		if ( is_wp_error( $menu_id ) ) {
+			return;
+		}
+	}
+
+	if ( ! wp_get_nav_menu_items( $menu_id ) ) {
+		wp_update_nav_menu_item(
+			$menu_id,
+			0,
+			array(
+				'menu-item-title'  => __( 'Online programs', 'uottawa-online' ),
+				'menu-item-url'    => home_url( '/#programs' ),
+				'menu-item-type'   => 'custom',
+				'menu-item-status' => 'publish',
+			)
+		);
+
+		foreach ( array( 'student-experience', 'news-events' ) as $slug ) {
+			if ( ! isset( $ids[ $slug ] ) ) {
+				continue;
+			}
+			wp_update_nav_menu_item(
+				$menu_id,
+				0,
+				array(
+					'menu-item-object'    => 'page',
+					'menu-item-object-id' => $ids[ $slug ],
+					'menu-item-type'      => 'post_type',
+					'menu-item-status'    => 'publish',
+				)
+			);
+		}
+	}
+
+	$locations            = get_theme_mod( 'nav_menu_locations', array() );
+	$locations['primary'] = $menu_id;
+	set_theme_mod( 'nav_menu_locations', $locations );
+}
+
+/* -------------------------------------------------------------------------
  * Customizer
  * ---------------------------------------------------------------------- */
 
