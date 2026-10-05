@@ -7,6 +7,11 @@
 ?>
   </main>
 
+  <?php
+  // The landing page ends with its own editable Final CTA, so the site-wide
+  // band would be the same block twice.
+  if ( ! uottawa_is_landing_page() ) :
+  ?>
   <!-- ============================================================ CTA -->
   <section class="cta">
     <div class="container">
@@ -27,6 +32,7 @@
       </div>
     </div>
   </section>
+  <?php endif; ?>
 
   <!-- ============================================================ FOOTER -->
   <footer class="site-footer">
