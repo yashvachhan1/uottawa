@@ -13,7 +13,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'UOTTAWA_VERSION', '1.0.0' );
+define( 'UOTTAWA_VERSION', '1.1.0' );
+
+// Program landing page: editor meta boxes + the [uottawa_landing] shortcode.
+require_once get_template_directory() . '/inc/landing-page.php';
 
 /* -------------------------------------------------------------------------
  * Setup
@@ -57,6 +60,11 @@ function uottawa_assets() {
 	// style.css only carries the theme header, but WordPress tooling expects it.
 	wp_enqueue_style( 'uottawa-online', get_stylesheet_uri(), array( 'uottawa-mobile' ), $v );
 
+	// The landing page carries its own self-contained stylesheet.
+	if ( uottawa_is_landing_page() ) {
+		wp_enqueue_style( 'uottawa-landing', $dir . '/assets/css/landing.css', array( 'uottawa-online' ), $v );
+	}
+
 	wp_enqueue_script( 'uottawa-main', $dir . '/assets/js/main.js', array(), $v, true );
 }
 add_action( 'wp_enqueue_scripts', 'uottawa_assets' );
@@ -82,6 +90,52 @@ add_filter( 'wp_resource_hints', 'uottawa_resource_hints', 10, 2 );
  */
 function uottawa_asset( $path ) {
 	return get_template_directory_uri() . '/assets/' . ltrim( $path, '/' );
+}
+
+/**
+ * True on a page that renders the program landing page, either through the
+ * template or the [uottawa_landing] shortcode.
+ */
+function uottawa_is_landing_page() {
+	if ( ! is_singular() ) {
+		return false;
+	}
+
+	if ( is_page_template( 'page-landing.php' ) ) {
+		return true;
+	}
+
+	$post = get_post();
+
+	return $post && has_shortcode( $post->post_content, 'uottawa_landing' );
+}
+
+/**
+ * Where the "FR" switch points.
+ *
+ * Defaults follow the Pantheon environment, as the original plugin did, and
+ * can be overridden under Appearance > Customize.
+ */
+function uottawa_french_url() {
+	$default = 'https://enligne.uottawa.ca/';
+
+	if ( defined( 'PANTHEON_ENVIRONMENT' ) ) {
+		switch ( PANTHEON_ENVIRONMENT ) {
+			case 'dev':
+				$default = 'https://dev-borealuottawa-enligne.pantheonsite.io/';
+				break;
+			case 'test':
+				$default = 'https://test-borealuottawa-enligne.pantheonsite.io/';
+				break;
+			case 'live':
+				$default = 'https://enligne.uottawa.ca/';
+				break;
+			default:
+				$default = 'https://live-borealuottawa-enligne.pantheonsite.io/';
+		}
+	}
+
+	return get_theme_mod( 'uottawa_french_url', $default );
 }
 
 /**
@@ -356,6 +410,7 @@ function uottawa_customize( $wp_customize ) {
 		'uottawa_apply_url'    => array( __( '"Apply now" link', 'uottawa-online' ), 'https://www.uottawa.ca/study/applying-uottawa' ),
 		'uottawa_request_url'  => array( __( '"Request info" link', 'uottawa-online' ), '/contact/' ),
 		'uottawa_footer_text'  => array( __( 'Footer text', 'uottawa-online' ), '© University of Ottawa  |  Privacy  |  Accessibility' ),
+		'uottawa_french_url'   => array( __( '"FR" language switch link', 'uottawa-online' ), uottawa_french_url() ),
 	);
 
 	foreach ( $fields as $id => $field ) {

@@ -43,6 +43,10 @@
         ?>
       </nav>
 
+      <div class="header-lang">
+        <a class="btn btn--lang" href="<?php echo esc_url( uottawa_french_url() ); ?>" rel="noopener" lang="fr" title="Site en français">FR</a>
+      </div>
+
       <div class="header-actions">
         <a class="btn btn--red btn--sm" href="<?php echo esc_url( uottawa_cta_url( 'apply' ) ); ?>"><?php esc_html_e( 'Apply now', 'uottawa-online' ); ?></a>
         <a class="btn btn--outline-dark btn--sm" href="<?php echo esc_url( uottawa_cta_url( 'request' ) ); ?>"><?php esc_html_e( 'Request info', 'uottawa-online' ); ?></a>

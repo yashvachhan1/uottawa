@@ -27,6 +27,13 @@
   .site-header.is-open .header-actions{ padding-bottom:16px; }
   .site-header .container{ flex-wrap:wrap; }
 
+  /* Keep the language switch visible on small screens, just left of the
+     menu button. The collapsed nav and buttons drop below on order:3. */
+  .header-lang{ order:1; margin-left:auto; }
+  .nav-toggle{ order:2; margin-left:10px; }
+  .site-header.is-open .nav,
+  .site-header.is-open .header-actions{ order:3; }
+
   /* A 1920x772 strip is too thin on a tablet — give the photo more height
      and reduce how far the card hangs over it. */
   /* On a tablet the card uses the full column, so drop the indent and caps. */

@@ -31,6 +31,33 @@ through WP Pusher — is safe and will not duplicate anything.
 The only manual step left: **Appearance → Customize → uOttawa Online** to set
 the *Apply now* and *Request info* links and the footer text.
 
+## Program landing page
+
+Ported from the old `uottawa-mu-plugin`. Its content is edited through the meta
+boxes on the page edit screen (General, Info Grid, Why uOttawa, Overview,
+Program Insights, Admissions, FAQ, Course Information, Areas of Study,
+Final CTA).
+
+Use it either way:
+
+- give a page the **Program landing page** template, or
+- drop `[uottawa_landing]` into any page.
+
+`assets/css/landing.css` is scoped to `.uottawa-lp` and loads only on pages
+that use one of those, so it cannot affect the rest of the site. The plugin's
+own header, footer and menu are gone — the theme supplies those now, and the
+header menu is a normal WordPress menu.
+
+Four images are still referenced by absolute path and must exist in the media
+library:
+
+```
+/wp-content/uploads/2026/08/09a3437c81e0706f56f386a8cdcda7ccbf69d2b5.webp
+/wp-content/uploads/2026/08/62d370ec3bf8ccd7d20c0419ced8b558a214aee4.webp
+/wp-content/uploads/2026/08/7c98b18301ccaa1ff078e67d5351da8cdd8d49e9.webp
+/wp-content/uploads/2026/08/ef4da6c9c98f32283a2013b4740afd8fb341e4de.webp
+```
+
 ## Articles
 
 The "Featured articles" and "Latest articles" grids pull real posts. Until any
