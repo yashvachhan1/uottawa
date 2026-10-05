@@ -269,7 +269,7 @@ function uottawa_article_card( $card ) {
 			<h3 class="article-card__title"><?php echo esc_html( $card['title'] ); ?></h3>
 			<p class="article-card__excerpt"><?php echo esc_html( $card['excerpt'] ); ?></p>
 			<p class="article-card__meta"><?php echo esc_html( $card['meta'] ); ?></p>
-			<a class="btn btn--red btn--md" href="<?php echo esc_url( $card['url'] ); ?>"><?php esc_html_e( 'Read more', 'uottawa-online' ); ?></a>
+			<a class="btn btn--red btn--read" href="<?php echo esc_url( $card['url'] ); ?>"><?php esc_html_e( 'Read more', 'uottawa-online' ); ?></a>
 		</div>
 	</article>
 	<?php

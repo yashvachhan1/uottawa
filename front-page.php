@@ -15,8 +15,8 @@ get_header();
       <p class="hero__tagline">Your journey continues, wherever you are.</p>
       <p class="hero__text">uOttawa Online extends a 175-year academic tradition to learners who are building a career, a family, and a future; often all at once. The same faculty. The same standard. A new way to take part.</p>
       <div class="hero__actions">
-        <a class="btn btn--red btn--md" href="#">Apply now</a>
-        <a class="btn btn--outline-light btn--md" href="#">Request info</a>
+        <a class="btn btn--red btn--hero" href="#">Apply now</a>
+        <a class="btn btn--outline-light btn--hero" href="#">Request info</a>
       </div>
     </div>
   </div>
@@ -159,7 +159,7 @@ get_header();
     <article class="program-card">
       <h4>Bachelor of Arts, Interdisciplinary Studies (Online, Accelerated)</h4>
       <p>For college diploma graduates with 3+ years of work experience who want to build on that foundation with a uOttawa degree. Bring your diploma; we&rsquo;ll recognize it through transfer credit and build the rest of your degree around your working life.</p>
-      <a class="btn btn--red btn--lg" href="#">Explore the program</a>
+      <a class="btn btn--red btn--program" href="#">Explore the program</a>
     </article>
   </div>
 </section>
@@ -221,7 +221,7 @@ get_header();
             <dd>A longer block, set aside to complete an assignment.</dd>
           </dl>
         </article>
-        <a class="btn btn--red btn--lg day__cta" href="#">Learn more</a>
+        <a class="btn btn--red btn--pill day__cta" href="#">Learn more</a>
       </div>
       <div class="day-media">
         <img src="<?php echo esc_url( uottawa_asset( 'img/37a62cab214313cb1ec754ace570845aadd6deb8.jpg' ) ); ?>" alt="">
@@ -255,7 +255,7 @@ get_header();
       </li>
     </ol>
 
-    <a class="btn btn--red btn--lg" href="#">Start your application</a>
+    <a class="btn btn--red btn--pill" href="#">Start your application</a>
   </div>
 </section>
 

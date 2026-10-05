@@ -25,9 +25,14 @@
 .btn--lang{ background:var(--white); color:var(--red); border:1px solid var(--red); }
 .btn--lang:hover{ background:var(--red); color:var(--white); }
 
-.btn--sm { font-size:13px;                padding:9px 18px;  }
-.btn--md { font-size:clamp(14px,0.9vw,16px); padding:11px 26px; }
-.btn--lg { font-size:clamp(16px,1.2vw,23px); padding:clamp(9px,0.55vw,11px) clamp(18px,1.4vw,26px); }
+/* One modifier per size the design actually uses, each scaled in vw like the
+   rest of the page:
+     header 13 | hero 14 | "Read more" 15.91 | programme 20 | pill 23       */
+.btn--sm      { font-size:13px;                           padding:9px 18px; }
+.btn--hero    { font-size:clamp(13px, 0.7292vw, 14px);    padding:clamp(9px, 0.5729vw, 11px) clamp(18px, 1.3542vw, 26px); }
+.btn--read    { font-size:clamp(13px, 0.8286vw, 15.91px); padding:clamp(6px, 0.3729vw, 7.159px) clamp(13px, 0.9115vw, 17.501px); }
+.btn--program { font-size:clamp(15px, 1.0417vw, 20px);    padding:clamp(8px, 0.4688vw, 9px) clamp(16px, 1.1458vw, 22px); }
+.btn--pill    { font-size:clamp(16px, 1.1979vw, 23px);    padding:clamp(9px, 0.5391vw, 10.35px) clamp(18px, 1.3177vw, 25.3px); }
 
 /* ==========================================================================
    HEADER

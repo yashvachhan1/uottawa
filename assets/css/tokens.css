@@ -20,18 +20,20 @@
   --font: "Open Sans", Arial, Helvetica, sans-serif;
 
   /* Type. The max of each clamp is the exact Figma size at 1920px. */
-  --fs-h1:      clamp(30px, 2.50vw, 48px);
-  --fs-h2:      clamp(26px, 2.08vw, 40px);
-  --fs-h3:      clamp(18px, 1.25vw, 24px);
-  --fs-body:    clamp(16px, 1.25vw, 24px);
-  --fs-body-sm: clamp(15px, 1.04vw, 20px);
-  --fs-stat:    clamp(38px, 3.33vw, 64px);
-  --fs-hero-eyebrow: clamp(18px, 1.67vw, 32px);
-  --fs-hero-tag:     clamp(19px, 1.88vw, 36px);
-  --fs-day-title:    clamp(21px, 1.67vw, 32px);
-  --fs-cta-title:    clamp(32px, 3.96vw, 76px);
-  --fs-nav:     clamp(14px, 0.76vw, 14.5px);
-  --fs-small:   clamp(12px, 0.68vw, 13px);
+  /* The vw figure is always figma-size / 1920 * 100, so each one lands on its
+     exact Figma value at 1920px wide and scales from there. */
+  --fs-h1:      clamp(30px, 2.5000vw, 48px);
+  --fs-h2:      clamp(26px, 2.0833vw, 40px);
+  --fs-h3:      clamp(18px, 1.2500vw, 24px);
+  --fs-body:    clamp(16px, 1.2500vw, 24px);
+  --fs-body-sm: clamp(15px, 1.0417vw, 20px);
+  --fs-stat:    clamp(38px, 3.3333vw, 64px);
+  --fs-hero-eyebrow: clamp(18px, 1.6667vw, 32px);
+  --fs-hero-tag:     clamp(19px, 1.8750vw, 36px);
+  --fs-day-title:    clamp(21px, 1.6667vw, 32px);
+  --fs-cta-title:    clamp(32px, 3.9583vw, 76px);
+  --fs-nav:     clamp(14px, 0.7552vw, 14.5px);
+  --fs-small:   clamp(12px, 0.6771vw, 13px);
 
   /* Spacing */
   --space-section: clamp(48px, 5.2vw, 100px);

@@ -78,7 +78,7 @@ get_header();
       </article>
     </div>
 
-    <a class="btn btn--red btn--lg" href="#" style="margin-top:clamp(28px,2.4vw,46px)">Request info</a>
+    <a class="btn btn--red btn--pill" href="#" style="margin-top:clamp(28px,2.4vw,46px)">Request info</a>
   </div>
 </section>
 
@@ -173,7 +173,7 @@ get_header();
       </div>
     </div>
 
-    <a class="btn btn--red btn--lg" href="#" style="margin-top:clamp(28px,2.4vw,46px)">Request more info</a>
+    <a class="btn btn--red btn--pill" href="#" style="margin-top:clamp(28px,2.4vw,46px)">Request more info</a>
   </div>
 </section>
 
@@ -249,7 +249,7 @@ get_header();
     <article class="program-card">
       <h4>Bachelor of Arts, Interdisciplinary Studies (Online, Accelerated)</h4>
       <p>For college diploma graduates with 3+ years of work experience who want to build on that foundation with a uOttawa degree. Bring your diploma; we'll recognize it through transfer credit and build the rest of your degree around your working life.</p>
-      <a class="btn btn--red btn--lg" href="#">Explore the program</a>
+      <a class="btn btn--red btn--program" href="#">Explore the program</a>
     </article>
   </div>
 </section>
