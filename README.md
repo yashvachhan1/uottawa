@@ -12,15 +12,16 @@ Classic WordPress theme built from the Figma design
 
 Activating the theme does the setup for you. On activation it:
 
-- creates the four pages below, published and with the right slugs;
+- creates the five pages below, published and with the right slugs;
 - sets **Home** as the static front page;
 - creates a **Primary** menu (Online programs, Student experience,
-  News & events) and assigns it to the header;
+  News & events) pointing at those pages and assigns it to the header;
 - switches on `/%postname%/` permalinks if no structure is set yet.
 
 | Page title | Slug | Template used |
 |---|---|---|
 | Home | `home` | `front-page.php` |
+| Online programs | `online-programs` | `page-landing.php` |
 | Student experience | `student-experience` | `page-student-experience.php` |
 | News & events | `news-events` | `page-news-events.php` |
 | Contact | `contact` | `page-contact.php` |

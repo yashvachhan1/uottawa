@@ -286,6 +286,7 @@ function uottawa_article_card( $card ) {
 function uottawa_first_run() {
 	$pages = array(
 		'home'               => array( __( 'Home', 'uottawa-online' ), '' ),
+		'online-programs'    => array( __( 'Online programs', 'uottawa-online' ), 'page-landing.php' ),
 		'student-experience' => array( __( 'Student experience', 'uottawa-online' ), 'page-student-experience.php' ),
 		'news-events'        => array( __( 'News & events', 'uottawa-online' ), 'page-news-events.php' ),
 		'contact'            => array( __( 'Contact', 'uottawa-online' ), 'page-contact.php' ),
@@ -360,18 +361,7 @@ function uottawa_first_run_menu( $ids ) {
 	}
 
 	if ( ! wp_get_nav_menu_items( $menu_id ) ) {
-		wp_update_nav_menu_item(
-			$menu_id,
-			0,
-			array(
-				'menu-item-title'  => __( 'Online programs', 'uottawa-online' ),
-				'menu-item-url'    => home_url( '/#programs' ),
-				'menu-item-type'   => 'custom',
-				'menu-item-status' => 'publish',
-			)
-		);
-
-		foreach ( array( 'student-experience', 'news-events' ) as $slug ) {
+		foreach ( array( 'online-programs', 'student-experience', 'news-events' ) as $slug ) {
 			if ( ! isset( $ids[ $slug ] ) ) {
 				continue;
 			}
