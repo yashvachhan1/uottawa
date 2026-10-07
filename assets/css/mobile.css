@@ -19,8 +19,13 @@
 }
 @media (max-width:1100px){
   .cta{ padding-top:48px; min-height:0; }
-  .cta .container{ grid-template-columns:1fr; row-gap:34px; }
+  /* Once the two columns become one, the band reads as a single centred
+     block rather than text ragged against a left edge it no longer shares. */
+  .cta .container{ grid-template-columns:1fr; row-gap:34px; text-align:center; }
   .cta__title{ font-size:2.125rem; line-height:2.375rem; } /* 34 / 38 */
+  .cta__title,
+  .cta__text-body,
+  .cta__action p{ margin-left:auto; margin-right:auto; }
 }
 @media (max-width:900px){
   .cta__action .btn,
@@ -132,14 +137,6 @@
   .day-row .day-media{ order:2; }
   .day-row .day__cta { order:3; justify-self:start; margin-top:clamp(20px, 3vw, 34px); }
 
-  .cta .container{ grid-template-columns:1fr; row-gap:clamp(28px, 3vw, 44px); }
-  .cta__actions{ grid-template-columns:repeat(2, 1fr); column-gap:clamp(20px, 2.4vw, 32px); }
-  .cta__action .btn,
-  .cta__action:nth-child(1) .btn,
-  .cta__action:nth-child(2) .btn{ width:100%; }
-  .cta__action p,
-  .cta__action:nth-child(1) p,
-  .cta__action:nth-child(2) p{ width:100%; padding-left:0; }
 }
 
 /* Large phones */
