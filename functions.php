@@ -318,6 +318,32 @@ function uottawa_first_run() {
 	foreach ( $pages as $slug => $page ) {
 		$existing = get_page_by_path( $slug );
 
+		if ( ! $existing ) {
+			// Trashing a page renames it "<slug>__trashed" but keeps its
+			// content and meta, so bring that one back rather than leaving a
+			// second, empty copy beside it.
+			$trashed = get_posts(
+				array(
+					'post_type'   => 'page',
+					'post_status' => 'trash',
+					'name'        => $slug . '__trashed',
+					'numberposts' => 1,
+				)
+			);
+
+			if ( $trashed ) {
+				$existing = $trashed[0];
+				wp_untrash_post( $existing->ID );
+				wp_update_post(
+					array(
+						'ID'          => $existing->ID,
+						'post_name'   => $slug,
+						'post_status' => 'publish',
+					)
+				);
+			}
+		}
+
 		if ( $existing ) {
 			$ids[ $slug ] = $existing->ID;
 		} else {
@@ -358,8 +384,31 @@ function uottawa_first_run() {
 		update_option( 'permalink_structure', '/%postname%/' );
 	}
 	flush_rewrite_rules();
+
+	update_option( 'uottawa_setup_version', uottawa_theme_version() );
 }
 add_action( 'after_switch_theme', 'uottawa_first_run' );
+
+/**
+ * The theme's own version, used to decide whether setup should run again.
+ */
+function uottawa_theme_version() {
+	$theme = wp_get_theme( get_template() );
+	return $theme->get( 'Version' );
+}
+
+/**
+ * after_switch_theme only fires when the theme is activated by hand, so a
+ * pull that brings a new version down never re-runs setup - and a page the
+ * client trashed in the meantime stays gone. Re-run it once per version.
+ */
+function uottawa_maybe_first_run() {
+	if ( get_option( 'uottawa_setup_version' ) === uottawa_theme_version() ) {
+		return;
+	}
+	uottawa_first_run();
+}
+add_action( 'admin_init', 'uottawa_maybe_first_run' );
 
 /**
  * Build the header menu and assign it, without touching an existing one.
