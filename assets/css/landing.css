@@ -899,7 +899,16 @@
     .uottawa-lp .success-grid{grid-template-columns:1fr;row-gap:30px;}
     .uottawa-lp .success .num{font-size:2.5rem;}
     .uottawa-lp .levels,.uottawa-lp .areas-grid{grid-template-columns:1fr;}
-    .uottawa-lp .tabbar button{font-size:0.875rem;padding:12px 14px;}
+    /* A single row would scroll sideways on a phone and cut tabs off, so it
+       wraps into two columns. An odd last tab sits in the left one. */
+    .uottawa-lp .tabbar{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      overflow-x:visible;
+      padding-left:var(--page-l);
+      padding-right:var(--page-r);
+    }
+    .uottawa-lp .tabbar button{font-size:0.875rem;padding:12px 14px;white-space:normal;text-align:center;}
     .uottawa-lp details.acc summary{font-size:0.9375rem;padding:13px 14px;}
     .uottawa-lp .acc-body{padding:14px 14px 10px 22px;}
     .uottawa-lp .acc-body p,.uottawa-lp .acc-body.rich p,
