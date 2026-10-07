@@ -2077,7 +2077,7 @@ function uottawa_landing_page_shortcode($atts) {
 
   <p class="pathway-note"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_220', true) ?: 'Please note that the pathway is a suggestion. Your chosen course load/semester will determine your individual pathway.'); ?></p>
 
-  <p class="yearlbl"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_16', true) ?: 'Year 1'); ?></p>
+  <h3 class="yearlbl"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_16', true) ?: 'Year 1'); ?></h3>
 
   <details class="acc" open>
     <summary><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_17', true) ?: 'CMN 2130 - Interpersonal Communication'); ?></summary>
@@ -2096,7 +2096,7 @@ function uottawa_landing_page_shortcode($atts) {
   <details class="acc"><summary><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_32', true) ?: 'AHL 2171 - The Persistence of Magic: Myth, Ritual, and the Human Experience'); ?></summary><div class="acc-body"><p><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_157', true) ?: 'Explores how myth, ritual and belief continue to shape human culture and meaning-making.'); ?></p><a href="https://catalogue.uottawa.ca/search/?P=AHL%202171" target="_blank" rel="noopener"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_33', true) ?: 'Learn more'); ?></a></div></details>
   <details class="acc group-end"><summary><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_34', true) ?: 'GEG 2110 - Sustainable Cities'); ?></summary><div class="acc-body"><p><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_158', true) ?: 'Examines the environmental, social and planning challenges of building sustainable urban environments.'); ?></p><a href="https://catalogue.uottawa.ca/search/?P=GEG%202110" target="_blank" rel="noopener"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_35', true) ?: 'Learn more'); ?></a></div></details>
 
-  <p class="yearlbl"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_36', true) ?: 'Year 2'); ?></p>
+  <h3 class="yearlbl"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_36', true) ?: 'Year 2'); ?></h3>
 
   <details class="acc" open>
     <summary><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_37', true) ?: 'LCM 3101 - World Cultures in Contact'); ?></summary>
@@ -2112,14 +2112,14 @@ function uottawa_landing_page_shortcode($atts) {
   <details class="acc"><summary><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_46', true) ?: 'AHL 4170 - Harnessing Interdisciplinary Thinking: Knowledge for Insight Application'); ?></summary><div class="acc-body"><p><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_162', true) ?: 'A capstone-style course applying interdisciplinary methods to real-world problems and insight generation.'); ?></p><a href="https://catalogue.uottawa.ca/search/?P=AHL%204170" target="_blank" rel="noopener"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_47', true) ?: 'Learn more'); ?></a></div></details>
   <details class="acc group-end"><summary><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_48', true) ?: 'PHI 2122 - Ancient Wisdom'); ?></summary><div class="acc-body"><p><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_163', true) ?: 'Explores philosophical traditions and enduring ideas from the ancient world.'); ?></p><a href="https://catalogue.uottawa.ca/en/courses/phi/" target="_blank" rel="noopener"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_49', true) ?: 'Learn more'); ?></a></div></details>
 
-  <?php $u = uottawa_cta_url( 'coursemap' ); ?><a href="<?php echo esc_url( $u ); ?>"<?php echo uottawa_link_atts( $u ); ?> class="cta-btn"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_50', true) ?: 'Download course map'); ?></a>
+  <?php $u = uottawa_cta_url( 'coursemap' ); if ( '#' !== $u ) : ?><a href="<?php echo esc_url( $u ); ?>"<?php echo uottawa_link_atts( $u ); ?> class="cta-btn"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_50', true) ?: 'Download course map'); ?></a><?php endif; ?>
 
   <h2 style="margin-top:64px"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_51', true) ?: 'Pathway 2: 60-unit accelerated pathway'); ?></h2>
   <div class="rule"></div>
 
   <p class="pathway-note"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_221', true) ?: 'Please note that the pathway is a suggestion. Your chosen course load/semester will determine your individual pathway.'); ?></p>
 
-  <p class="yearlbl"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_52', true) ?: 'Year 1'); ?></p>
+  <h3 class="yearlbl"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_52', true) ?: 'Year 1'); ?></h3>
 
   <details class="acc" open>
     <summary><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_53', true) ?: 'CMN 2130 - Interpersonal Communication'); ?></summary>
@@ -2138,7 +2138,7 @@ function uottawa_landing_page_shortcode($atts) {
   <details class="acc"><summary><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_68', true) ?: 'AHL 2171 - The Persistence of Magic: Myth, Ritual, and the Human Experience'); ?></summary><div class="acc-body"><p><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_170', true) ?: 'Explores how myth, ritual and belief continue to shape human culture and meaning-making.'); ?></p><a href="https://catalogue.uottawa.ca/search/?P=AHL%202171" target="_blank" rel="noopener"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_69', true) ?: 'Learn more'); ?></a></div></details>
   <details class="acc group-end"><summary><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_70', true) ?: 'GEG 2110 - Sustainable Cities'); ?></summary><div class="acc-body"><p><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_171', true) ?: 'Examines the environmental, social and planning challenges of building sustainable urban environments.'); ?></p><a href="https://catalogue.uottawa.ca/search/?P=GEG%202110" target="_blank" rel="noopener"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_71', true) ?: 'Learn more'); ?></a></div></details>
 
-  <p class="yearlbl"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_72', true) ?: 'Year 2'); ?></p>
+  <h3 class="yearlbl"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_72', true) ?: 'Year 2'); ?></h3>
 
   <details class="acc" open>
     <summary><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_73', true) ?: 'LCM 3101 - World Cultures in Contact'); ?></summary>
@@ -2157,7 +2157,7 @@ function uottawa_landing_page_shortcode($atts) {
   <details class="acc"><summary><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_88', true) ?: 'HIS 1101 - The Making of Canada'); ?></summary><div class="acc-body"><p><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_178', true) ?: 'Traces the historical events and forces that shaped modern Canada.'); ?></p><a href="https://catalogue.uottawa.ca/search/?P=HIS%201101" target="_blank" rel="noopener"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_89', true) ?: 'Learn more'); ?></a></div></details>
   <details class="acc group-end"><summary><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_90', true) ?: 'ENV 1101 - Global Environmental Challenges'); ?></summary><div class="acc-body"><p><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_179', true) ?: 'Introduces the major environmental issues facing the world today and approaches to addressing them.'); ?></p><a href="https://catalogue.uottawa.ca/search/?P=ENV%201101" target="_blank" rel="noopener"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_91', true) ?: 'Learn more'); ?></a></div></details>
 
-  <p class="yearlbl"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_92', true) ?: 'Year 3'); ?></p>
+  <h3 class="yearlbl"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_92', true) ?: 'Year 3'); ?></h3>
 
   <details class="acc" open>
     <summary><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_93', true) ?: 'ENG 2107 - Introduction to Canadian Literature'); ?></summary>
@@ -2169,7 +2169,7 @@ function uottawa_landing_page_shortcode($atts) {
 
   <details class="acc group-end"><summary><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_96', true) ?: 'SRS 2173 - World Religions'); ?></summary><div class="acc-body"><p><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_180', true) ?: 'An exploration of the distinct beliefs, practices, and histories of the world\'s major religious traditions.'); ?></p><a href="https://catalogue.uottawa.ca/en/courses/srs/" target="_blank" rel="noopener"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_97', true) ?: 'Learn more'); ?></a></div></details>
 
-  <?php $u = uottawa_cta_url( 'coursemap' ); ?><a href="<?php echo esc_url( $u ); ?>"<?php echo uottawa_link_atts( $u ); ?> class="cta-btn"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_98', true) ?: 'Download course map'); ?></a>
+  <?php $u = uottawa_cta_url( 'coursemap' ); if ( '#' !== $u ) : ?><a href="<?php echo esc_url( $u ); ?>"<?php echo uottawa_link_atts( $u ); ?> class="cta-btn"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_98', true) ?: 'Download course map'); ?></a><?php endif; ?>
 
   <p class="note-italic"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_99', true) ?: '*Course list subject to change. Consult the uOttawa academic calendar for the most up-to-date information.'); ?></p>
 

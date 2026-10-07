@@ -544,7 +544,7 @@
   .uottawa-lp .areas img{width:100%;height:280px;object-fit:cover;display:block;}
 
   /* ---------- ACCORDIONS — 1:615 / 1:376 ---------- */
-  .uottawa-lp .yearlbl{
+  .uottawa-lp h3.yearlbl{
     font-size:1.5rem;
     font-weight:700;
     color:var(--ink);
@@ -880,7 +880,7 @@
     .uottawa-lp ul.reqs{padding-left:22px;}
     .uottawa-lp ul.reqs li{font-size:1rem;line-height:1.75rem;}
     .uottawa-lp .note-italic{font-size:1rem;margin-top:28px;}
-    .uottawa-lp .yearlbl{font-size:1.125rem;margin:28px 0 14px;}
+    .uottawa-lp h3.yearlbl{font-size:1.125rem;margin:28px 0 14px;}
     .uottawa-lp .levels h5,.uottawa-lp .areas-grid span{font-size:1.0625rem;}
     .uottawa-lp .levels p{font-size:1rem;line-height:1.625rem;}
     .uottawa-lp .cta-btn{font-size:1rem;padding:13px 26px;}
