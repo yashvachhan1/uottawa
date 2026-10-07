@@ -39,6 +39,11 @@
 
   /* Spacing */
   --space-section: clamp(48px, 5.2vw, 100px);
-  --gutter: clamp(16px, 5.47vw, 105px);
-  --wrap: 1920px;
+  /* Page gutters, matched to the Online programs landing page so every page
+     lines up on the same left and right edge. The landing frame is inset
+     125px on the left and 91px on the right; both step down together at the
+     breakpoints below. */
+  --page-l: 125px;
+  --page-r: 91px;
+  --wrap: 1922px;
 }

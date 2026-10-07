@@ -100,5 +100,10 @@ matches the original single-file build.
   proportion (the hero card, its paragraph, the CTA band) are written in `vw`
   with the Figma value as the maximum, so the layout reads the same at any
   width. Breakpoints: 1400 / 1200 / 1024 / 768 / 640 / 560 / 480.
+- **Page gutters are shared with the Online programs landing page** so every
+  page sits on the same left and right edge: `--page-l` 125px and `--page-r`
+  91px, stepping to 64/64 at 1700, 32/32 at 1100 and 20/20 at 640 — the same
+  steps `landing.css` uses. `.container` is the only thing that reads them,
+  the dark CTA band included.
 - The contact form posts nowhere yet — wire it to Contact Form 7, Gravity Forms
   or WPForms, or point the `<form action>` at your own handler.

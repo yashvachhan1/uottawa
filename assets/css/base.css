@@ -29,8 +29,8 @@ ul,ol{ margin:0; padding:0; list-style:none; }
 .container{
   max-width:var(--wrap);
   margin:0 auto;
-  padding-left:var(--gutter);
-  padding-right:var(--gutter);
+  padding-left:var(--page-l);
+  padding-right:var(--page-r);
 }
 
 .section{ padding-top:var(--space-section); }

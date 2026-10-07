@@ -251,9 +251,11 @@
      buttons   left 1050 and 1446, tops 91 and 90, widths 273.4 and 345.4
    Everything is in vw so the band keeps these proportions at any width. */
 .cta .container{
-  max-width:1920px;
-  padding-left:clamp(16px, 6.875vw, 132px);
-  padding-right:clamp(16px, 7.2396vw, 139px);
+  max-width:var(--wrap);
+  /* Same gutters as every other container, so the heading in the dark band
+     sits on the page's left edge rather than its own. */
+  padding-left:var(--page-l);
+  padding-right:var(--page-r);
   padding-top:clamp(40px, 4.0104vw, 77px);
   padding-bottom:clamp(40px, 3.8542vw, 74px);
   display:grid;

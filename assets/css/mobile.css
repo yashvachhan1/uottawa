@@ -6,6 +6,18 @@
    BREAKPOINTS
    ========================================================================== */
 
+/* Page gutters, stepping down on the same breakpoints the landing page uses,
+   so the two stay on the same edge at every width. Largest first. */
+@media (max-width:1700px){
+  :root{ --page-l:64px; --page-r:64px; }
+}
+@media (max-width:1100px){
+  :root{ --page-l:32px; --page-r:32px; }
+}
+@media (max-width:640px){
+  :root{ --page-l:20px; --page-r:20px; }
+}
+
 /* Type scale. rem does not follow the viewport, so each step restates the
    tokens at a smaller rem value; everything that uses them follows. */
 @media (max-width:1400px){
