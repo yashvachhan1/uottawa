@@ -151,11 +151,32 @@ function uottawa_page_url( $slug ) {
  */
 function uottawa_cta_url( $which ) {
 	$defaults = array(
-		'apply'   => 'https://www.uottawa.ca/study/applying-uottawa',
-		'request' => '/contact/',
+		'apply'      => 'https://www.uottawa.ca/study/applying-uottawa',
+		'request'    => '/contact/',
+		// The copy deck calls for a course map download but does not name the
+		// file yet; set it under Appearance > Customize when it exists.
+		'coursemap'  => '',
 	);
+	if ( ! isset( $defaults[ $which ] ) ) {
+		return '#';
+	}
 	$value = get_theme_mod( 'uottawa_' . $which . '_url', $defaults[ $which ] );
+	if ( '' === $value ) {
+		return '#';
+	}
 	return 0 === strpos( $value, 'http' ) ? $value : home_url( $value );
+}
+
+/**
+ * Attributes for a link, so that anything leaving this site opens in its own
+ * tab. Links back into online.uottawa.ca get none, as do placeholders.
+ */
+function uottawa_link_atts( $url ) {
+	$host = wp_parse_url( $url, PHP_URL_HOST );
+	if ( ! $host || $host === wp_parse_url( home_url(), PHP_URL_HOST ) ) {
+		return '';
+	}
+	return ' target="_blank" rel="noopener noreferrer"';
 }
 
 /**

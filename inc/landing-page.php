@@ -910,6 +910,82 @@ echo '<h3 class="uottawa-section-title">Areas of Study</h3>';
         echo '<div class="uottawa-field"><label>Areas of Study Paragraph 125 (Preview: Speak to our admissions team who can gui...)</label>';
             echo '<textarea name="text_areas_of_study_125">'.esc_textarea($val_text_areas_of_study_125).'</textarea>';echo '</div>';
 
+
+        $val_text_admissions_1 = get_post_meta($post->ID, 'text_admissions_1', true) ?: 'Your next step, with someone in your corner.';
+        echo '<div class="uottawa-field"><label>Admissions: Next step heading</label>';
+            echo '<input type="text" name="text_admissions_1" value="'.esc_attr($val_text_admissions_1).'">';echo '</div>';
+
+        $val_text_admissions_2 = get_post_meta($post->ID, 'text_admissions_2', true) ?: 'Applying to a uOttawa Online program isn\'t something you have to figure out alone. An enrolment advisor will walk you through it: what you\'ll need, what your prior learning could count toward, and whether the timing works for the life you\'re already living.';
+        echo '<div class="uottawa-field"><label>Admissions: Next step intro</label>';
+            echo '<textarea name="text_admissions_2">'.esc_textarea($val_text_admissions_2).'</textarea>';echo '</div>';
+
+        $val_text_admissions_3 = get_post_meta($post->ID, 'text_admissions_3', true) ?: '1. Connect with an enrolment advisor';
+        echo '<div class="uottawa-field"><label>Admissions: Step 1 heading</label>';
+            echo '<input type="text" name="text_admissions_3" value="'.esc_attr($val_text_admissions_3).'">';echo '</div>';
+
+        $val_text_admissions_4 = get_post_meta($post->ID, 'text_admissions_4', true) ?: 'Start with a conversation. Your advisor will ask about your background, your goals, and your timeline, and help you figure out whether, and how, a uOttawa Online program fits.';
+        echo '<div class="uottawa-field"><label>Admissions: Step 1 text</label>';
+            echo '<textarea name="text_admissions_4">'.esc_textarea($val_text_admissions_4).'</textarea>';echo '</div>';
+
+        $val_text_admissions_5 = get_post_meta($post->ID, 'text_admissions_5', true) ?: '2. Review your experience';
+        echo '<div class="uottawa-field"><label>Admissions: Step 2 heading</label>';
+            echo '<input type="text" name="text_admissions_5" value="'.esc_attr($val_text_admissions_5).'">';echo '</div>';
+
+        $val_text_admissions_6 = get_post_meta($post->ID, 'text_admissions_6', true) ?: 'Your advisor will ask about your prior post-secondary credit or professional experience to see what may be recognized toward your program, so you\'re not starting from zero.';
+        echo '<div class="uottawa-field"><label>Admissions: Step 2 text</label>';
+            echo '<textarea name="text_admissions_6">'.esc_textarea($val_text_admissions_6).'</textarea>';echo '</div>';
+
+        $val_text_admissions_7 = get_post_meta($post->ID, 'text_admissions_7', true) ?: '3. Submit your application';
+        echo '<div class="uottawa-field"><label>Admissions: Step 3 heading</label>';
+            echo '<input type="text" name="text_admissions_7" value="'.esc_attr($val_text_admissions_7).'">';echo '</div>';
+
+        $val_text_admissions_8 = get_post_meta($post->ID, 'text_admissions_8', true) ?: 'With your advisor\'s guidance, you\'ll pull together what\'s needed and submit your application, no guessing at the process on your own.';
+        echo '<div class="uottawa-field"><label>Admissions: Step 3 text</label>';
+            echo '<textarea name="text_admissions_8">'.esc_textarea($val_text_admissions_8).'</textarea>';echo '</div>';
+
+        $val_text_admissions_9 = get_post_meta($post->ID, 'text_admissions_9', true) ?: '4. Receive your decision';
+        echo '<div class="uottawa-field"><label>Admissions: Step 4 heading</label>';
+            echo '<input type="text" name="text_admissions_9" value="'.esc_attr($val_text_admissions_9).'">';echo '</div>';
+
+        $val_text_admissions_10 = get_post_meta($post->ID, 'text_admissions_10', true) ?: 'Once you have an offer, our team can help you plan your first term, from enrolment through to your first login.';
+        echo '<div class="uottawa-field"><label>Admissions: Step 4 text</label>';
+            echo '<textarea name="text_admissions_10">'.esc_textarea($val_text_admissions_10).'</textarea>';echo '</div>';
+
+        $val_text_admissions_11 = get_post_meta($post->ID, 'text_admissions_11', true) ?: 'Start your application';
+        echo '<div class="uottawa-field"><label>Admissions: Steps button</label>';
+            echo '<input type="text" name="text_admissions_11" value="'.esc_attr($val_text_admissions_11).'">';echo '</div>';
+
+        $val_text_admissions_12 = get_post_meta($post->ID, 'text_admissions_12', true) ?: 'What your enrolment advisor actually does';
+        echo '<div class="uottawa-field"><label>Admissions: Advisor heading</label>';
+            echo '<input type="text" name="text_admissions_12" value="'.esc_attr($val_text_admissions_12).'">';echo '</div>';
+
+        $val_text_admissions_13 = get_post_meta($post->ID, 'text_admissions_13', true) ?: 'Helps you along the way';
+        echo '<div class="uottawa-field"><label>Admissions: Advisor 1 heading</label>';
+            echo '<input type="text" name="text_admissions_13" value="'.esc_attr($val_text_admissions_13).'">';echo '</div>';
+
+        $val_text_admissions_14 = get_post_meta($post->ID, 'text_admissions_14', true) ?: 'Get direct answers to your specific questions about the program, schedule, or fit. You\'ll have a consistent point of contact throughout your journey.';
+        echo '<div class="uottawa-field"><label>Admissions: Advisor 1 text</label>';
+            echo '<textarea name="text_admissions_14">'.esc_textarea($val_text_admissions_14).'</textarea>';echo '</div>';
+
+        $val_text_admissions_15 = get_post_meta($post->ID, 'text_admissions_15', true) ?: 'Talks admissions';
+        echo '<div class="uottawa-field"><label>Admissions: Advisor 2 heading</label>';
+            echo '<input type="text" name="text_admissions_15" value="'.esc_attr($val_text_admissions_15).'">';echo '</div>';
+
+        $val_text_admissions_16 = get_post_meta($post->ID, 'text_admissions_16', true) ?: 'Navigate the submission process with step-by-step help. Your advisor ensures nothing is missed and guides you from first login through enrolment.';
+        echo '<div class="uottawa-field"><label>Admissions: Advisor 2 text</label>';
+            echo '<textarea name="text_admissions_16">'.esc_textarea($val_text_admissions_16).'</textarea>';echo '</div>';
+
+        $val_text_admissions_17 = get_post_meta($post->ID, 'text_admissions_17', true) ?: 'Assesses the details';
+        echo '<div class="uottawa-field"><label>Admissions: Advisor 3 heading</label>';
+            echo '<input type="text" name="text_admissions_17" value="'.esc_attr($val_text_admissions_17).'">';echo '</div>';
+
+        $val_text_admissions_18 = get_post_meta($post->ID, 'text_admissions_18', true) ?: 'Discuss your background before you even apply. We\'ll review your prior post-secondary credits and professional experience to see what counts toward your degree.';
+        echo '<div class="uottawa-field"><label>Admissions: Advisor 3 text</label>';
+            echo '<textarea name="text_admissions_18">'.esc_textarea($val_text_admissions_18).'</textarea>';echo '</div>';
+
+        $val_text_admissions_19 = get_post_meta($post->ID, 'text_admissions_19', true) ?: 'Start your application';
+        echo '<div class="uottawa-field"><label>Admissions: Advisor button</label>';
+            echo '<input type="text" name="text_admissions_19" value="'.esc_attr($val_text_admissions_19).'">';echo '</div>';
         $val_text_areas_of_study_126 = get_post_meta($post->ID, 'text_areas_of_study_126', true) ?: 'Tuition';
         echo '<div class="uottawa-field"><label>Areas of Study Heading 126 (Preview: Tuition...)</label>';
             echo '<input type="text" name="text_areas_of_study_126" value="'.esc_attr($val_text_areas_of_study_126).'">';echo '</div>';
@@ -978,7 +1054,7 @@ echo '<h3 class="uottawa-section-title">Areas of Study</h3>';
         echo '<div class="uottawa-field"><label>Areas of Study Heading 142 (Preview: uOttawa: Supporting your success...)</label>';
             echo '<input type="text" name="text_areas_of_study_142" value="'.esc_attr($val_text_areas_of_study_142).'">';echo '</div>';
 
-        $val_text_areas_of_study_143 = get_post_meta($post->ID, 'text_areas_of_study_143', true) ?: '6,200';
+        $val_text_areas_of_study_143 = get_post_meta($post->ID, 'text_areas_of_study_143', true) ?: '12,000';
         echo '<div class="uottawa-field"><label>Areas of Study Text 143 (Preview: 6,200...)</label>';
             echo '<input type="text" name="text_areas_of_study_143" value="'.esc_attr($val_text_areas_of_study_143).'">';echo '</div>';
 
@@ -990,7 +1066,7 @@ echo '<h3 class="uottawa-section-title">Areas of Study</h3>';
         echo '<div class="uottawa-field"><label>Areas of Study Text 145 (Preview: and support staff...)</label>';
             echo '<input type="text" name="text_areas_of_study_145" value="'.esc_attr($val_text_areas_of_study_145).'">';echo '</div>';
 
-        $val_text_areas_of_study_146 = get_post_meta($post->ID, 'text_areas_of_study_146', true) ?: '280,000+';
+        $val_text_areas_of_study_146 = get_post_meta($post->ID, 'text_areas_of_study_146', true) ?: '300,000+';
         echo '<div class="uottawa-field"><label>Areas of Study Text 146 (Preview: 280,000+...)</label>';
             echo '<input type="text" name="text_areas_of_study_146" value="'.esc_attr($val_text_areas_of_study_146).'">';echo '</div>';
 
@@ -1547,6 +1623,25 @@ function uottawa_save_meta_boxes($post_id) {
     if (isset($_POST['img_areas_of_study_123'])) update_post_meta($post_id, 'img_areas_of_study_123', sanitize_text_field($_POST['img_areas_of_study_123']));
     if (isset($_POST['text_areas_of_study_124'])) update_post_meta($post_id, 'text_areas_of_study_124', sanitize_text_field($_POST['text_areas_of_study_124']));
     if (isset($_POST['text_areas_of_study_125'])) update_post_meta($post_id, 'text_areas_of_study_125', wp_kses_post($_POST['text_areas_of_study_125']));
+    if (isset($_POST['text_admissions_1'])) update_post_meta($post_id, 'text_admissions_1', sanitize_text_field($_POST['text_admissions_1']));
+    if (isset($_POST['text_admissions_2'])) update_post_meta($post_id, 'text_admissions_2', wp_kses_post($_POST['text_admissions_2']));
+    if (isset($_POST['text_admissions_3'])) update_post_meta($post_id, 'text_admissions_3', sanitize_text_field($_POST['text_admissions_3']));
+    if (isset($_POST['text_admissions_4'])) update_post_meta($post_id, 'text_admissions_4', wp_kses_post($_POST['text_admissions_4']));
+    if (isset($_POST['text_admissions_5'])) update_post_meta($post_id, 'text_admissions_5', sanitize_text_field($_POST['text_admissions_5']));
+    if (isset($_POST['text_admissions_6'])) update_post_meta($post_id, 'text_admissions_6', wp_kses_post($_POST['text_admissions_6']));
+    if (isset($_POST['text_admissions_7'])) update_post_meta($post_id, 'text_admissions_7', sanitize_text_field($_POST['text_admissions_7']));
+    if (isset($_POST['text_admissions_8'])) update_post_meta($post_id, 'text_admissions_8', wp_kses_post($_POST['text_admissions_8']));
+    if (isset($_POST['text_admissions_9'])) update_post_meta($post_id, 'text_admissions_9', sanitize_text_field($_POST['text_admissions_9']));
+    if (isset($_POST['text_admissions_10'])) update_post_meta($post_id, 'text_admissions_10', wp_kses_post($_POST['text_admissions_10']));
+    if (isset($_POST['text_admissions_11'])) update_post_meta($post_id, 'text_admissions_11', sanitize_text_field($_POST['text_admissions_11']));
+    if (isset($_POST['text_admissions_12'])) update_post_meta($post_id, 'text_admissions_12', sanitize_text_field($_POST['text_admissions_12']));
+    if (isset($_POST['text_admissions_13'])) update_post_meta($post_id, 'text_admissions_13', sanitize_text_field($_POST['text_admissions_13']));
+    if (isset($_POST['text_admissions_14'])) update_post_meta($post_id, 'text_admissions_14', wp_kses_post($_POST['text_admissions_14']));
+    if (isset($_POST['text_admissions_15'])) update_post_meta($post_id, 'text_admissions_15', sanitize_text_field($_POST['text_admissions_15']));
+    if (isset($_POST['text_admissions_16'])) update_post_meta($post_id, 'text_admissions_16', wp_kses_post($_POST['text_admissions_16']));
+    if (isset($_POST['text_admissions_17'])) update_post_meta($post_id, 'text_admissions_17', sanitize_text_field($_POST['text_admissions_17']));
+    if (isset($_POST['text_admissions_18'])) update_post_meta($post_id, 'text_admissions_18', wp_kses_post($_POST['text_admissions_18']));
+    if (isset($_POST['text_admissions_19'])) update_post_meta($post_id, 'text_admissions_19', sanitize_text_field($_POST['text_admissions_19']));
     if (isset($_POST['text_areas_of_study_126'])) update_post_meta($post_id, 'text_areas_of_study_126', sanitize_text_field($_POST['text_areas_of_study_126']));
     if (isset($_POST['text_areas_of_study_127'])) update_post_meta($post_id, 'text_areas_of_study_127', wp_kses_post($_POST['text_areas_of_study_127']));
     if (isset($_POST['text_areas_of_study_128'])) update_post_meta($post_id, 'text_areas_of_study_128', wp_kses_post($_POST['text_areas_of_study_128']));
@@ -1897,7 +1992,7 @@ function uottawa_landing_page_shortcode($atts) {
     </div>
   </div>
 
-  <a href="#" class="cta-btn"><?php echo wp_kses_post(get_post_meta($post_id, 'text_overview_26', true) ?: 'Request more information'); ?></a>
+  <?php $u = uottawa_cta_url( 'request' ); ?><a href="<?php echo esc_url( $u ); ?>"<?php echo uottawa_link_atts( $u ); ?> class="cta-btn"><?php echo wp_kses_post(get_post_meta($post_id, 'text_overview_26', true) ?: 'Request more information'); ?></a>
 
  </div>
 </section>
@@ -2017,7 +2112,7 @@ function uottawa_landing_page_shortcode($atts) {
   <details class="acc"><summary><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_46', true) ?: 'AHL 4170 - Harnessing Interdisciplinary Thinking: Knowledge for Insight Application'); ?></summary><div class="acc-body"><p><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_162', true) ?: 'A capstone-style course applying interdisciplinary methods to real-world problems and insight generation.'); ?></p><a href="https://catalogue.uottawa.ca/search/?P=AHL%204170" target="_blank" rel="noopener"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_47', true) ?: 'Learn more'); ?></a></div></details>
   <details class="acc group-end"><summary><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_48', true) ?: 'PHI 2122 - Ancient Wisdom'); ?></summary><div class="acc-body"><p><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_163', true) ?: 'Explores philosophical traditions and enduring ideas from the ancient world.'); ?></p><a href="https://catalogue.uottawa.ca/en/courses/phi/" target="_blank" rel="noopener"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_49', true) ?: 'Learn more'); ?></a></div></details>
 
-  <a href="#" class="cta-btn"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_50', true) ?: 'Download course map'); ?></a>
+  <?php $u = uottawa_cta_url( 'coursemap' ); ?><a href="<?php echo esc_url( $u ); ?>"<?php echo uottawa_link_atts( $u ); ?> class="cta-btn"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_50', true) ?: 'Download course map'); ?></a>
 
   <h2 style="margin-top:64px"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_51', true) ?: 'Pathway 2: 60-unit accelerated pathway'); ?></h2>
   <div class="rule"></div>
@@ -2074,7 +2169,7 @@ function uottawa_landing_page_shortcode($atts) {
 
   <details class="acc group-end"><summary><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_96', true) ?: 'SRS 2173 - World Religions'); ?></summary><div class="acc-body"><p><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_180', true) ?: 'An exploration of the distinct beliefs, practices, and histories of the world\'s major religious traditions.'); ?></p><a href="https://catalogue.uottawa.ca/en/courses/srs/" target="_blank" rel="noopener"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_97', true) ?: 'Learn more'); ?></a></div></details>
 
-  <a href="#" class="cta-btn"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_98', true) ?: 'Download course map'); ?></a>
+  <?php $u = uottawa_cta_url( 'coursemap' ); ?><a href="<?php echo esc_url( $u ); ?>"<?php echo uottawa_link_atts( $u ); ?> class="cta-btn"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_98', true) ?: 'Download course map'); ?></a>
 
   <p class="note-italic"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_99', true) ?: '*Course list subject to change. Consult the uOttawa academic calendar for the most up-to-date information.'); ?></p>
 
@@ -2159,7 +2254,7 @@ function uottawa_landing_page_shortcode($atts) {
     </div>
   </details>
 
-  <a href="#" class="cta-btn"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_116', true) ?: 'Request more information'); ?></a>
+  <?php $u = uottawa_cta_url( 'request' ); ?><a href="<?php echo esc_url( $u ); ?>"<?php echo uottawa_link_atts( $u ); ?> class="cta-btn"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_116', true) ?: 'Request more information'); ?></a>
 
  </div>
 </section>
@@ -2182,10 +2277,29 @@ function uottawa_landing_page_shortcode($atts) {
     <img src="/wp-content/uploads/2026/08/62d370ec3bf8ccd7d20c0419ced8b558a214aee4.webp" alt="Student at a desk">
   </div>
 
-  <h2><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_124', true) ?: 'Application process'); ?></h2>
+  <h2><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_1', true) ?: 'Your next step, with someone in your corner.'); ?></h2>
+  <div class="rule"></div>
+  <p style="margin-bottom:48px"><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_2', true) ?: 'Applying to a uOttawa Online program isn\'t something you have to figure out alone. An enrolment advisor will walk you through it: what you\'ll need, what your prior learning could count toward, and whether the timing works for the life you\'re already living.'); ?></p>
+
+  <div class="levels">
+    <div><h5><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_3', true) ?: '1. Connect with an enrolment advisor'); ?></h5><p><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_4', true) ?: 'Start with a conversation. Your advisor will ask about your background, your goals, and your timeline, and help you figure out whether, and how, a uOttawa Online program fits.'); ?></p></div>
+    <div><h5><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_5', true) ?: '2. Review your experience'); ?></h5><p><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_6', true) ?: 'Your advisor will ask about your prior post-secondary credit or professional experience to see what may be recognized toward your program, so you\'re not starting from zero.'); ?></p></div>
+    <div><h5><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_7', true) ?: '3. Submit your application'); ?></h5><p><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_8', true) ?: 'With your advisor\'s guidance, you\'ll pull together what\'s needed and submit your application, no guessing at the process on your own.'); ?></p></div>
+    <div><h5><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_9', true) ?: '4. Receive your decision'); ?></h5><p><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_10', true) ?: 'Once you have an offer, our team can help you plan your first term, from enrolment through to your first login.'); ?></p></div>
+  </div>
+
+  <?php $u = uottawa_cta_url( 'apply' ); ?><a href="<?php echo esc_url( $u ); ?>"<?php echo uottawa_link_atts( $u ); ?> class="cta-btn"><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_11', true) ?: 'Start your application'); ?></a>
+
+  <h2 style="margin-top:64px"><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_12', true) ?: 'What your enrolment advisor actually does'); ?></h2>
   <div class="rule"></div>
 
-  <p style="margin-bottom:64px"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_125', true) ?: 'Speak to our admissions team who can guide you through the OUAC application process.'); ?></p>
+  <div class="cards">
+    <div class="fcard"><h4><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_13', true) ?: 'Helps you along the way'); ?></h4><p><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_14', true) ?: 'Get direct answers to your specific questions about the program, schedule, or fit. You\'ll have a consistent point of contact throughout your journey.'); ?></p></div>
+    <div class="fcard"><h4><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_15', true) ?: 'Talks admissions'); ?></h4><p><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_16', true) ?: 'Navigate the submission process with step-by-step help. Your advisor ensures nothing is missed and guides you from first login through enrolment.'); ?></p></div>
+    <div class="fcard"><h4><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_17', true) ?: 'Assesses the details'); ?></h4><p><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_18', true) ?: 'Discuss your background before you even apply. We\'ll review your prior post-secondary credits and professional experience to see what counts toward your degree.'); ?></p></div>
+  </div>
+
+  <?php $u = uottawa_cta_url( 'apply' ); ?><a href="<?php echo esc_url( $u ); ?>"<?php echo uottawa_link_atts( $u ); ?> class="cta-btn"><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_19', true) ?: 'Start your application'); ?></a>
 
   <div class="split tuition">
     <div>
@@ -2193,7 +2307,7 @@ function uottawa_landing_page_shortcode($atts) {
       <div class="rule"></div>
       <p><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_127', true) ?: 'A university degree is a significant milestone, and financial planning is an important part of that journey. Tuition depends on your admission pathway (45 or 60 units).'); ?></p>
       <p><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_128', true) ?: 'Contact our team for more detailed tuition information, including payment options and financial aid opportunities.'); ?></p>
-      <a href="#" class="cta-btn"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_129', true) ?: 'Request more information'); ?></a>
+      <?php $u = uottawa_cta_url( 'request' ); ?><a href="<?php echo esc_url( $u ); ?>"<?php echo uottawa_link_atts( $u ); ?> class="cta-btn"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_129', true) ?: 'Request more information'); ?></a>
       <p class="note-italic"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_130', true) ?: '*Tuition and fees are subject to change each academic year. Textbooks may be required for some courses and are an additional cost.'); ?></p>
     </div>
     <img src="/wp-content/uploads/2026/08/7c98b18301ccaa1ff078e67d5351da8cdd8d49e9.webp" alt="Student using a tablet">
@@ -2235,11 +2349,11 @@ function uottawa_landing_page_shortcode($atts) {
 
   <div class="success-grid">
     <div>
-      <div class="num"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_143', true) ?: '6,200'); ?></div>
+      <div class="num"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_143', true) ?: '12,000'); ?></div>
       <div class="lbl"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_144', true) ?: 'professors, researchers'); ?><br><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_145', true) ?: 'and support staff'); ?></div>
     </div>
     <div>
-      <div class="num"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_146', true) ?: '280,000+'); ?></div>
+      <div class="num"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_146', true) ?: '300,000+'); ?></div>
       <div class="lbl"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_147', true) ?: 'alumni worldwide'); ?></div>
     </div>
     <div>
@@ -2260,12 +2374,12 @@ function uottawa_landing_page_shortcode($atts) {
 
   <div class="cta-col">
     <div>
-      <a href="#" class="cta-btn"><?php echo wp_kses_post(get_post_meta($post_id, 'text_final_cta_3', true) ?: 'Request more info'); ?></a>
+      <?php $u = uottawa_cta_url( 'request' ); ?><a href="<?php echo esc_url( $u ); ?>"<?php echo uottawa_link_atts( $u ); ?> class="cta-btn"><?php echo wp_kses_post(get_post_meta($post_id, 'text_final_cta_3', true) ?: 'Request more info'); ?></a>
       <p class="cta-note"><?php echo wp_kses_post(get_post_meta($post_id, 'text_final_cta_4', true) ?: 'Get program details, tuition information, and application instructions.'); ?></p>
     </div>
 
     <div>
-      <a href="#" class="cta-btn"><?php echo wp_kses_post(get_post_meta($post_id, 'text_final_cta_5', true) ?: 'Start your application'); ?></a>
+      <?php $u = uottawa_cta_url( 'apply' ); ?><a href="<?php echo esc_url( $u ); ?>"<?php echo uottawa_link_atts( $u ); ?> class="cta-btn"><?php echo wp_kses_post(get_post_meta($post_id, 'text_final_cta_5', true) ?: 'Start your application'); ?></a>
       <p class="cta-note"><?php echo wp_kses_post(get_post_meta($post_id, 'text_final_cta_6', true) ?: 'Begin your journey toward building in-demand, future-proof skills.'); ?></p>
     </div>
   </div>
