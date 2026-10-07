@@ -51,9 +51,9 @@
   padding-bottom:12px;
 }
 
-.logo{ display:flex; align-items:flex-end; gap:9px; flex:none; }
-.logo__mark{ width:32px; height:38px; }
-.logo__word{ width:95px; height:19px; margin-bottom:3px; }
+.logo{ display:flex; align-items:center; flex:none; }
+/* One lockup, 1250x321, held at the 38px height the header is built around. */
+.logo__img{ width:148px; height:38px; }
 
 .nav{ margin-left:auto; }
 .nav ul{ display:flex; gap:clamp(20px, 3.2vw, 65px); }

@@ -86,7 +86,7 @@ add_filter( 'wp_resource_hints', 'uottawa_resource_hints', 10, 2 );
  * ---------------------------------------------------------------------- */
 
 /**
- * URL of a file under assets/, e.g. uottawa_asset( 'icons/logo-group.svg' ).
+ * URL of a file under assets/, e.g. uottawa_asset( 'icons/logo.png' ).
  */
 function uottawa_asset( $path ) {
 	return get_template_directory_uri() . '/assets/' . ltrim( $path, '/' );

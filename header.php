@@ -21,8 +21,7 @@
   <header class="site-header" id="site-header">
     <div class="container">
       <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php esc_attr_e( 'uOttawa home', 'uottawa-online' ); ?>">
-        <img class="logo__mark" src="<?php echo esc_url( uottawa_asset( 'icons/logo-group1.svg' ) ); ?>" width="32" height="38" alt="" />
-        <img class="logo__word" src="<?php echo esc_url( uottawa_asset( 'icons/logo-group.svg' ) ); ?>" width="95" height="19" alt="uOttawa" />
+        <img class="logo__img" src="<?php echo esc_url( uottawa_asset( 'icons/logo.png' ) ); ?>" width="148" height="38" alt="uOttawa" />
       </a>
 
       <button class="nav-toggle" type="button" id="nav-toggle" aria-label="<?php esc_attr_e( 'Menu', 'uottawa-online' ); ?>" aria-expanded="false">
