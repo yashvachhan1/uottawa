@@ -315,8 +315,17 @@ function uottawa_first_run() {
 
 	$ids = array();
 
+	// Slugs this theme has already set up. A page removed afterwards was
+	// removed on purpose, so it is not built again; only slugs the theme has
+	// never created are.
+	$done = (array) get_option( 'uottawa_pages_setup', array() );
+
 	foreach ( $pages as $slug => $page ) {
 		$existing = get_page_by_path( $slug );
+
+		if ( ! $existing && in_array( $slug, $done, true ) ) {
+			continue;
+		}
 
 		if ( ! $existing ) {
 			// Trashing a page renames it "<slug>__trashed" but keeps its
@@ -369,10 +378,17 @@ function uottawa_first_run() {
 		if ( $page[1] ) {
 			update_post_meta( $ids[ $slug ], '_wp_page_template', $page[1] );
 		}
+
+		if ( ! in_array( $slug, $done, true ) ) {
+			$done[] = $slug;
+		}
 	}
 
-	// Static front page.
-	if ( isset( $ids['home'] ) ) {
+	update_option( 'uottawa_pages_setup', $done );
+
+	// Static front page, set once. Whichever page the site points at later is
+	// the site's business.
+	if ( isset( $ids['home'] ) && ! get_option( 'page_on_front' ) ) {
 		update_option( 'show_on_front', 'page' );
 		update_option( 'page_on_front', $ids['home'] );
 	}
@@ -388,6 +404,22 @@ function uottawa_first_run() {
 	update_option( 'uottawa_setup_version', uottawa_theme_version() );
 }
 add_action( 'after_switch_theme', 'uottawa_first_run' );
+
+/**
+ * front-page.php outranks a page's own template, so the landing page set as
+ * the front page would render the home design instead of itself. Step aside
+ * whenever the front page carries a template of its own.
+ */
+function uottawa_front_page_template( $template ) {
+	$front = (int) get_option( 'page_on_front' );
+
+	if ( $front && get_post_meta( $front, '_wp_page_template', true ) ) {
+		return '';
+	}
+
+	return $template;
+}
+add_filter( 'frontpage_template', 'uottawa_front_page_template' );
 
 /**
  * The theme's own version, used to decide whether setup should run again.
