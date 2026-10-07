@@ -22,11 +22,11 @@
 
       <div class="cta__actions">
         <div class="cta__action">
-          <a class="btn btn--red btn--lg" href="<?php echo esc_url( uottawa_cta_url( 'request' ) ); ?>"><?php esc_html_e( 'Request more info', 'uottawa-online' ); ?></a>
+          <a class="btn btn--red btn--pill" href="<?php echo esc_url( uottawa_cta_url( 'request' ) ); ?>"><?php esc_html_e( 'Request more info', 'uottawa-online' ); ?></a>
           <p><?php esc_html_e( 'Get program details, tuition information, and application instructions.', 'uottawa-online' ); ?></p>
         </div>
         <div class="cta__action">
-          <a class="btn btn--red btn--lg" href="<?php echo esc_url( uottawa_cta_url( 'apply' ) ); ?>"><?php esc_html_e( 'Start your application', 'uottawa-online' ); ?></a>
+          <a class="btn btn--red btn--pill" href="<?php echo esc_url( uottawa_cta_url( 'apply' ) ); ?>"><?php esc_html_e( 'Start your application', 'uottawa-online' ); ?></a>
           <p><?php esc_html_e( 'Begin your journey toward building in-demand, future-proof skills.', 'uottawa-online' ); ?></p>
         </div>
       </div>
