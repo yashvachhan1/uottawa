@@ -1049,6 +1049,37 @@
     line-height:normal !important;
     color:var(--ink) !important;
   }
+  /* The container carries side padding of its own, which made the white box
+     narrower than its column while Select2 still sized the open panel to the
+     full column - so the panel hung over both edges. The text inset belongs
+     on the box, not the container. */
+  .uottawa-lp .forminator-card-wrapper .select2-container{
+    padding:0 !important;
+    width:100% !important;
+  }
+  .uottawa-lp .forminator-card-wrapper .select2-container > .selection{
+    display:block !important;
+    width:100% !important;
+  }
+
+  /* Nothing here takes a focus ring of its own; the box keeps its own colour
+     open or closed, and the highlighted row is flat garnet. */
+  .uottawa-lp .forminator-card-wrapper .select2-container .select2-selection,
+  .uottawa-lp .forminator-card-wrapper .select2-container--open .select2-selection,
+  .uottawa-lp .forminator-card-wrapper .select2-selection:focus{
+    outline:none !important;
+    box-shadow:none !important;
+  }
+  .forminator-select-dropdown,
+  .forminator-select-dropdown .select2-results__option{
+    outline:none !important;
+    border:none !important;
+    box-shadow:none !important;
+  }
+  .forminator-select-dropdown{
+    box-shadow:0 8px 24px rgba(0,0,0,.28) !important;
+  }
+
   /* The arrow is a flex item here, and on a relatively positioned element a
      `right` offset pushes it the wrong way - it belongs at the end of the row,
      inside the box's own padding. */
@@ -1098,9 +1129,13 @@
   .forminator-select-dropdown .select2-results__options{
     background:#fff !important;
   }
+  /* Forminator insets the panel by 9px, which left a white band above the
+     highlighted row. The rows run to the panel's edges instead, and its
+     rounded corners clip them. */
+  .forminator-select-dropdown{padding:0 !important;}
   .select2-container--open .select2-results__options{
     max-height:260px !important;
-    padding:4px 0 !important;
+    padding:0 !important;
   }
   .select2-container--open .select2-results__option{
     font-family:'Open Sans', Arial, Helvetica, sans-serif !important;
