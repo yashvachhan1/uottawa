@@ -1049,9 +1049,14 @@
     line-height:normal !important;
     color:var(--ink) !important;
   }
+  /* The arrow is a flex item here, and on a relatively positioned element a
+     `right` offset pushes it the wrong way - it belongs at the end of the row,
+     inside the box's own padding. */
   .uottawa-lp .forminator-card-wrapper .select2-container .select2-selection__arrow{
     height:45.38px !important;
-    right:10px !important;
+    position:static !important;
+    right:auto !important;
+    margin-left:auto !important;
   }
 
   /* The consent boxes sit on the dark card, so their text is white, and the
