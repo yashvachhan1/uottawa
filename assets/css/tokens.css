@@ -42,6 +42,8 @@
      lines up on the same left and right edge. The landing frame is inset
      125px on the left and 91px on the right; both step down together at the
      breakpoints below. */
+  /* Header height. The landing page's tab bar sticks directly beneath it. */
+  --header-h: 70px;
   --page-l: 125px;
   --page-r: 91px;
   --wrap: 1922px;

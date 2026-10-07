@@ -334,7 +334,9 @@
   .uottawa-lp .tabs-wrap{position:relative;}
   .uottawa-lp .nav-bg{
     position:sticky;
-    top:0;
+    /* The site header is sticky too, so the bar pins just below it rather
+       than under it. */
+    top:var(--header-h, 70px);
     z-index:20;
     background:var(--dark);
   }
