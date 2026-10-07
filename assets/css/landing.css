@@ -1079,3 +1079,35 @@
     line-height:1.5 !important;
     color:#fff !important;
   }
+
+  /* Select2 hangs its open panel off <body>, outside .uottawa-lp, so these
+     cannot be scoped to the card. landing.css only loads on this page, so
+     that is as far as they reach. */
+  .forminator-select-dropdown{
+    background:#fff !important;
+    border:none !important;
+    border-radius:3.583px !important;
+    box-shadow:0 8px 24px rgba(0,0,0,.28) !important;
+    overflow:hidden !important;
+  }
+  .forminator-select-dropdown .select2-results__options{
+    background:#fff !important;
+  }
+  .select2-container--open .select2-results__options{
+    max-height:260px !important;
+    padding:4px 0 !important;
+  }
+  .select2-container--open .select2-results__option{
+    font-family:'Open Sans', Arial, Helvetica, sans-serif !important;
+    font-size:0.9375rem !important;
+    line-height:1.4 !important;
+    padding:10px 12px !important;
+    background:#fff !important;
+    color:var(--ink, #2d2d2c) !important;
+  }
+  .select2-container--open .select2-results__option--highlighted,
+  .select2-container--open .select2-results__option--selected,
+  .select2-container--open .select2-results__option[aria-selected="true"]{
+    background:var(--garnet, #8f001a) !important;
+    color:#fff !important;
+  }
