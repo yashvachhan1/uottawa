@@ -158,16 +158,16 @@
   }
   .uottawa-lp .hero-content h1{
     max-width:1180px;               /* 1:62 */
-    font-size:4rem;   /* = 64px at the 1922 design width */
-    font-weight:600;                /* semibold, as on the live site */
-    line-height:1.03;               /* 66/64 */
+    font-size:3.25rem;              /* 52px  - 1:64 */
+    font-weight:700;
+    line-height:1.2692;             /* 66/52 - 1:64 */
   }
   .uottawa-lp .hero-content p{
     max-width:1180px;
     margin-top:12px;                /* gap 10 + pt 2 */
-    font-size:2rem;   /* = 32px at 1922 */
+    font-size:2rem;                 /* 32px  - 1:66 */
     font-weight:400;
-    line-height:1.25;
+    line-height:normal;             /* 1:66 */
   }
 
   /* ---------- STATS BAR — 1:60 / 1:67 ---------- */
