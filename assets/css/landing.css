@@ -159,7 +159,7 @@
   .uottawa-lp .hero-content h1{
     max-width:1180px;               /* 1:62 */
     font-size:4rem;   /* = 64px at the 1922 design width */
-    font-weight:700;
+    font-weight:600;                /* semibold, as on the live site */
     line-height:1.03;               /* 66/64 */
   }
   .uottawa-lp .hero-content p{
