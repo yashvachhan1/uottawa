@@ -608,6 +608,8 @@
   .uottawa-lp .split.tuition .cta-btn{margin-top:8px;}
   .uottawa-lp .group-end{margin-bottom:34px;}
   .uottawa-lp .group-end + .cta-btn{margin-top:60px;}
+  /* A button that ends a block sits right against whatever follows it. */
+  .uottawa-lp .cta-btn + .split{margin-top:64px;}
   .uottawa-lp .note-italic{
     font-style:italic;              /* 1:693 / 1:694 */
     font-size:1.5rem;
