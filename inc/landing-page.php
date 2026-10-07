@@ -2415,6 +2415,19 @@ function uottawa_landing_page_shortcode($atts) {
           window.scrollTo({ top: top, behavior: 'smooth' });
         }
       });
+
+      // One accordion open at a time. Opening one closes whichever of its
+      // siblings was open, so a group never ends up as a wall of text.
+      document.querySelectorAll('.uottawa-lp details.acc').forEach(function (d) {
+        d.addEventListener('toggle', function () {
+          if (!d.open) return;
+          d.parentElement
+            .querySelectorAll(':scope > details.acc[open]')
+            .forEach(function (other) {
+              if (other !== d) other.open = false;
+            });
+        });
+      });
     </script>
 <!--
     // Pardot tracking code | added: 2026-Oct-01

@@ -596,6 +596,9 @@
     color:inherit;font-size:inherit;font-weight:inherit;text-decoration:none;
   }
   .uottawa-lp .acc-body.rich li a:hover{text-decoration:underline;}
+  /* The course links under Career & learning outcomes carry their underline
+     all the time, so they read as links among plain list items. */
+  .uottawa-lp #outcomes .acc-body.rich li a{text-decoration:underline;}
 
   /* ---------- ADMISSIONS ---------- */
   .uottawa-lp ul.reqs{list-style:disc;padding-left:36px;margin-bottom:46px;}
