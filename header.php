@@ -24,31 +24,8 @@
         <img class="logo__img" src="<?php echo esc_url( uottawa_asset( 'icons/logo.png' ) ); ?>" width="148" height="38" alt="uOttawa" />
       </a>
 
-      <button class="nav-toggle" type="button" id="nav-toggle" aria-label="<?php esc_attr_e( 'Menu', 'uottawa-online' ); ?>" aria-expanded="false">
-        <span></span>
-      </button>
-
-      <nav class="nav" aria-label="<?php esc_attr_e( 'Primary', 'uottawa-online' ); ?>">
-        <?php
-        wp_nav_menu(
-          array(
-            'theme_location' => 'primary',
-            'container'      => false,
-            'items_wrap'     => '<ul>%3$s</ul>',
-            'depth'          => 1,
-            'fallback_cb'    => 'uottawa_primary_menu_fallback',
-          )
-        );
-        ?>
-      </nav>
-
       <div class="header-lang">
         <a class="btn btn--lang" href="<?php echo esc_url( uottawa_french_url() ); ?>" rel="noopener" lang="fr" title="Site en français">FR</a>
-      </div>
-
-      <div class="header-actions">
-        <a class="btn btn--red btn--sm" href="<?php echo esc_url( uottawa_cta_url( 'apply' ) ); ?>"><?php esc_html_e( 'Apply now', 'uottawa-online' ); ?></a>
-        <a class="btn btn--outline-dark btn--sm" href="<?php echo esc_url( uottawa_cta_url( 'request' ) ); ?>"><?php esc_html_e( 'Request info', 'uottawa-online' ); ?></a>
       </div>
     </div>
   </header>
