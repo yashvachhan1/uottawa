@@ -772,6 +772,14 @@
     .uottawa-lp .card{width:500px;}
     .uottawa-lp .why .container{grid-template-columns:minmax(0,1fr) 500px;column-gap:60px;}
   }
+
+  /* ---------- SMALL LAPTOP ---------- */
+  /* The form keeps its place beside the list rather than dropping below it;
+     it just gets narrower. */
+  @media (max-width:1280px){
+    .uottawa-lp .card{width:440px;}
+    .uottawa-lp .why .container{grid-template-columns:minmax(0,1fr) 440px;column-gap:44px;}
+  }
   /* ---------- TABLET LANDSCAPE ---------- */
   @media (max-width:1100px){
     :root{--page-l:32px;--page-r:32px;}
@@ -823,11 +831,9 @@
     .uottawa-lp .stat .value{font-size:1.25rem;line-height:1.625rem;}
     .uottawa-lp .stat .label{font-size:0.875rem;}
     .uottawa-lp .why{padding:40px 0 48px;}
-    .uottawa-lp .why .container{grid-template-columns:1fr;gap:40px;}
     .uottawa-lp .why-content{padding-top:0;}
     .uottawa-lp .why h2{font-size:1.75rem;}
     .uottawa-lp .why li{font-size:1.0625rem;line-height:1.625rem;padding:8px 0 8px 22px;min-height:0;}
-    .uottawa-lp .card{width:100%;max-width:497px;}
     .uottawa-lp .split,.uottawa-lp .split.reverse,
     .uottawa-lp .split.adm,.uottawa-lp .split.tuition{grid-template-columns:1fr;row-gap:26px;}
     .uottawa-lp .split img,.uottawa-lp .split.reverse img,
@@ -847,6 +853,12 @@
     .uottawa-lp .final-cta{padding-top:48px;min-height:0;}
     .uottawa-lp .final-cta .container{grid-template-columns:1fr;row-gap:34px;}
     .uottawa-lp .final-cta h2{font-size:2.125rem;line-height:2.375rem;}
+  }
+
+  /* ---------- WHERE THE FORM DROPS BELOW THE LIST ---------- */
+  @media (max-width:1024px){
+    .uottawa-lp .why .container{grid-template-columns:1fr;gap:40px;}
+    .uottawa-lp .card{width:100%;max-width:none;}
   }
 
   /* ---------- TABLET PORTRAIT ---------- */
