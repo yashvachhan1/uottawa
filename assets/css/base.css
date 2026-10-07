@@ -4,10 +4,7 @@
    ========================================================================== */
 *,*::before,*::after{ box-sizing:border-box; }
 
-/* Every size on the page is a rem figure taken straight from the Figma file
-   (rem = px / 16), so the root is pinned to 16px and those figures land on
-   their exact design pixels whatever the browser's own font size is set to. */
-html{ font-size:16px; -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
 
 body{
   margin:0;

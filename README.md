@@ -91,11 +91,11 @@ matches the original single-file build.
 
 ## Notes
 
-- **Type is in `rem`, at exactly the Figma pixel size** (`rem = px / 16`). The
-  root is pinned with `html{ font-size:16px }` so those figures land on their
-  design pixels on every machine - a reader whose browser font size is set to
-  Large was otherwise seeing the whole site about a quarter larger than the
-  design, which broke the denser rows. `rem` does not shrink with
+- **Type is in `rem`, at exactly the Figma pixel size** (`rem = px / 16`), so it
+  also follows the reader's own browser font size. Note that a browser set to a
+  larger default font renders the whole site to match - at Chrome's "Large"
+  (20px root) everything comes out about a quarter bigger than the design, and
+  the denser rows, such as the six-item facts strip, wrap further. `rem` does not shrink with
   the viewport, so the type tokens in `tokens.css` are restated smaller at
   1400 / 1024 / 768 in `mobile.css` — change a size there and everything using
   that token follows.
