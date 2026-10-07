@@ -657,7 +657,6 @@
     min-height:383px;
   }
   .uottawa-lp .final-cta .container{
-    padding-left:132px;
     display:grid;
     grid-template-columns:1fr 1fr;
     column-gap:48px;
@@ -729,7 +728,6 @@
     .uottawa-lp .why h2{font-size:2.25rem;min-height:0;}
     .uottawa-lp .panel h2,.uottawa-lp .success h3{font-size:2.25rem;}
     .uottawa-lp .final-cta h2{font-size:3.75rem;line-height:4rem;}
-    .uottawa-lp .final-cta .container{padding-left:64px;}
   }
   @media (max-width:1500px){
     :root{--page-l:64px;--page-r:64px;}
@@ -766,7 +764,6 @@
     .uottawa-lp .final-cta .cta-btn{font-size:1.125rem;}
     .uottawa-lp .success .num{font-size:3.5rem;}
     .uottawa-lp .success .lbl{font-size:1.25rem;line-height:1.625rem;}
-    .uottawa-lp .final-cta .container{padding-left:64px;}
     .uottawa-lp .areas-grid{row-gap:30px;}
     .uottawa-lp .card{width:500px;}
     .uottawa-lp .why .container{grid-template-columns:minmax(0,1fr) 500px;column-gap:60px;}
@@ -844,7 +841,7 @@
     .uottawa-lp .areas-grid{grid-template-columns:repeat(2,1fr);row-gap:24px;}
     .uottawa-lp .areas img{height:220px;}
     .uottawa-lp .final-cta{padding-top:48px;min-height:0;}
-    .uottawa-lp .final-cta .container{grid-template-columns:1fr;row-gap:34px;padding-left:32px;}
+    .uottawa-lp .final-cta .container{grid-template-columns:1fr;row-gap:34px;}
     .uottawa-lp .final-cta h2{font-size:2.125rem;line-height:2.375rem;}
   }
 

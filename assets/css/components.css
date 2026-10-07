@@ -238,75 +238,63 @@
 /* ==========================================================================
    CTA BAND
    ========================================================================== */
+/* This is the band from the Online programs page, so the two are identical:
+   77px above the text, a 383px floor, the heading capped at 842px so it holds
+   two lines instead of three, and buttons that size to their own label rather
+   than to a fixed width. The ladder lives with the other breakpoints and steps
+   on the same widths landing.css uses. */
 .cta{
   margin-top:var(--space-section);
   background:var(--ink);
   border-top:1px solid var(--tundora);
   border-bottom:1px solid var(--tundora);
+  padding:77px 0 56px;
+  min-height:383px;
 }
-/* Exact Figma geometry for the band (section 1920 x 383):
-     padding   left 132 | right 139 | top 77 | bottom 74
-     columns   842 + 76 gap + 731            (132+842+76+731+139 = 1920)
-     title     76px / 72px line-height, then a 14px gap to the paragraph
-     buttons   left 1050 and 1446, tops 91 and 90, widths 273.4 and 345.4
-   Everything is in vw so the band keeps these proportions at any width. */
 .cta .container{
   max-width:var(--wrap);
-  /* Same gutters as every other container, so the heading in the dark band
-     sits on the page's left edge rather than its own. */
   padding-left:var(--page-l);
   padding-right:var(--page-r);
-  padding-top:clamp(40px, 4.0104vw, 77px);
-  padding-bottom:clamp(40px, 3.8542vw, 74px);
   display:grid;
-  grid-template-columns:minmax(0, 842fr) minmax(0, 731fr);
-  column-gap:clamp(24px, 3.9583vw, 76px);
+  grid-template-columns:1fr 1fr;
+  column-gap:48px;
   align-items:start;
 }
 .cta__title{
-  font-size:var(--fs-cta-title);   /* 76px */
-  line-height:0.947;               /* 72px at 76px, and keeps that ratio */
+  max-width:842px;
+  margin-bottom:14px;
+  font-size:4.75rem;        /* 76px */
+  line-height:4.5rem;       /* 72px */
   color:var(--white);
 }
 .cta__text-body{
-  margin-top:clamp(10px, 0.7292vw, 14px);
-  width:min(37.9167vw, 728px);
-  max-width:100%;
-  /* Figma gives this paragraph a 74px box with the text centred in it */
-  min-height:clamp(44px, 3.8542vw, 74px);
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  font-size:var(--fs-body);
+  max-width:728px;
+  margin:0;
+  font-size:1.5rem;         /* 24px */
   line-height:1.8125rem;
   font-weight:400;
   color:var(--gallery);
 }
-
 .cta__actions{
-  /* button 1 column is 396 wide (1446 - 1050), button 2 column is 335 */
-  margin-top:clamp(8px, 0.7292vw, 14px);
   display:grid;
-  grid-template-columns:minmax(0, 396fr) minmax(0, 335fr);
-  column-gap:0;
+  grid-template-columns:1fr 1fr;
+  column-gap:52px;
 }
 .cta__action .btn{
-  font-size:1.468562rem;
+  margin-bottom:22px;
+  padding:12.924px 28.197px 11.749px;
+  font-size:1.468562rem;    /* 23.497px */
   line-height:1.36;
-  padding:clamp(7px, 0.673vw, 12.924px) clamp(14px, 1.4686vw, 28.197px) clamp(6px, 0.6119vw, 11.749px);
+  border-radius:999px;
 }
-.cta__action:nth-child(1) .btn{ width:min(14.2393vw, 273.394px); }
-.cta__action:nth-child(2) .btn{ width:min(17.9902vw, 345.412px); }
 .cta__action p{
-  margin-top:clamp(12px, 1.2735vw, 24.45px);
-  padding-left:min(0.5728vw, 11px);
+  max-width:312px;
+  margin:0;
   font-size:1.468562rem;
   line-height:1.688875rem;
   font-weight:400;
   color:var(--white);
 }
-.cta__action:nth-child(1) p{ width:min(15.0530vw, 289.018px); max-width:100%; }
-.cta__action:nth-child(2) p{ width:min(16.2768vw, 312.515px); max-width:100%; }
 
 /* ==========================================================================
    FOOTER

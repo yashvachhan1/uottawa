@@ -6,6 +6,34 @@
    BREAKPOINTS
    ========================================================================== */
 
+/* CTA band type, on the same ladder landing.css gives its own band so the two
+   never diverge. Largest first. */
+@media (max-width:1700px){
+  .cta__title{ font-size:3.75rem; line-height:4rem; }      /* 60 / 64 */
+}
+@media (max-width:1500px){
+  .cta__title{ font-size:3rem; line-height:3.25rem; }      /* 48 / 52 */
+  .cta__text-body,
+  .cta__action .btn,
+  .cta__action p{ font-size:1.125rem; }                    /* 18 */
+}
+@media (max-width:1100px){
+  .cta{ padding-top:48px; min-height:0; }
+  .cta .container{ grid-template-columns:1fr; row-gap:34px; }
+  .cta__title{ font-size:2.125rem; line-height:2.375rem; } /* 34 / 38 */
+}
+@media (max-width:900px){
+  .cta__action .btn,
+  .cta__action p{ font-size:1.0625rem; line-height:1.5rem; }
+}
+@media (max-width:640px){
+  .cta__actions{ grid-template-columns:1fr; row-gap:24px; }
+  .cta__title{ font-size:1.75rem; line-height:2rem; }      /* 28 / 32 */
+}
+@media (max-width:400px){
+  .cta__title{ font-size:1.5rem; line-height:1.75rem; }    /* 24 / 28 */
+}
+
 /* Page gutters, stepping down on the same breakpoints the landing page uses,
    so the two stay on the same edge at every width. Largest first. */
 @media (max-width:1700px){
@@ -31,7 +59,6 @@
     --fs-hero-eyebrow:1.75rem;
     --fs-hero-tag:1.875rem;
     --fs-day-title:1.75rem;
-    --fs-cta-title:3.5rem;    /* 56px */
     --fs-nav:0.875rem;
   }
   .btn--program{ font-size:1.0625rem; }
@@ -57,7 +84,6 @@
     --fs-hero-eyebrow:1.5rem;
     --fs-hero-tag:1.5rem;
     --fs-day-title:1.5rem;
-    --fs-cta-title:2.75rem;   /* 44px */
     --fs-small:0.75rem;
   }
   .btn--read{ font-size:0.9375rem; }
@@ -128,7 +154,6 @@
     --fs-hero-eyebrow:1.125rem;
     --fs-hero-tag:1.1875rem;
     --fs-day-title:1.3125rem;
-    --fs-cta-title:2rem;      /* 32px */
   }
   .btn--program,
   .btn--pill,
