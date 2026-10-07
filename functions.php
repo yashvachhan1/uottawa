@@ -413,11 +413,22 @@ add_action( 'after_switch_theme', 'uottawa_first_run' );
 function uottawa_front_page_template( $template ) {
 	$front = (int) get_option( 'page_on_front' );
 
-	if ( $front && get_post_meta( $front, '_wp_page_template', true ) ) {
-		return '';
+	if ( ! $front ) {
+		return $template;
 	}
 
-	return $template;
+	$assigned = get_post_meta( $front, '_wp_page_template', true );
+
+	if ( ! $assigned || 'default' === $assigned ) {
+		return $template;
+	}
+
+	// Name the file rather than returning an empty string: that would hand the
+	// front page back to the template hierarchy, which picks by slug and can
+	// land on another page's template altogether.
+	$located = locate_template( $assigned );
+
+	return $located ? $located : $template;
 }
 add_filter( 'frontpage_template', 'uottawa_front_page_template' );
 
