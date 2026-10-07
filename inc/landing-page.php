@@ -2401,6 +2401,19 @@ function uottawa_landing_page_shortcode($atts) {
         document.querySelectorAll('.panel').forEach(function (p) {
           p.classList.toggle('active', p.id === btn.dataset.tab);
         });
+
+        // Panels differ in length, so a tab opened from halfway down the last
+        // one would otherwise start halfway down. Bring the reader back to
+        // where the bar pins, with the new panel beginning just beneath it.
+        var wrap = document.querySelector('.tabs-wrap');
+        if (!wrap) return;
+        var headerH = parseFloat(
+          getComputedStyle(document.documentElement).getPropertyValue('--header-h')
+        ) || 70;
+        var top = wrap.getBoundingClientRect().top + window.pageYOffset - headerH;
+        if (window.pageYOffset > top) {
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        }
       });
     </script>
 <!--
