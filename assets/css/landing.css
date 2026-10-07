@@ -1029,3 +1029,53 @@
     justify-content:center !important;
   }
   .uottawa-lp .forminator-card-wrapper .forminator-button-submit:hover{background:var(--garnet-dark) !important;}
+
+  /* Forminator draws its dropdowns through Select2, so the box you can see is
+     the Select2 control and the real <select> is hidden. Match it to the text
+     inputs. */
+  .uottawa-lp .forminator-card-wrapper .select2-container .select2-selection{
+    height:45.38px !important;
+    background:#fff !important;
+    border:none !important;
+    border-radius:3.583px !important;
+    display:flex !important;
+    align-items:center !important;
+    padding:0 12px !important;
+  }
+  .uottawa-lp .forminator-card-wrapper .select2-container .select2-selection__rendered{
+    padding:0 !important;
+    font-family:inherit !important;
+    font-size:0.9375rem !important;
+    line-height:normal !important;
+    color:var(--ink) !important;
+  }
+  .uottawa-lp .forminator-card-wrapper .select2-container .select2-selection__arrow{
+    height:45.38px !important;
+    right:10px !important;
+  }
+
+  /* The consent boxes sit on the dark card, so their text is white, and the
+     two of them need room between each other and the button. */
+  .uottawa-lp .forminator-card-wrapper label.forminator-checkbox,
+  .uottawa-lp .forminator-card-wrapper label.forminator-radio{
+    align-items:flex-start !important;
+    gap:10px !important;
+    font-family:inherit !important;
+    font-size:0.895625rem !important;
+    line-height:1.45 !important;
+    color:#fff !important;
+  }
+  .uottawa-lp .forminator-card-wrapper .forminator-field-checkbox{margin-top:12px !important;}
+
+  /* Validation, and the note that replaces the form once it is sent. */
+  .uottawa-lp .forminator-card-wrapper .forminator-error-message{
+    font-family:inherit !important;
+    font-size:0.8125rem !important;
+    color:#ffb3bd !important;
+  }
+  .uottawa-lp .forminator-card-wrapper .forminator-response-message{
+    font-family:inherit !important;
+    font-size:0.9375rem !important;
+    line-height:1.5 !important;
+    color:#fff !important;
+  }
