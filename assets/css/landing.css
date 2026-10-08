@@ -147,10 +147,9 @@
     align-items:flex-end;
     overflow:hidden;
   }
-  .uottawa-lp .hero::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.65) 100%);
-  }
+  /* Both live sites run the hero photo plain - the darkening is baked into
+     the picture, not laid over it. The Figma frame showed a gradient because
+     the photo was a separate layer there. */
   .uottawa-lp .hero .container{
     position:relative;z-index:1;
     padding-bottom:40px;

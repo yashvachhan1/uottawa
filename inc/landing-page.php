@@ -1816,7 +1816,7 @@ function uottawa_landing_page_shortcode($atts) {
     
 
 <?php $uottawa_hero = get_post_meta($post_id, 'img_hero_1', true); ?>
-<section class="hero"<?php if ($uottawa_hero) { echo ' style="background-image:linear-gradient(180deg,rgba(0,0,0,.78),rgba(0,0,0,.65)),url(' . esc_url($uottawa_hero) . ')"'; } ?>>
+<section class="hero"<?php if ($uottawa_hero) { echo ' style="background-image:url(' . esc_url($uottawa_hero) . ')"'; } ?>>
   <div class="container hero-content">
     <h1><?php echo wp_kses_post(get_post_meta($post_id, 'text_general_1', true) ?: 'Bachelor of Arts, Interdisciplinary Studies (Online, Accelerated)'); ?></h1>
     <p><?php echo wp_kses_post(get_post_meta($post_id, 'text_general_2', true) ?: 'Build on your college diploma &amp; sharpen the human skills the AI era rewards.'); ?></p>
