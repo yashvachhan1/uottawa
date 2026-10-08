@@ -18,6 +18,39 @@ if ( ! defined( 'ABSPATH' ) ) {
 // DYNAMIC META BOXES FOR EDIT PAGE (MANUAL LAYOUT)
 // ==========================================
 
+/**
+ * One row on the Images tab: a preview, the path, and a button that opens the
+ * media library. The value is stored as a URL, the same as the fields the
+ * markup already read.
+ */
+function uottawa_landing_image_field( $post_id, $key, $label, $default ) {
+    $value = get_post_meta( $post_id, $key, true );
+    $value = ( '' !== $value ) ? $value : $default;
+
+    echo '<div class="uottawa-img-field">';
+        echo '<div class="uottawa-img-preview" data-preview-for="' . esc_attr( $key ) . '"'
+           . ( $value ? ' style="background-image:url(\'' . esc_url( $value ) . '\')"' : '' ) . '></div>';
+        echo '<div>';
+            echo '<label for="' . esc_attr( $key ) . '">' . wp_kses_post( $label ) . '</label>';
+            echo '<input type="text" id="' . esc_attr( $key ) . '" name="' . esc_attr( $key ) . '" value="' . esc_attr( $value ) . '">';
+            echo '<p class="uottawa-img-buttons">';
+                echo '<button type="button" class="button uottawa-img-pick" data-target="' . esc_attr( $key ) . '">' . esc_html__( 'Select image', 'uottawa-online' ) . '</button> ';
+                echo '<button type="button" class="button-link uottawa-img-clear" data-target="' . esc_attr( $key ) . '">' . esc_html__( 'Reset to default', 'uottawa-online' ) . '</button>';
+            echo '</p>';
+        echo '</div>';
+    echo '</div>';
+}
+
+/**
+ * The Images tab opens the media library, which needs its scripts on the page.
+ */
+function uottawa_landing_admin_media( $hook ) {
+    if ( in_array( $hook, array( 'post.php', 'post-new.php' ), true ) ) {
+        wp_enqueue_media();
+    }
+}
+add_action( 'admin_enqueue_scripts', 'uottawa_landing_admin_media' );
+
 function uottawa_add_meta_boxes() {
     add_meta_box('uottawa_landing_meta', 'uOttawa Landing Page Content', 'uottawa_meta_box_callback', 'page', 'normal', 'high');
 }
@@ -38,6 +71,12 @@ function uottawa_meta_box_callback($post) {
         .uottawa-field label { font-weight: bold; display: block; margin-bottom: 5px; color:#333; }
         .uottawa-field input[type="text"], .uottawa-field textarea { width: 100%; max-width: 800px; padding: 8px; }
         .uottawa-field textarea { min-height: 80px; }
+        .uottawa-img-field { display:flex; gap:16px; align-items:flex-start; margin-bottom:18px; border-bottom:1px solid #eee; padding-bottom:18px; }
+        .uottawa-img-field > div:last-child { flex:1; min-width:0; }
+        .uottawa-img-field label { font-weight:bold; display:block; margin-bottom:6px; color:#333; }
+        .uottawa-img-preview { width:170px; height:106px; flex:none; border:1px solid #ccc; border-radius:3px; background:#fafafa center/cover no-repeat; }
+        .uottawa-img-field input[type="text"] { width:100%; max-width:620px; padding:8px; }
+        .uottawa-img-buttons { margin-top:8px; }
         .uottawa-section-title { margin-top: 0; padding-bottom: 10px; border-bottom: 2px solid #8f001a; }
     </style>';
     
@@ -45,7 +84,8 @@ function uottawa_meta_box_callback($post) {
     
     // TABS NAV
     echo '<ul class="uottawa-tabs">';
-echo '<li class="active" data-tab="tab-0">General</li>';
+echo '<li class="active" data-tab="tab-images">Images</li>';
+echo '<li data-tab="tab-0">General</li>';
 echo '<li data-tab="tab-1">Info Grid</li>';
 echo '<li data-tab="tab-2">Why uOttawa</li>';
 echo '<li data-tab="tab-3">Overview</li>';
@@ -57,7 +97,18 @@ echo '<li data-tab="tab-8">Areas of Study</li>';
 echo '<li data-tab="tab-9">Final CTA</li>';
 echo '</ul>';
 
-echo '<div class="uottawa-tab-content active" id="tab-0">';
+echo '<div class="uottawa-tab-content active" id="tab-images">';
+echo '<h3 class="uottawa-section-title">Images</h3>';
+echo '<p>Every picture on this page, in the order it appears. Leave one empty to fall back to the design\'s own image.</p>';
+uottawa_landing_image_field( $post->ID, 'img_hero_1', 'Hero &mdash; background', '/wp-content/uploads/2026/08/ef4da6c9c98f32283a2013b4740afd8fb341e4de.webp' );
+uottawa_landing_image_field( $post->ID, 'img_overview_7', 'Overview &mdash; first photo', 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=940&q=80' );
+uottawa_landing_image_field( $post->ID, 'img_overview_8', 'Overview &mdash; second photo', 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=930&q=80' );
+uottawa_landing_image_field( $post->ID, 'img_areas_of_study_14', 'Areas of study &mdash; photo', '/wp-content/uploads/2026/08/09a3437c81e0706f56f386a8cdcda7ccbf69d2b5.webp' );
+uottawa_landing_image_field( $post->ID, 'img_areas_of_study_123', 'Admissions &mdash; photo', '/wp-content/uploads/2026/08/62d370ec3bf8ccd7d20c0419ced8b558a214aee4.webp' );
+uottawa_landing_image_field( $post->ID, 'img_areas_of_study_131', 'Tuition &mdash; photo', '/wp-content/uploads/2026/08/7c98b18301ccaa1ff078e67d5351da8cdd8d49e9.webp' );
+echo '</div>';
+
+echo '<div class="uottawa-tab-content" id="tab-0">';
 echo '<h3 class="uottawa-section-title">General</h3>';
 
         $val_text_general_1 = get_post_meta($post->ID, 'text_general_1', true) ?: 'Bachelor of Arts, Interdisciplinary Studies (Online, Accelerated)';
@@ -1408,6 +1459,28 @@ echo '</div>';
             $(".uottawa-tab-content").removeClass("active");
             $("#" + $(this).data("tab")).addClass("active");
         });
+
+        // Images tab - the media library picker
+        var uottawaFrame;
+        $(".uottawa-img-pick").on("click", function(e){
+            e.preventDefault();
+            var key = $(this).data("target");
+            uottawaFrame = wp.media({ title: "Select image", button: { text: "Use this image" }, multiple: false });
+            uottawaFrame.on("select", function(){
+                var url = uottawaFrame.state().get("selection").first().toJSON().url;
+                $("#" + key).val(url);
+                $("[data-preview-for=\"" + key + "\"]").css("background-image", "url(" + url + ")");
+            });
+            uottawaFrame.open();
+        });
+        $(".uottawa-img-clear").on("click", function(e){
+            e.preventDefault();
+            var key = $(this).data("target");
+            var def = $("#" + key).data("default") || "";
+            $("#" + key).val(def);
+            $("[data-preview-for=\"" + key + "\"]").css("background-image", def ? "url(" + def + ")" : "none");
+        });
+
     });
     </script>';
 }
@@ -1416,6 +1489,12 @@ function uottawa_save_meta_boxes($post_id) {
     if (!isset($_POST['uottawa_meta_nonce']) || !wp_verify_nonce($_POST['uottawa_meta_nonce'], 'uottawa_save_meta')) return;
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
     if (!current_user_can('edit_page', $post_id)) return;
+    if (isset($_POST['img_hero_1'])) update_post_meta($post_id, 'img_hero_1', esc_url_raw($_POST['img_hero_1']));
+    if (isset($_POST['img_overview_7'])) update_post_meta($post_id, 'img_overview_7', esc_url_raw($_POST['img_overview_7']));
+    if (isset($_POST['img_overview_8'])) update_post_meta($post_id, 'img_overview_8', esc_url_raw($_POST['img_overview_8']));
+    if (isset($_POST['img_areas_of_study_14'])) update_post_meta($post_id, 'img_areas_of_study_14', esc_url_raw($_POST['img_areas_of_study_14']));
+    if (isset($_POST['img_areas_of_study_123'])) update_post_meta($post_id, 'img_areas_of_study_123', esc_url_raw($_POST['img_areas_of_study_123']));
+    if (isset($_POST['img_areas_of_study_131'])) update_post_meta($post_id, 'img_areas_of_study_131', esc_url_raw($_POST['img_areas_of_study_131']));
     if (isset($_POST['text_general_1'])) update_post_meta($post_id, 'text_general_1', wp_kses_post($_POST['text_general_1']));
     if (isset($_POST['text_general_2'])) update_post_meta($post_id, 'text_general_2', wp_kses_post($_POST['text_general_2']));
     if (isset($_POST['text_info_grid_1'])) update_post_meta($post_id, 'text_info_grid_1', sanitize_text_field($_POST['text_info_grid_1']));
@@ -1756,7 +1835,8 @@ function uottawa_landing_page_shortcode($atts) {
     <div class="uottawa-lp uottawa-landing-wrap">
     
 
-<section class="hero">
+<?php $uottawa_hero = get_post_meta($post_id, 'img_hero_1', true); ?>
+<section class="hero"<?php if ($uottawa_hero) { echo ' style="background-image:linear-gradient(180deg,rgba(0,0,0,.78),rgba(0,0,0,.65)),url(' . esc_url($uottawa_hero) . ')"'; } ?>>
   <div class="container hero-content">
     <h1><?php echo wp_kses_post(get_post_meta($post_id, 'text_general_1', true) ?: 'Bachelor of Arts, Interdisciplinary Studies (Online, Accelerated)'); ?></h1>
     <p><?php echo wp_kses_post(get_post_meta($post_id, 'text_general_2', true) ?: 'Build on your college diploma &amp; sharpen the human skills the AI era rewards.'); ?></p>
@@ -2069,7 +2149,7 @@ function uottawa_landing_page_shortcode($atts) {
       <span><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_12', true) ?: 'Interpretation'); ?></span>
       <span><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_13', true) ?: 'Critical analysis'); ?></span>
     </div>
-    <img src="/wp-content/uploads/2026/08/09a3437c81e0706f56f386a8cdcda7ccbf69d2b5.webp" alt="Colleagues talking in an office">
+    <img src="<?php echo esc_url(get_post_meta($post_id, 'img_areas_of_study_14', true) ?: '/wp-content/uploads/2026/08/09a3437c81e0706f56f386a8cdcda7ccbf69d2b5.webp'); ?>" alt="Colleagues talking in an office">
   </div>
 
   <h2><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_15', true) ?: 'Pathway 1: 45-unit accelerated pathway'); ?></h2>
@@ -2274,7 +2354,7 @@ function uottawa_landing_page_shortcode($atts) {
       </ul>
       <p class="note-italic" style="margin-top:0"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_122', true) ?: 'Your previous credential and educational background will determine your exact program pathway (45 or 60 units). UOttawa confirms final admission and credit recognition.'); ?></p>
     </div>
-    <img src="/wp-content/uploads/2026/08/62d370ec3bf8ccd7d20c0419ced8b558a214aee4.webp" alt="Student at a desk">
+    <img src="<?php echo esc_url(get_post_meta($post_id, 'img_areas_of_study_123', true) ?: '/wp-content/uploads/2026/08/62d370ec3bf8ccd7d20c0419ced8b558a214aee4.webp'); ?>" alt="Student at a desk">
   </div>
 
   <h2><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_20', true) ?: 'Your next step, with someone in your corner.'); ?></h2>
@@ -2310,7 +2390,7 @@ function uottawa_landing_page_shortcode($atts) {
       <?php $u = uottawa_cta_url( 'request' ); ?><a href="<?php echo esc_url( $u ); ?>"<?php echo uottawa_link_atts( $u ); ?> class="cta-btn"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_129', true) ?: 'Request more information'); ?></a>
       <p class="note-italic"><?php echo wp_kses_post(get_post_meta($post_id, 'text_areas_of_study_130', true) ?: '*Tuition and fees are subject to change each academic year. Textbooks may be required for some courses and are an additional cost.'); ?></p>
     </div>
-    <img src="/wp-content/uploads/2026/08/7c98b18301ccaa1ff078e67d5351da8cdd8d49e9.webp" alt="Student using a tablet">
+    <img src="<?php echo esc_url(get_post_meta($post_id, 'img_areas_of_study_131', true) ?: '/wp-content/uploads/2026/08/7c98b18301ccaa1ff078e67d5351da8cdd8d49e9.webp'); ?>" alt="Student using a tablet">
   </div>
 
  </div>
