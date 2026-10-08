@@ -911,9 +911,9 @@ echo '<h3 class="uottawa-section-title">Areas of Study</h3>';
             echo '<textarea name="text_areas_of_study_125">'.esc_textarea($val_text_areas_of_study_125).'</textarea>';echo '</div>';
 
 
-        $val_text_admissions_1 = get_post_meta($post->ID, 'text_admissions_1', true) ?: 'Your next step, with someone in your corner.';
+        $val_text_admissions_20 = get_post_meta($post->ID, 'text_admissions_20', true) ?: 'Your next step, with someone in your corner.';
         echo '<div class="uottawa-field"><label>Admissions: Next step heading</label>';
-            echo '<input type="text" name="text_admissions_1" value="'.esc_attr($val_text_admissions_1).'">';echo '</div>';
+            echo '<input type="text" name="text_admissions_20" value="'.esc_attr($val_text_admissions_20).'">';echo '</div>';
 
         $val_text_admissions_2 = get_post_meta($post->ID, 'text_admissions_2', true) ?: 'Applying to a uOttawa Online program isn\'t something you have to figure out alone. An enrolment advisor will walk you through it: what you\'ll need, what your prior learning could count toward, and whether the timing works for the life you\'re already living.';
         echo '<div class="uottawa-field"><label>Admissions: Next step intro</label>';
@@ -1623,7 +1623,7 @@ function uottawa_save_meta_boxes($post_id) {
     if (isset($_POST['img_areas_of_study_123'])) update_post_meta($post_id, 'img_areas_of_study_123', sanitize_text_field($_POST['img_areas_of_study_123']));
     if (isset($_POST['text_areas_of_study_124'])) update_post_meta($post_id, 'text_areas_of_study_124', sanitize_text_field($_POST['text_areas_of_study_124']));
     if (isset($_POST['text_areas_of_study_125'])) update_post_meta($post_id, 'text_areas_of_study_125', wp_kses_post($_POST['text_areas_of_study_125']));
-    if (isset($_POST['text_admissions_1'])) update_post_meta($post_id, 'text_admissions_1', sanitize_text_field($_POST['text_admissions_1']));
+    if (isset($_POST['text_admissions_20'])) update_post_meta($post_id, 'text_admissions_20', sanitize_text_field($_POST['text_admissions_20']));
     if (isset($_POST['text_admissions_2'])) update_post_meta($post_id, 'text_admissions_2', wp_kses_post($_POST['text_admissions_2']));
     if (isset($_POST['text_admissions_3'])) update_post_meta($post_id, 'text_admissions_3', sanitize_text_field($_POST['text_admissions_3']));
     if (isset($_POST['text_admissions_4'])) update_post_meta($post_id, 'text_admissions_4', wp_kses_post($_POST['text_admissions_4']));
@@ -2277,7 +2277,7 @@ function uottawa_landing_page_shortcode($atts) {
     <img src="/wp-content/uploads/2026/08/62d370ec3bf8ccd7d20c0419ced8b558a214aee4.webp" alt="Student at a desk">
   </div>
 
-  <h2><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_1', true) ?: 'Your next step, with someone in your corner.'); ?></h2>
+  <h2><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_20', true) ?: 'Your next step, with someone in your corner.'); ?></h2>
   <div class="rule"></div>
   <p style="margin-bottom:48px"><?php echo wp_kses_post(get_post_meta($post_id, 'text_admissions_2', true) ?: 'Applying to a uOttawa Online program isn\'t something you have to figure out alone. An enrolment advisor will walk you through it: what you\'ll need, what your prior learning could count toward, and whether the timing works for the life you\'re already living.'); ?></p>
 
