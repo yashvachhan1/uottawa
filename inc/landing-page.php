@@ -270,13 +270,7 @@ echo '<h3 class="uottawa-section-title">Overview</h3>';
         echo '<div class="uottawa-field"><label>Overview Paragraph 6 (Preview: This degree elevates essential human cap...)</label>';
             echo '<textarea name="text_overview_6">'.esc_textarea($val_text_overview_6).'</textarea>';echo '</div>';
 
-        $val_img_overview_7 = get_post_meta($post->ID, 'img_overview_7', true) ?: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=940&q=80';
-        echo '<div class="uottawa-field"><label>Overview Image 7 (Preview: https://images.unsplash.com/photo-157349...)</label>';
-            echo '<input type="text" name="img_overview_7" value="'.esc_attr($val_img_overview_7).'">';echo '</div>';
 
-        $val_img_overview_8 = get_post_meta($post->ID, 'img_overview_8', true) ?: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=930&q=80';
-        echo '<div class="uottawa-field"><label>Overview Image 8 (Preview: https://images.unsplash.com/photo-158048...)</label>';
-            echo '<input type="text" name="img_overview_8" value="'.esc_attr($val_img_overview_8).'">';echo '</div>';
 
         $val_text_overview_9 = get_post_meta($post->ID, 'text_overview_9', true) ?: 'Who is this program made for?';
         echo '<div class="uottawa-field"><label>Overview Heading 9 (Preview: Who is this program made for?...)</label>';
@@ -513,9 +507,6 @@ echo '<h3 class="uottawa-section-title">Areas of Study</h3>';
         echo '<div class="uottawa-field"><label>Areas of Study Text 13 (Preview: Critical analysis...)</label>';
             echo '<input type="text" name="text_areas_of_study_13" value="'.esc_attr($val_text_areas_of_study_13).'">';echo '</div>';
 
-        $val_img_areas_of_study_14 = get_post_meta($post->ID, 'img_areas_of_study_14', true) ?: '/wp-content/uploads/2026/08/09a3437c81e0706f56f386a8cdcda7ccbf69d2b5.webp';
-        echo '<div class="uottawa-field"><label>Areas of Study Image 14 (Preview: https://images.unsplash.com/photo-152207...)</label>';
-            echo '<input type="text" name="img_areas_of_study_14" value="'.esc_attr($val_img_areas_of_study_14).'">';echo '</div>';
 
         $val_text_areas_of_study_15 = get_post_meta($post->ID, 'text_areas_of_study_15', true) ?: 'Pathway 1: 45-unit accelerated pathway';
         echo '<div class="uottawa-field"><label>Areas of Study Heading 15 (Preview: Pathway 1: 45-unit accelerated pathway...)</label>';
@@ -949,9 +940,6 @@ echo '<h3 class="uottawa-section-title">Areas of Study</h3>';
         echo '<div class="uottawa-field"><label>Areas of Study Paragraph 122 (Preview: Your previous credential and educational...)</label>';
             echo '<textarea name="text_areas_of_study_122">'.esc_textarea($val_text_areas_of_study_122).'</textarea>';echo '</div>';
 
-        $val_img_areas_of_study_123 = get_post_meta($post->ID, 'img_areas_of_study_123', true) ?: '/wp-content/uploads/2026/08/62d370ec3bf8ccd7d20c0419ced8b558a214aee4.webp';
-        echo '<div class="uottawa-field"><label>Areas of Study Image 123 (Preview: https://images.unsplash.com/photo-157349...)</label>';
-            echo '<input type="text" name="img_areas_of_study_123" value="'.esc_attr($val_img_areas_of_study_123).'">';echo '</div>';
 
         $val_text_areas_of_study_124 = get_post_meta($post->ID, 'text_areas_of_study_124', true) ?: 'Application process';
         echo '<div class="uottawa-field"><label>Areas of Study Heading 124 (Preview: Application process...)</label>';
@@ -1057,9 +1045,6 @@ echo '<h3 class="uottawa-section-title">Areas of Study</h3>';
         echo '<div class="uottawa-field"><label>Areas of Study Paragraph 130 (Preview: *Tuition and fees are subject to change ...)</label>';
             echo '<textarea name="text_areas_of_study_130">'.esc_textarea($val_text_areas_of_study_130).'</textarea>';echo '</div>';
 
-        $val_img_areas_of_study_131 = get_post_meta($post->ID, 'img_areas_of_study_131', true) ?: '/wp-content/uploads/2026/08/7c98b18301ccaa1ff078e67d5351da8cdd8d49e9.webp';
-        echo '<div class="uottawa-field"><label>Areas of Study Image 131 (Preview: https://images.unsplash.com/photo-158089...)</label>';
-            echo '<input type="text" name="img_areas_of_study_131" value="'.esc_attr($val_img_areas_of_study_131).'">';echo '</div>';
 
         $val_text_areas_of_study_132 = get_post_meta($post->ID, 'text_areas_of_study_132', true) ?: 'Frequently asked questions';
         echo '<div class="uottawa-field"><label>Areas of Study Heading 132 (Preview: Frequently asked questions...)</label>';
@@ -1537,8 +1522,6 @@ function uottawa_save_meta_boxes($post_id) {
     if (isset($_POST['text_overview_4'])) update_post_meta($post_id, 'text_overview_4', wp_kses_post($_POST['text_overview_4']));
     if (isset($_POST['text_overview_5'])) update_post_meta($post_id, 'text_overview_5', wp_kses_post($_POST['text_overview_5']));
     if (isset($_POST['text_overview_6'])) update_post_meta($post_id, 'text_overview_6', wp_kses_post($_POST['text_overview_6']));
-    if (isset($_POST['img_overview_7'])) update_post_meta($post_id, 'img_overview_7', sanitize_text_field($_POST['img_overview_7']));
-    if (isset($_POST['img_overview_8'])) update_post_meta($post_id, 'img_overview_8', sanitize_text_field($_POST['img_overview_8']));
     if (isset($_POST['text_overview_9'])) update_post_meta($post_id, 'text_overview_9', sanitize_text_field($_POST['text_overview_9']));
     if (isset($_POST['text_overview_10'])) update_post_meta($post_id, 'text_overview_10', wp_kses_post($_POST['text_overview_10']));
     if (isset($_POST['text_overview_11'])) update_post_meta($post_id, 'text_overview_11', wp_kses_post($_POST['text_overview_11']));
@@ -1590,7 +1573,6 @@ function uottawa_save_meta_boxes($post_id) {
     if (isset($_POST['text_areas_of_study_11'])) update_post_meta($post_id, 'text_areas_of_study_11', sanitize_text_field($_POST['text_areas_of_study_11']));
     if (isset($_POST['text_areas_of_study_12'])) update_post_meta($post_id, 'text_areas_of_study_12', sanitize_text_field($_POST['text_areas_of_study_12']));
     if (isset($_POST['text_areas_of_study_13'])) update_post_meta($post_id, 'text_areas_of_study_13', sanitize_text_field($_POST['text_areas_of_study_13']));
-    if (isset($_POST['img_areas_of_study_14'])) update_post_meta($post_id, 'img_areas_of_study_14', sanitize_text_field($_POST['img_areas_of_study_14']));
     if (isset($_POST['text_areas_of_study_15'])) update_post_meta($post_id, 'text_areas_of_study_15', sanitize_text_field($_POST['text_areas_of_study_15']));
     if (isset($_POST['text_areas_of_study_16'])) update_post_meta($post_id, 'text_areas_of_study_16', sanitize_text_field($_POST['text_areas_of_study_16']));
     if (isset($_POST['text_areas_of_study_17'])) update_post_meta($post_id, 'text_areas_of_study_17', sanitize_text_field($_POST['text_areas_of_study_17']));
@@ -1699,7 +1681,6 @@ function uottawa_save_meta_boxes($post_id) {
     if (isset($_POST['text_areas_of_study_120'])) update_post_meta($post_id, 'text_areas_of_study_120', sanitize_text_field($_POST['text_areas_of_study_120']));
     if (isset($_POST['text_areas_of_study_121'])) update_post_meta($post_id, 'text_areas_of_study_121', sanitize_text_field($_POST['text_areas_of_study_121']));
     if (isset($_POST['text_areas_of_study_122'])) update_post_meta($post_id, 'text_areas_of_study_122', wp_kses_post($_POST['text_areas_of_study_122']));
-    if (isset($_POST['img_areas_of_study_123'])) update_post_meta($post_id, 'img_areas_of_study_123', sanitize_text_field($_POST['img_areas_of_study_123']));
     if (isset($_POST['text_areas_of_study_124'])) update_post_meta($post_id, 'text_areas_of_study_124', sanitize_text_field($_POST['text_areas_of_study_124']));
     if (isset($_POST['text_areas_of_study_125'])) update_post_meta($post_id, 'text_areas_of_study_125', wp_kses_post($_POST['text_areas_of_study_125']));
     if (isset($_POST['text_admissions_20'])) update_post_meta($post_id, 'text_admissions_20', sanitize_text_field($_POST['text_admissions_20']));
@@ -1726,7 +1707,6 @@ function uottawa_save_meta_boxes($post_id) {
     if (isset($_POST['text_areas_of_study_128'])) update_post_meta($post_id, 'text_areas_of_study_128', wp_kses_post($_POST['text_areas_of_study_128']));
     if (isset($_POST['text_areas_of_study_129'])) update_post_meta($post_id, 'text_areas_of_study_129', sanitize_text_field($_POST['text_areas_of_study_129']));
     if (isset($_POST['text_areas_of_study_130'])) update_post_meta($post_id, 'text_areas_of_study_130', wp_kses_post($_POST['text_areas_of_study_130']));
-    if (isset($_POST['img_areas_of_study_131'])) update_post_meta($post_id, 'img_areas_of_study_131', sanitize_text_field($_POST['img_areas_of_study_131']));
     if (isset($_POST['text_areas_of_study_132'])) update_post_meta($post_id, 'text_areas_of_study_132', sanitize_text_field($_POST['text_areas_of_study_132']));
     if (isset($_POST['text_areas_of_study_133'])) update_post_meta($post_id, 'text_areas_of_study_133', wp_kses_post($_POST['text_areas_of_study_133']));
     if (isset($_POST['text_areas_of_study_134'])) update_post_meta($post_id, 'text_areas_of_study_134', wp_kses_post($_POST['text_areas_of_study_134']));
