@@ -6,7 +6,7 @@ get_header();
 <!-- ============================================================ HERO -->
 <section class="hero hero--page">
   <div class="hero__bg">
-    <img src="<?php echo esc_url( uottawa_asset( 'img/007bc2f82e5e246d911896471b7b9f9f39c57034.jpg' ) ); ?>" alt="">
+    <img src="<?php echo esc_url( uottawa_page_image( 'img_news_hero', uottawa_asset( 'img/007bc2f82e5e246d911896471b7b9f9f39c57034.jpg' ) ) ); ?>" alt="">
   </div>
 
   <div class="container">

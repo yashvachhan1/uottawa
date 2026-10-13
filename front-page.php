@@ -5,7 +5,7 @@ get_header();
 <!-- ============================================================ HERO -->
 <section class="hero">
   <div class="hero__bg">
-    <img src="<?php echo esc_url( uottawa_asset( 'img/007bc2f82e5e246d911896471b7b9f9f39c57034.jpg' ) ); ?>" alt="">
+    <img src="<?php echo esc_url( uottawa_page_image( 'img_home_hero', uottawa_asset( 'img/007bc2f82e5e246d911896471b7b9f9f39c57034.jpg' ) ) ); ?>" alt="">
   </div>
 
   <div class="container">
@@ -118,7 +118,7 @@ get_header();
     <div class="beyond-grid">
       <article class="beyond-item">
         <div class="beyond-item__media">
-          <img src="<?php echo esc_url( uottawa_asset( 'img/1db0caf7dba8f8cfcd2ab1b78c55589d2203dad2.jpg' ) ); ?>" alt="">
+          <img src="<?php echo esc_url( uottawa_page_image( 'img_home_beyond_1', uottawa_asset( 'img/1db0caf7dba8f8cfcd2ab1b78c55589d2203dad2.jpg' ) ) ); ?>" alt="">
         </div>
         <div class="beyond-item__body">
           <h4>Life satisfaction</h4>
@@ -128,7 +128,7 @@ get_header();
 
       <article class="beyond-item">
         <div class="beyond-item__media">
-          <img src="<?php echo esc_url( uottawa_asset( 'img/9755731fb6ea8b22a9d25e00c68d1d505c1bfdbb.jpg' ) ); ?>" alt="">
+          <img src="<?php echo esc_url( uottawa_page_image( 'img_home_beyond_2', uottawa_asset( 'img/9755731fb6ea8b22a9d25e00c68d1d505c1bfdbb.jpg' ) ) ); ?>" alt="">
         </div>
         <div class="beyond-item__body">
           <h4>Deepen purpose</h4>
@@ -138,7 +138,7 @@ get_header();
 
       <article class="beyond-item">
         <div class="beyond-item__media">
-          <img src="<?php echo esc_url( uottawa_asset( 'img/07662f640130e427d17ab41521cec900d86b8ee3.jpg' ) ); ?>" alt="">
+          <img src="<?php echo esc_url( uottawa_page_image( 'img_home_beyond_3', uottawa_asset( 'img/07662f640130e427d17ab41521cec900d86b8ee3.jpg' ) ) ); ?>" alt="">
         </div>
         <div class="beyond-item__body">
           <h4>Sharpen prospects</h4>
@@ -185,7 +185,7 @@ get_header();
         </dl>
       </article>
       <div class="day-media">
-        <img src="<?php echo esc_url( uottawa_asset( 'img/3e1772b0e58a5483675ed988eb03ba7aea539c1f.jpg' ) ); ?>" alt="">
+        <img src="<?php echo esc_url( uottawa_page_image( 'img_home_day_1', uottawa_asset( 'img/3e1772b0e58a5483675ed988eb03ba7aea539c1f.jpg' ) ) ); ?>" alt="">
       </div>
     </div>
 
@@ -202,7 +202,7 @@ get_header();
         </dl>
       </article>
       <div class="day-media">
-        <img src="<?php echo esc_url( uottawa_asset( 'img/ec6f254c02d7b4af1e49d4a14a837ca24d7ebcbb.jpg' ) ); ?>" alt="">
+        <img src="<?php echo esc_url( uottawa_page_image( 'img_home_day_2', uottawa_asset( 'img/ec6f254c02d7b4af1e49d4a14a837ca24d7ebcbb.jpg' ) ) ); ?>" alt="">
       </div>
     </div>
 
@@ -224,7 +224,7 @@ get_header();
         <a class="btn btn--red btn--pill day__cta" href="#">Learn more</a>
       </div>
       <div class="day-media">
-        <img src="<?php echo esc_url( uottawa_asset( 'img/37a62cab214313cb1ec754ace570845aadd6deb8.jpg' ) ); ?>" alt="">
+        <img src="<?php echo esc_url( uottawa_page_image( 'img_home_day_3', uottawa_asset( 'img/37a62cab214313cb1ec754ace570845aadd6deb8.jpg' ) ) ); ?>" alt="">
       </div>
     </div>
   </div>

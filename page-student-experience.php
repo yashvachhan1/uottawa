@@ -6,7 +6,7 @@ get_header();
 <!-- ============================================================ HERO -->
 <section class="hero hero--page">
   <div class="hero__bg">
-    <img src="<?php echo esc_url( uottawa_asset( 'img/007bc2f82e5e246d911896471b7b9f9f39c57034.jpg' ) ); ?>" alt="">
+    <img src="<?php echo esc_url( uottawa_page_image( 'img_se_hero', uottawa_asset( 'img/007bc2f82e5e246d911896471b7b9f9f39c57034.jpg' ) ) ); ?>" alt="">
   </div>
 
   <div class="container">
@@ -103,7 +103,7 @@ get_header();
         </dl>
       </article>
       <div class="day-media">
-        <img src="<?php echo esc_url( uottawa_asset( 'img/3e1772b0e58a5483675ed988eb03ba7aea539c1f.jpg' ) ); ?>" alt="">
+        <img src="<?php echo esc_url( uottawa_page_image( 'img_se_day_1', uottawa_asset( 'img/3e1772b0e58a5483675ed988eb03ba7aea539c1f.jpg' ) ) ); ?>" alt="">
       </div>
     </div>
 
@@ -120,7 +120,7 @@ get_header();
         </dl>
       </article>
       <div class="day-media">
-        <img src="<?php echo esc_url( uottawa_asset( 'img/ec6f254c02d7b4af1e49d4a14a837ca24d7ebcbb.jpg' ) ); ?>" alt="">
+        <img src="<?php echo esc_url( uottawa_page_image( 'img_se_day_2', uottawa_asset( 'img/ec6f254c02d7b4af1e49d4a14a837ca24d7ebcbb.jpg' ) ) ); ?>" alt="">
       </div>
     </div>
 
@@ -139,7 +139,7 @@ get_header();
         </article>
       </div>
       <div class="day-media">
-        <img src="<?php echo esc_url( uottawa_asset( 'img/37a62cab214313cb1ec754ace570845aadd6deb8.jpg' ) ); ?>" alt="">
+        <img src="<?php echo esc_url( uottawa_page_image( 'img_se_day_3', uottawa_asset( 'img/37a62cab214313cb1ec754ace570845aadd6deb8.jpg' ) ) ); ?>" alt="">
       </div>
     </div>
   </div>
@@ -184,7 +184,7 @@ get_header();
 
     <div class="outcomes-grid">
       <article class="outcome">
-        <div class="outcome__media"><img src="<?php echo esc_url( uottawa_asset( 'img/1db0caf7dba8f8cfcd2ab1b78c55589d2203dad2.jpg' ) ); ?>" alt=""></div>
+        <div class="outcome__media"><img src="<?php echo esc_url( uottawa_page_image( 'img_se_grad_main', uottawa_asset( 'img/1db0caf7dba8f8cfcd2ab1b78c55589d2203dad2.jpg' ) ) ); ?>" alt=""></div>
         <div class="outcome__body">
           <h4>Universal recognition</h4>
           <p>A uOttawa credential recognized nationally and internationally, identical to its on-campus counterpart.</p>
@@ -192,7 +192,7 @@ get_header();
       </article>
 
       <article class="outcome">
-        <div class="outcome__media"><img src="<?php echo esc_url( uottawa_asset( 'img/9755731fb6ea8b22a9d25e00c68d1d505c1bfdbb.jpg' ) ); ?>" alt=""></div>
+        <div class="outcome__media"><img src="<?php echo esc_url( uottawa_page_image( 'img_se_grad_1', uottawa_asset( 'img/9755731fb6ea8b22a9d25e00c68d1d505c1bfdbb.jpg' ) ) ); ?>" alt=""></div>
         <div class="outcome__body">
           <h4>Career integration</h4>
           <p>A degree completed alongside a career rather than in place of it, meaning graduates carry both the credential and the work experience employers value.</p>
@@ -200,7 +200,7 @@ get_header();
       </article>
 
       <article class="outcome">
-        <div class="outcome__media"><img src="<?php echo esc_url( uottawa_asset( 'img/07662f640130e427d17ab41521cec900d86b8ee3.jpg' ) ); ?>" alt=""></div>
+        <div class="outcome__media"><img src="<?php echo esc_url( uottawa_page_image( 'img_se_grad_2', uottawa_asset( 'img/07662f640130e427d17ab41521cec900d86b8ee3.jpg' ) ) ); ?>" alt=""></div>
         <div class="outcome__body">
           <h4>Expanded opportunities</h4>
           <p>Eligibility for graduate study, professional certifications, and pathways that prior credentials alone may not unlock.</p>
@@ -208,7 +208,7 @@ get_header();
       </article>
 
       <article class="outcome">
-        <div class="outcome__media"><img src="<?php echo esc_url( uottawa_asset( 'img/3e1772b0e58a5483675ed988eb03ba7aea539c1f.jpg' ) ); ?>" alt=""></div>
+        <div class="outcome__media"><img src="<?php echo esc_url( uottawa_page_image( 'img_se_grad_3', uottawa_asset( 'img/3e1772b0e58a5483675ed988eb03ba7aea539c1f.jpg' ) ) ); ?>" alt=""></div>
         <div class="outcome__body">
           <h4>Global network</h4>
           <p>Membership in a uOttawa alumni community of more than 280,000 across Canada and the world.</p>

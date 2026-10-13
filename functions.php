@@ -17,6 +17,7 @@ define( 'UOTTAWA_VERSION', '1.1.0' );
 
 // Program landing page: editor meta boxes + the [uottawa_landing] shortcode.
 require_once get_template_directory() . '/inc/landing-page.php';
+require_once get_template_directory() . '/inc/page-images.php';
 
 /* -------------------------------------------------------------------------
  * Setup
