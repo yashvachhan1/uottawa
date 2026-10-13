@@ -4,18 +4,18 @@ get_header();
 ?>
 
 <!-- ============================================================ HERO -->
-<section class="hero">
-  <div class="hero__bg">
+<section class="page-hero">
+  <div class="page-hero__bg">
     <img src="<?php echo esc_url( uottawa_page_image( 'img_home_hero', uottawa_asset( 'img/007bc2f82e5e246d911896471b7b9f9f39c57034.jpg' ) ) ); ?>" alt="">
   </div>
 
   <div class="container">
-    <div class="hero__card">
-      <p class="hero__eyebrow">uOttawa Online</p>
-      <h1 class="hero__title">Open minds. Brighter futures. Since 1848.</h1>
-      <p class="hero__tagline">Your journey continues, wherever you are.</p>
-      <p class="hero__text">uOttawa Online extends a 175-year academic tradition to learners who are building a career, a family, and a future; often all at once. The same faculty. The same standard. A new way to take part.</p>
-      <div class="hero__actions">
+    <div class="page-hero__card">
+      <p class="page-hero__eyebrow">uOttawa Online</p>
+      <h1 class="page-hero__title">Open minds. Brighter futures. Since 1848.</h1>
+      <p class="page-hero__tagline">Your journey continues, wherever you are.</p>
+      <p class="page-hero__text">uOttawa Online extends a 175-year academic tradition to learners who are building a career, a family, and a future; often all at once. The same faculty. The same standard. A new way to take part.</p>
+      <div class="page-hero__actions">
         <a class="btn btn--red btn--hero" href="#">Apply now</a>
         <a class="btn btn--outline-light btn--hero" href="#">Request info</a>
       </div>

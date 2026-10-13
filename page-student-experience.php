@@ -4,15 +4,15 @@ get_header();
 ?>
 
 <!-- ============================================================ HERO -->
-<section class="hero hero--page">
-  <div class="hero__bg">
+<section class="page-hero page-hero--inner">
+  <div class="page-hero__bg">
     <img src="<?php echo esc_url( uottawa_page_image( 'img_se_hero', uottawa_asset( 'img/007bc2f82e5e246d911896471b7b9f9f39c57034.jpg' ) ) ); ?>" alt="">
   </div>
 
   <div class="container">
-    <div class="hero__card">
-      <h1 class="hero__title">Online student experience</h1>
-      <div class="hero__text">
+    <div class="page-hero__card">
+      <h1 class="page-hero__title">Online student experience</h1>
+      <div class="page-hero__text">
         <p>uOttawa Online is built for people who are already busy living their lives.</p>
         <p>You'll stay connected to expert faculty, dedicated advisors and classmates while studying on a schedule that fits around your career, your family and your goals.</p>
       </div>

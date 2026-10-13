@@ -211,7 +211,7 @@
    Figma node 26:177 (1920 x 8309)
    ========================================================================== */
 
-/* The shorter inner-page hero lives in the shared stylesheet as .hero--page */
+/* The shorter inner-page hero lives in the shared stylesheet as .page-hero--inner */
 
 /* ---- Fact strip (6 bold facts separated by thin rules) ---- */
 /* No margin-top here — the wrapping .section already supplies the gap. */
@@ -316,7 +316,7 @@
 /* ==========================================================================
    NEWS & EVENTS page — sections that only exist here
    Figma node 26:450 (1920 x 3265)
-   The shorter inner-page hero lives in the shared stylesheet as .hero--page
+   The shorter inner-page hero lives in the shared stylesheet as .page-hero--inner
    ========================================================================== */
 
 /* ---- Article grids on this page are three across (555px cards) ---- */

@@ -117,11 +117,11 @@
   /* A 1920x772 strip is too thin on a tablet — give the photo more height
      and reduce how far the card hangs over it. */
   /* On a tablet the card uses the full column, so drop the indent and caps. */
-  .hero__card{ width:100%; max-width:none; margin-left:0; }
-  .hero__text{ width:100%; }
-  .hero__bg{ aspect-ratio:16 / 9; }
-  .hero .container,
-  .hero--page .container{ margin-top:-14vw; }
+  .page-hero__card{ width:100%; max-width:none; margin-left:0; }
+  .page-hero__text{ width:100%; }
+  .page-hero__bg{ aspect-ratio:16 / 9; }
+  .page-hero .container,
+  .page-hero--inner .container{ margin-top:-14vw; }
 
   .beyond-grid{ grid-template-columns:repeat(2, 1fr); }
 
@@ -164,10 +164,10 @@
   .articles-grid{ grid-template-columns:1fr; }
   .cta__actions{ grid-template-columns:1fr; }
 
-  .hero__bg{ aspect-ratio:3 / 2; }
-  .hero__bg img{ object-position:center 30%; }
-  .hero .container,
-  .hero--page .container{ margin-top:-16vw; }
+  .page-hero__bg{ aspect-ratio:3 / 2; }
+  .page-hero__bg img{ object-position:center 30%; }
+  .page-hero .container,
+  .page-hero--inner .container{ margin-top:-16vw; }
 
   .faq-item__q span:last-child{ white-space:normal; }
 }
@@ -179,7 +179,7 @@
 
 /* Small phones */
 @media (max-width:480px){
-  .hero__actions .btn,
+  .page-hero__actions .btn,
   .program-card .btn,
   .day .btn,
   .next .btn{ width:100%; }

@@ -4,15 +4,15 @@ get_header();
 ?>
 
 <!-- ============================================================ HERO -->
-<section class="hero hero--page">
-  <div class="hero__bg">
+<section class="page-hero page-hero--inner">
+  <div class="page-hero__bg">
     <img src="<?php echo esc_url( uottawa_page_image( 'img_news_hero', uottawa_asset( 'img/007bc2f82e5e246d911896471b7b9f9f39c57034.jpg' ) ) ); ?>" alt="">
   </div>
 
   <div class="container">
-    <div class="hero__card">
-      <h1 class="hero__title">News &amp; events</h1>
-      <div class="hero__text">
+    <div class="page-hero__card">
+      <h1 class="page-hero__title">News &amp; events</h1>
+      <div class="page-hero__text">
         <p>Explore featured articles and the latest posts from uOttawa Online. Find resources to help you strengthen human-centred and employer-valued skills, future-proof your career, and complete your degree in less time.</p>
       </div>
     </div>
