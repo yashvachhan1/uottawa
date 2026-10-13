@@ -307,7 +307,7 @@ function uottawa_article_card( $card ) {
 
 function uottawa_first_run() {
 	$pages = array(
-		'home'               => array( __( 'Home', 'uottawa-online' ), '' ),
+		'home'               => array( __( 'Home', 'uottawa-online' ), 'page-home.php' ),
 		'online-programs'    => array( __( 'Online programs', 'uottawa-online' ), 'page-landing.php' ),
 		'student-experience' => array( __( 'Student experience', 'uottawa-online' ), 'page-student-experience.php' ),
 		'news-events'        => array( __( 'News & events', 'uottawa-online' ), 'page-news-events.php' ),

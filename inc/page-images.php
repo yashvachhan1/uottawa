@@ -15,8 +15,9 @@ defined( 'ABSPATH' ) || exit;
  * Which photos each template carries: meta key, label, and the shipped file.
  */
 function uottawa_page_image_map() {
-	return array(
-		'front-page.php' => array(
+	$map = array(
+		// Either name: the design is page-home.php, front-page.php loads it.
+		'page-home.php' => array(
 			array( 'img_home_hero', 'Hero', '007bc2f82e5e246d911896471b7b9f9f39c57034.jpg' ),
 			array( 'img_home_beyond_1', 'Beyond the credential &mdash; main photo', '1db0caf7dba8f8cfcd2ab1b78c55589d2203dad2.jpg' ),
 			array( 'img_home_beyond_2', 'Beyond the credential &mdash; Life satisfaction', '9755731fb6ea8b22a9d25e00c68d1d505c1bfdbb.jpg' ),
@@ -39,6 +40,10 @@ function uottawa_page_image_map() {
 			array( 'img_news_hero', 'Hero', '007bc2f82e5e246d911896471b7b9f9f39c57034.jpg' ),
 		),
 	);
+
+	$map['front-page.php'] = $map['page-home.php'];
+
+	return $map;
 }
 
 /**
