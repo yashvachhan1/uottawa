@@ -523,6 +523,72 @@ function uottawa_first_run_menu( $ids ) {
  * Customizer
  * ---------------------------------------------------------------------- */
 
+/**
+ * The footer line, with its middle pieces linked where a URL is set.
+ *
+ * The line stays one editable string so the wording is still the site's own.
+ * Splitting it on the pipe gives the Privacy and Accessibility pieces, and
+ * each is linked only if its URL exists — the privacy page WordPress already
+ * knows about, or whatever is set under Appearance > Customize. A piece with
+ * no URL is left as plain text.
+ */
+function uottawa_footer_line() {
+	$text = get_theme_mod( 'uottawa_footer_text', '© University of Ottawa  |  Privacy  |  Accessibility' );
+	$urls = array( 1 => uottawa_privacy_url(), 2 => uottawa_accessibility_url() );
+
+	$parts = explode( '|', $text );
+	$out   = array();
+
+	foreach ( $parts as $i => $part ) {
+		$label = esc_html( trim( $part ) );
+
+		if ( ! empty( $urls[ $i ] ) ) {
+			$label = '<a href="' . esc_url( $urls[ $i ] ) . '">' . $label . '</a>';
+		}
+
+		$out[] = $label;
+	}
+
+	// Figma puts two spaces either side of each pipe; HTML would collapse them.
+	return implode( '&nbsp;&nbsp;|&nbsp;&nbsp;', $out );
+}
+
+/**
+ * Where "Privacy" points: the Customizer field, else the page WordPress has
+ * set as its privacy policy, else a page at /privacy-policy/.
+ */
+function uottawa_privacy_url() {
+	$set = get_theme_mod( 'uottawa_privacy_url', '' );
+
+	if ( '' !== $set ) {
+		return 0 === strpos( $set, 'http' ) ? $set : home_url( $set );
+	}
+
+	$url = get_privacy_policy_url();
+
+	if ( $url ) {
+		return $url;
+	}
+
+	$page = get_page_by_path( 'privacy-policy' );
+
+	return $page ? get_permalink( $page ) : '';
+}
+
+/**
+ * Where "Accessibility" points. Empty by default, so it reads as plain text
+ * until there is a page to send people to.
+ */
+function uottawa_accessibility_url() {
+	$set = get_theme_mod( 'uottawa_accessibility_url', '' );
+
+	if ( '' === $set ) {
+		return '';
+	}
+
+	return 0 === strpos( $set, 'http' ) ? $set : home_url( $set );
+}
+
 function uottawa_customize( $wp_customize ) {
 	$wp_customize->add_section(
 		'uottawa_site',
@@ -536,6 +602,8 @@ function uottawa_customize( $wp_customize ) {
 		'uottawa_apply_url'    => array( __( '"Apply now" link', 'uottawa-online' ), 'https://www.uottawa.ca/study/applying-uottawa' ),
 		'uottawa_request_url'  => array( __( '"Request info" link', 'uottawa-online' ), '/contact/' ),
 		'uottawa_footer_text'  => array( __( 'Footer text', 'uottawa-online' ), '© University of Ottawa  |  Privacy  |  Accessibility' ),
+		'uottawa_privacy_url'  => array( __( '"Privacy" link (blank: the site&rsquo;s privacy page)', 'uottawa-online' ), '' ),
+		'uottawa_accessibility_url' => array( __( '"Accessibility" link (blank: not a link)', 'uottawa-online' ), '' ),
 		'uottawa_french_url'   => array( __( '"FR" language switch link', 'uottawa-online' ), uottawa_french_url() ),
 	);
 

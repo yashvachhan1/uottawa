@@ -309,3 +309,8 @@
 }
 /* Figma: 12px text in a 16px box, 16px padding all round -> 48px tall */
 .site-footer p{ font-size:0.75rem; line-height:1rem; color:var(--silver); }
+/* The linked pieces of the footer line read as the line, not as links, until
+   you reach for them — the same treatment the landing page's footer uses. */
+.site-footer a{ color:inherit; text-decoration:none; }
+.site-footer a:hover,
+.site-footer a:focus-visible{ text-decoration:underline; }

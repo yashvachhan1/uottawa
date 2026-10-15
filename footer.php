@@ -36,11 +36,7 @@
 
   <!-- ============================================================ FOOTER -->
   <footer class="site-footer">
-    <?php
-    // Figma puts two spaces either side of each pipe; HTML would collapse them.
-    $uottawa_footer_text = get_theme_mod( 'uottawa_footer_text', '© University of Ottawa  |  Privacy  |  Accessibility' );
-    ?>
-    <p><?php echo wp_kses_post( str_replace( '  ', '&nbsp;&nbsp;', esc_html( $uottawa_footer_text ) ) ); ?></p>
+    <p><?php echo wp_kses_post( uottawa_footer_line() ); ?></p>
   </footer>
 
   <?php wp_footer(); ?>
