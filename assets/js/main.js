@@ -16,16 +16,36 @@
   var OPEN   = '▼'; /* triangle down  */
   var CLOSED = '►'; /* triangle right */
 
-  var items = document.querySelectorAll('.faq-item');
-  Array.prototype.forEach.call(items, function (item) {
+  function setOpen(item, open) {
     var btn    = item.querySelector('.faq-item__q');
     var marker = item.querySelector('.faq-item__marker');
+    item.classList.toggle('is-open', open);
+    if (btn) btn.setAttribute('aria-expanded', String(open));
+    if (marker) marker.textContent = open ? OPEN : CLOSED;
+  }
+
+  var items = document.querySelectorAll('.faq-item');
+  Array.prototype.forEach.call(items, function (item) {
+    var btn = item.querySelector('.faq-item__q');
     if (!btn) return;
 
     btn.addEventListener('click', function () {
-      var open = item.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', String(open));
-      marker.textContent = open ? OPEN : CLOSED;
+      var open = !item.classList.contains('is-open');
+
+      // One open at a time. Opening one closes whichever of its siblings was
+      // open, so a group never ends up as a wall of text.
+      if (open && item.parentElement) {
+        Array.prototype.forEach.call(
+          item.parentElement.children,
+          function (other) {
+            if (other !== item && other.classList.contains('is-open')) {
+              setOpen(other, false);
+            }
+          }
+        );
+      }
+
+      setOpen(item, open);
     });
   });
 })();

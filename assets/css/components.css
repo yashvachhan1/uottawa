@@ -55,7 +55,9 @@
 /* One lockup, 1250x321, held at the 38px height the header is built around. */
 .logo__img{ width:148px; height:38px; }
 
-.nav{ margin-left:auto; }
+/* Sits straight after the logo, as in Figma; the language switch and the two
+   buttons hold the right edge between them. */
+.nav{ margin-left:0; }
 .nav ul{ display:flex; gap:clamp(20px, 3.2vw, 65px); }
 .nav a{
   font-size:var(--fs-nav);
@@ -67,11 +69,8 @@
 }
 .nav a:hover{ border-bottom-color:var(--red); }
 
-/* Sits immediately to the right of the menu, before the two CTA buttons. */
-/* Whichever comes first holds the right edge: the nav in a header that has
-   one, the language switch in a header that does not. */
+/* Holds the right edge, with the two CTA buttons after it. */
 .header-lang{ flex:none; margin-left:auto; }
-.nav ~ .header-lang{ margin-left:0; }
 .header-lang .btn{ font-size:0.8125rem; line-height:1.125rem; padding:9px 14px; border-radius:20px; }
 
 .header-actions{ display:flex; gap:10px; flex:none; }
