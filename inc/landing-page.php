@@ -1809,6 +1809,9 @@ add_action('save_post', 'uottawa_save_meta_boxes');
 
 function uottawa_landing_page_shortcode($atts) {
     global $post;
+    // footer.php leaves out the site-wide CTA band when this ran, so the
+    // page does not end with the same block twice.
+    $GLOBALS['uottawa_landing_rendered'] = true;
     $post_id = $post ? $post->ID : 0;
     ob_start();
     ?>

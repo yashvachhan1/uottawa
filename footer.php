@@ -10,7 +10,7 @@
   <?php
   // The landing page ends with its own editable Final CTA, so the site-wide
   // band would be the same block twice.
-  if ( ! uottawa_is_landing_page() ) :
+  if ( ! uottawa_landing_rendered() ) :
   ?>
   <!-- ============================================================ CTA -->
   <section class="cta">

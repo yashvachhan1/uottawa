@@ -97,6 +97,18 @@ function uottawa_asset( $path ) {
  * True on a page that renders the program landing page, either through the
  * template or the [uottawa_landing] shortcode.
  */
+/**
+ * Whether the landing design has actually been rendered on this request.
+ *
+ * uottawa_is_landing_page() also answers yes to a page that merely has the
+ * shortcode sitting in its content while a different template is assigned,
+ * which is right for loading the stylesheet but wrong for the footer: that
+ * page never shows a Final CTA, so it still needs the site-wide band.
+ */
+function uottawa_landing_rendered() {
+	return ! empty( $GLOBALS['uottawa_landing_rendered'] );
+}
+
 function uottawa_is_landing_page() {
 	if ( ! is_singular() ) {
 		return false;
