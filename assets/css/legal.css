@@ -1,0 +1,76 @@
+/* ==========================================================================
+   Legal pages
+   The privacy policy, from the microsite the client supplied. Its markup is
+   unchanged; every rule is scoped to .uottawa-legal so the theme's own
+   container and type cannot reach into it, and so it cannot reach out.
+
+   The sticky table of contents and the hero's top padding read the theme's
+   --header-h, so they sit under the real header rather than the microsite's.
+   ========================================================================== */
+.uottawa-legal{
+  --legal-maxw:1180px;
+  --legal-radius:14px;
+  --legal-ltgray:#EEEEEE;
+  --legal-gray:#CCCCCC;
+  --legal-ink:#2D2D2C;
+  --legal-red:#8F001A;
+
+  color:var(--legal-ink);
+  /* The theme's body type is the page design's, not this one's. The microsite
+     sizes everything from a 16px base, so restate it here. */
+  font-size:1rem;
+  line-height:1.65;
+}
+.uottawa-legal *{ box-sizing:border-box; }
+
+/* The theme's reset flattens paragraphs and lists; the microsite's own base
+   put these back, so restate them inside the scope. */
+.uottawa-legal p{ margin-bottom:14px; }
+.uottawa-legal ul{ list-style:disc; }
+.uottawa-legal a{ color:inherit; text-decoration:none; }
+.uottawa-legal h1,
+.uottawa-legal h2,
+.uottawa-legal h3,
+.uottawa-legal h4{ font-weight:700; }
+
+/* The microsite's container, not the theme's 1922px one. */
+.uottawa-legal .container{
+  width:100%;
+  max-width:var(--legal-maxw);
+  margin:0 auto;
+  padding:0 24px;
+}
+
+/* The microsite's header was fixed, so its hero padded itself out from
+   under it. This header is sticky and takes its own space, so only the
+   60px the design shows above the title is needed. */
+.uottawa-legal .legal-hero{padding:60px 0 54px;background:#8F001A;color:#fff;position:relative;overflow:hidden}
+.uottawa-legal .legal-hero:after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,var(--legal-ink),transparent 70%);opacity:.18}
+.uottawa-legal .legal-hero .container{position:relative;z-index:2}
+.uottawa-legal .legal-hero h1{color:#fff;font-size:clamp(2rem,4vw,3rem);margin-bottom:10px}
+.uottawa-legal .legal-hero p{color:#DCDCDC;max-width:640px}
+.uottawa-legal .legal-hero .updated{display:inline-block;margin-top:14px;font-size:.85rem;background:rgba(255,255,255,.14);padding:6px 16px;border-radius:50px;font-weight:600}
+.uottawa-legal .legal-wrap{display:grid;grid-template-columns:260px 1fr;gap:48px;padding:70px 0}
+.uottawa-legal .legal-toc{position:sticky;top:calc(var(--header-h) + 24px);align-self:start;background:var(--legal-ltgray);border-radius:var(--legal-radius);padding:24px;font-size:.92rem}
+.uottawa-legal .legal-toc h4{margin-bottom:12px;color:var(--legal-ink);font-size:1rem}
+.uottawa-legal .legal-toc a{display:block;padding:7px 0;color:var(--legal-ink);border-bottom:1px solid rgba(0,0,0,.06);transition:color .2s,padding-left .2s}
+.uottawa-legal .legal-toc a:last-child{border-bottom:0}
+.uottawa-legal .legal-toc a:hover{color:#2D2D2C;padding-left:6px}
+.uottawa-legal .legal-content h2{color:#2D2D2C;font-size:1.5rem;margin:40px 0 14px;scroll-margin-top:calc(var(--header-h) + 20px)}
+.uottawa-legal .legal-content h2:first-child{margin-top:0}
+.uottawa-legal .legal-content h3{font-size:1.12rem;margin:22px 0 8px}
+.uottawa-legal .legal-content p,
+.uottawa-legal .legal-content li{color:var(--legal-ink)}
+.uottawa-legal .legal-content ul{margin:0 0 16px 22px}
+.uottawa-legal .legal-content li{margin-bottom:8px}
+.uottawa-legal .legal-content a{color:var(--legal-red);text-decoration:underline}
+.uottawa-legal .legal-content .callout{background:var(--legal-ltgray);border-left:4px solid var(--legal-ink);padding:18px 22px;border-radius:0 10px 10px 0;margin:20px 0}
+.uottawa-legal .legal-content table{width:100%;border-collapse:collapse;margin:16px 0}
+.uottawa-legal .legal-content th,
+.uottawa-legal .legal-content td{border:1px solid var(--legal-gray);padding:12px 14px;text-align:left;font-size:.94rem}
+.uottawa-legal .legal-content th{background:var(--legal-ltgray);font-weight:700;color:var(--legal-ink)}
+
+@media (max-width:1024px){
+  .uottawa-legal .legal-wrap{ grid-template-columns:1fr; gap:28px; }
+  .uottawa-legal .legal-toc{ position:static; }
+}
