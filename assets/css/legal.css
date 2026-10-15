@@ -74,3 +74,14 @@
   .uottawa-legal .legal-wrap{ grid-template-columns:1fr; gap:28px; }
   .uottawa-legal .legal-toc{ position:static; }
 }
+
+/* .legal-wrap is a .container, but its own padding shorthand clears the side
+   gutters the container sets. Above 1228px the max-width leaves room either
+   side anyway; below it the block would otherwise run to the screen edge. */
+@media (max-width:1228px){
+  .uottawa-legal .legal-wrap{ padding-left:24px; padding-right:24px; }
+}
+@media (max-width:480px){
+  .uottawa-legal .container{ padding:0 18px; }
+  .uottawa-legal .legal-wrap{ padding-left:18px; padding-right:18px; }
+}
