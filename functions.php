@@ -18,6 +18,7 @@ define( 'UOTTAWA_VERSION', '1.1.0' );
 // Program landing page: editor meta boxes + the [uottawa_landing] shortcode.
 require_once get_template_directory() . '/inc/landing-page.php';
 require_once get_template_directory() . '/inc/page-images.php';
+require_once get_template_directory() . '/inc/page-form.php';
 
 /* -------------------------------------------------------------------------
  * Setup
@@ -64,6 +65,15 @@ function uottawa_assets() {
 	// The landing page carries its own self-contained stylesheet.
 	if ( uottawa_is_landing_page() ) {
 		wp_enqueue_style( 'uottawa-landing', $dir . '/assets/css/landing.css', array( 'uottawa-online' ), $v );
+	}
+
+	// Forminator draws its own markup, which needs bringing into line with
+	// whichever card it is standing in — the landing page's or the contact
+	// page's. Only loaded where a form is actually shown.
+	if ( uottawa_is_landing_page() || uottawa_page_form_shortcode() ) {
+		// After landing.css where that is loaded, so the two never tie.
+		$uottawa_after = wp_style_is( 'uottawa-landing', 'enqueued' ) ? 'uottawa-landing' : 'uottawa-online';
+		wp_enqueue_style( 'uottawa-forminator', $dir . '/assets/css/forminator.css', array( $uottawa_after ), $v );
 	}
 
 	wp_enqueue_script( 'uottawa-main', $dir . '/assets/js/main.js', array(), $v, true );

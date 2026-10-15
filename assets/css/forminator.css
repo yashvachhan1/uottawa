@@ -1,0 +1,212 @@
+/* ==========================================================================
+   Forminator overrides
+   Dropped in wherever a Forminator form stands in for one of the design's own
+   cards — the landing page's enquiry card and the contact page's form. The
+   card around it already carries the dark background and the type, so these
+   rules only bring Forminator's own markup into line with it.
+
+   Scoped to .forminator-card-wrapper rather than to one page, so both use the
+   same stylesheet instead of a copy each.
+   ========================================================================== */
+  .forminator-card-wrapper .forminator-ui{font-family:inherit !important;}
+
+  /* Forminator measures its own container and adds .forminator-size--small,
+     which collapses every column to full width. The card is narrow, so that
+     always fires — restore the row/col widths here. */
+  .forminator-card-wrapper .forminator-row{
+    display:flex !important;
+    flex-wrap:wrap !important;
+    margin-left:-9px !important;
+    margin-right:-9px !important;
+  }
+  .forminator-card-wrapper .forminator-row > .forminator-col{
+    padding-left:9px !important;
+    padding-right:9px !important;
+    flex:0 0 100%;
+    max-width:100%;
+    min-width:0;              /* stops inputs forcing the row wider */
+    float:none !important;
+  }
+  .forminator-card-wrapper .forminator-row > .forminator-col-6,
+  .forminator-card-wrapper .forminator-ui.forminator-size--small .forminator-row > .forminator-col-6,
+  .forminator-card-wrapper .forminator-ui.forminator-size--medium .forminator-row > .forminator-col-6{
+    flex:0 0 50% !important;
+    max-width:50% !important;
+    width:50% !important;
+  }
+  .forminator-card-wrapper .forminator-row > .forminator-col-4{
+    flex:0 0 33.3333% !important;max-width:33.3333% !important;width:33.3333% !important;
+  }
+  .forminator-card-wrapper .forminator-row > .forminator-col-8{
+    flex:0 0 66.6666% !important;max-width:66.6666% !important;width:66.6666% !important;
+  }
+  .forminator-card-wrapper .forminator-row > .forminator-col-12{
+    flex:0 0 100% !important;max-width:100% !important;width:100% !important;
+  }
+  @media (max-width:640px){
+    .forminator-card-wrapper .forminator-row > .forminator-col-6,
+    .forminator-card-wrapper .forminator-row > .forminator-col-4,
+    .forminator-card-wrapper .forminator-row > .forminator-col-8{
+      flex:0 0 100% !important;max-width:100% !important;width:100% !important;
+    }
+  }
+  .forminator-card-wrapper .forminator-label{
+    display:block !important;
+    font-size:0.895625rem !important;
+    font-weight:400 !important;
+    color:#fff !important;
+    margin-bottom:6px !important;
+  }
+  .forminator-card-wrapper .forminator-input,
+  .forminator-card-wrapper .forminator-select,
+  .forminator-card-wrapper .forminator-textarea{
+    width:100% !important;
+    height:45.38px !important;
+    background:#fff !important;
+    border:none !important;
+    border-radius:3.583px !important;
+    padding:0 12px !important;
+    font-family:inherit !important;
+    font-size:0.9375rem !important;
+    color:var(--ink, #2d2d2c) !important;
+  }
+  .forminator-card-wrapper .forminator-input:focus{outline:2px solid var(--garnet, #8f001a) !important;}
+  .forminator-card-wrapper .forminator-button-submit{
+    width:100% !important;
+    margin-top:12px !important;
+    padding:14.33px !important;
+    background:var(--garnet, #8f001a) !important;
+    color:#fff !important;
+    border:none !important;
+    border-radius:23.884px !important;
+    font-family:inherit !important;
+    font-size:1.044938rem !important;
+    font-weight:700 !important;
+    cursor:pointer !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+  .forminator-card-wrapper .forminator-button-submit:hover{background:var(--garnet-dark, #6e0014) !important;}
+
+  /* Forminator draws its dropdowns through Select2, so the box you can see is
+     the Select2 control and the real <select> is hidden. Match it to the text
+     inputs. */
+  .forminator-card-wrapper .select2-container .select2-selection{
+    height:45.38px !important;
+    background:#fff !important;
+    border:none !important;
+    border-radius:3.583px !important;
+    display:flex !important;
+    align-items:center !important;
+    padding:0 12px !important;
+  }
+  .forminator-card-wrapper .select2-container .select2-selection__rendered{
+    padding:0 !important;
+    font-family:inherit !important;
+    font-size:0.9375rem !important;
+    line-height:normal !important;
+    color:var(--ink, #2d2d2c) !important;
+  }
+  /* The container carries side padding of its own, which made the white box
+     narrower than its column while Select2 still sized the open panel to the
+     full column - so the panel hung over both edges. The text inset belongs
+     on the box, not the container. */
+  .forminator-card-wrapper .select2-container{
+    padding:0 !important;
+    width:100% !important;
+  }
+  .forminator-card-wrapper .select2-container > .selection{
+    display:block !important;
+    width:100% !important;
+  }
+
+  /* Nothing here takes a focus ring of its own; the box keeps its own colour
+     open or closed, and the highlighted row is flat garnet. */
+  .forminator-card-wrapper .select2-container .select2-selection,
+  .forminator-card-wrapper .select2-container--open .select2-selection,
+  .forminator-card-wrapper .select2-selection:focus{
+    outline:none !important;
+    box-shadow:none !important;
+  }
+  .forminator-select-dropdown,
+  .forminator-select-dropdown .select2-results__option{
+    outline:none !important;
+    border:none !important;
+    box-shadow:none !important;
+  }
+  .forminator-select-dropdown{
+    box-shadow:0 8px 24px rgba(0,0,0,.28) !important;
+  }
+
+  /* The arrow is a flex item here, and on a relatively positioned element a
+     `right` offset pushes it the wrong way - it belongs at the end of the row,
+     inside the box's own padding. */
+  .forminator-card-wrapper .select2-container .select2-selection__arrow{
+    height:45.38px !important;
+    position:static !important;
+    right:auto !important;
+    margin-left:auto !important;
+  }
+
+  /* The consent boxes sit on the dark card, so their text is white, and the
+     two of them need room between each other and the button. */
+  .forminator-card-wrapper label.forminator-checkbox,
+  .forminator-card-wrapper label.forminator-radio{
+    align-items:flex-start !important;
+    gap:10px !important;
+    font-family:inherit !important;
+    font-size:0.895625rem !important;
+    line-height:1.45 !important;
+    color:#fff !important;
+  }
+  .forminator-card-wrapper .forminator-field-checkbox{margin-top:12px !important;}
+
+  /* Validation, and the note that replaces the form once it is sent. */
+  .forminator-card-wrapper .forminator-error-message{
+    font-family:inherit !important;
+    font-size:0.8125rem !important;
+    color:#ffb3bd !important;
+  }
+  .forminator-card-wrapper .forminator-response-message{
+    font-family:inherit !important;
+    font-size:0.9375rem !important;
+    line-height:1.5 !important;
+    color:#fff !important;
+  }
+
+  /* Select2 hangs its open panel off <body>, outside the card, so these
+     cannot be scoped to the card. landing.css only loads on this page, so
+     that is as far as they reach. */
+  .forminator-select-dropdown{
+    background:#fff !important;
+    border:none !important;
+    border-radius:3.583px !important;
+    box-shadow:0 8px 24px rgba(0,0,0,.28) !important;
+    overflow:hidden !important;
+  }
+  .forminator-select-dropdown .select2-results__options{
+    background:#fff !important;
+  }
+  /* Forminator insets the panel by 9px, which left a white band above the
+     highlighted row. The rows run to the panel's edges instead, and its
+     rounded corners clip them. */
+  .forminator-select-dropdown{padding:0 !important;}
+  .select2-container--open .select2-results__options{
+    max-height:260px !important;
+    padding:0 !important;
+  }
+  .select2-container--open .select2-results__option{
+    font-family:'Open Sans', Arial, Helvetica, sans-serif !important;
+    font-size:0.9375rem !important;
+    line-height:1.4 !important;
+    padding:10px 12px !important;
+    background:#fff !important;
+    color:var(--ink, #2d2d2c) !important;
+  }
+  .select2-container--open .select2-results__option--highlighted,
+  .select2-container--open .select2-results__option--selected,
+  .select2-container--open .select2-results__option[aria-selected="true"]{
+    background:var(--garnet, #8f001a) !important;
+    color:#fff !important;
+  }

@@ -28,6 +28,14 @@ get_header();
       </div>
 
       <!-- Enquiry form -->
+      <?php $uottawa_form = uottawa_page_form_shortcode(); ?>
+      <?php if ( $uottawa_form ) : ?>
+      <div class="enquiry forminator-card-wrapper">
+        <p class="enquiry__title">Take the next step to getting your degree.</p>
+        <?php echo do_shortcode( $uottawa_form ); ?>
+        <p class="enquiry__note">By submitting this form, you agree to be contacted by uOttawa Online or its representatives about this program.</p>
+      </div>
+      <?php else : ?>
       <form class="enquiry" action="#" method="post">
         <p class="enquiry__title">Take the next step to getting your degree.</p>
 
@@ -100,6 +108,7 @@ get_header();
 
         <p class="enquiry__note">By submitting this form, you agree to be contacted by uOttawa Online or its representatives about this program.</p>
       </form>
+      <?php endif; ?>
     </div>
 
     <div class="contact-row">
