@@ -19,22 +19,26 @@
 
   --font: "Open Sans", Arial, Helvetica, sans-serif;
 
-  /* Type. The max of each clamp is the exact Figma size at 1920px. */
   /* Type is in rem at exactly the Figma pixel size (rem = px / 16), so it also
      respects the reader's own browser font size. rem does not shrink with the
      viewport, so the breakpoints further down restate these tokens smaller —
      every size on the page flows from here. */
-  --fs-h1:           3rem;        /* 48px */
+  /* The hero reads as one block with its card, which is already sized in vw,
+     so its type uses the same clamp(min, vw, design px) the live site's hero
+     uses rather than stepping at a breakpoint. */
+  --fs-h1:           clamp(26px, 2.5vw, 48px);
+  --fs-hero-eyebrow: clamp(15px, 1.6667vw, 32px);
+  --fs-hero-tag:     clamp(19px, 1.875vw, 36px);
+
   --fs-h2:           2.5rem;      /* 40px */
   --fs-h3:           1.5rem;      /* 24px */
   --fs-body:         1.5rem;      /* 24px */
   --fs-body-sm:      1.25rem;     /* 20px */
-  --fs-stat:         4rem;        /* 64px */
-  --fs-hero-eyebrow: 2rem;        /* 32px */
-  --fs-hero-tag:     2.25rem;     /* 36px */
+  --fs-stat:         4.4309rem;   /* 70.894px */
+  --fs-stat-label:   1.8244rem;   /* 29.191px */
   --fs-day-title:    2rem;        /* 32px */
-  --fs-nav:          0.90625rem;  /* 14.5px */
-  --fs-small:        0.8125rem;   /* 13px */
+  --fs-nav:          1rem;        /* 16px */
+  --fs-small:        0.75rem;     /* 12px */
 
   /* Spacing */
   --space-section: clamp(48px, 5.2vw, 100px);

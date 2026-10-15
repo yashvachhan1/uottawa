@@ -19,7 +19,7 @@
 }
 .stat__label{
   margin-top:6px;
-  font-size:var(--fs-body);
+  font-size:var(--fs-stat-label);
   line-height:1.25;
   font-weight:400;
 }
