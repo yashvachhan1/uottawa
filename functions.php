@@ -261,6 +261,8 @@ function uottawa_article_cards( $args = array() ) {
 		)
 	);
 
+	$shown = 0;
+
 	if ( $query->have_posts() ) {
 		while ( $query->have_posts() ) {
 			$query->the_post();
@@ -284,12 +286,15 @@ function uottawa_article_cards( $args = array() ) {
 					'meta'    => $meta,
 				)
 			);
+			++$shown;
 		}
 		wp_reset_postdata();
-		return;
 	}
 
-	for ( $i = 0; $i < (int) $args['count']; $i++ ) {
+	// The design lays this row out for a fixed number of cards. Until the site
+	// has that many posts, fill the rest with the design's own placeholder so
+	// the row keeps its shape instead of collapsing to whatever exists.
+	for ( $i = $shown; $i < (int) $args['count']; $i++ ) {
 		uottawa_article_card(
 			array(
 				'url'     => '#',
