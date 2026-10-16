@@ -302,7 +302,9 @@
 }
 .support-grid li{
   padding-left:clamp(16px, 1.7vw, 33px);
-  border-left:1px solid var(--black);
+  /* Figma 26:177 — garnet stroke, weight 3, not the hairline the facts strip
+     uses. */
+  border-left:3px solid var(--red);
 }
 .support-grid h3{ font-size:var(--fs-h3); line-height:1.375; color:var(--ink); }
 .support-grid p{
