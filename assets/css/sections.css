@@ -287,7 +287,8 @@
   overflow:hidden;
 }
 .outcome__media img{ width:100%; height:100%; object-fit:cover; }
-.outcome__body{ padding:20px; }
+/* No side inset: the copy lines up with the edges of the photo above it. */
+.outcome__body{ padding:20px 0; }
 .outcome h4{ font-size:var(--fs-h3); line-height:1.375; }
 .outcome p{
   margin-top:8px;
