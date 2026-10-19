@@ -235,8 +235,45 @@ add_action( 'template_redirect', 'uottawa_program_slug_redirect', 1 );
  * URL of a page by slug, falling back to the home page if it does not exist yet.
  */
 function uottawa_page_url( $slug ) {
-	$page = get_page_by_path( $slug );
-	return $page ? get_permalink( $page ) : home_url( '/' );
+	$page = uottawa_program_slug() === $slug
+		? uottawa_program_page()
+		: get_page_by_path( $slug );
+
+	// Empty, not the home page: a menu item that cannot find its page should
+	// be left out rather than quietly sending people somewhere else.
+	return $page ? get_permalink( $page ) : '';
+}
+
+/**
+ * The program page, wherever it currently sits.
+ *
+ * Its slug changed, and a site only moves across when setup next runs, so
+ * look under the new name, then the old one, then for whichever page carries
+ * the landing template.
+ */
+function uottawa_program_page() {
+	$page = get_page_by_path( uottawa_program_slug() );
+
+	if ( $page ) {
+		return $page;
+	}
+
+	$page = get_page_by_path( uottawa_program_slug_old() );
+
+	if ( $page ) {
+		return $page;
+	}
+
+	$found = get_posts(
+		array(
+			'post_type'   => 'page',
+			'numberposts' => 1,
+			'meta_key'    => '_wp_page_template',
+			'meta_value'  => 'page-landing.php',
+		)
+	);
+
+	return $found ? $found[0] : null;
 }
 
 /**
@@ -323,9 +360,15 @@ function uottawa_primary_menu_fallback() {
 
 	echo '<ul>';
 	foreach ( $items as $slug => $label ) {
+		$url = uottawa_page_url( $slug );
+
+		if ( ! $url ) {
+			continue;
+		}
+
 		printf(
 			'<li><a href="%s">%s</a></li>',
-			esc_url( uottawa_page_url( $slug ) ),
+			esc_url( $url ),
 			wp_kses_post( $label )
 		);
 	}
