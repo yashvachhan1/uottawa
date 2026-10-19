@@ -113,32 +113,29 @@
   .reasons-grid{ grid-template-columns:repeat(2, 1fr); }
 }
 
-/* The header's own breakpoint. Logo, menu, language switch and the two
-   buttons stop fitting inside the page gutters at about 1060px, before the
-   tablet layout below takes over, so the header collapses on its own width
-   rather than the page's. */
-@media (max-width:1100px){
-  .nav, .header-actions{ display:none; }
-  .nav-toggle{ display:flex; }
+/* The header's own breakpoint. Logo, four menu items, two buttons and the
+   language switch stop fitting inside the page gutters at about 1210px,
+   before the tablet layout below takes over, so the header collapses on its
+   own width rather than the page's. */
+@media (max-width:1250px){
+  .nav,
+  .header-actions,
+  .header-lang{ display:none; }
+  .nav-toggle{ display:flex; margin-left:auto; }
 
+  /* Collapsed, the panel carries the menu, then the buttons, then the
+     language switch under them. */
   .site-header.is-open .nav,
-  .site-header.is-open .header-actions{
+  .site-header.is-open .header-actions,
+  .site-header.is-open .header-lang{
     display:flex;
-    order:3;
     flex-basis:100%;
   }
+  .site-header.is-open .nav{ order:2; margin-left:0; padding-top:16px; }
   .site-header.is-open .nav ul{ flex-direction:column; gap:14px; }
-  .site-header.is-open .nav{ margin-left:0; padding-top:16px; }
-  .site-header.is-open .header-actions{ padding-bottom:16px; }
+  .site-header.is-open .header-actions{ order:3; padding-top:16px; }
+  .site-header.is-open .header-lang{ order:4; margin-left:0; padding:14px 0 16px; }
   .site-header .container{ flex-wrap:wrap; }
-
-  /* Keep the language switch visible on small screens, just left of the
-     menu button. The collapsed nav and buttons drop below on order:3. */
-  .header-lang,
-  .nav ~ .header-lang{ order:1; margin-left:auto; }
-  .nav-toggle{ order:2; margin-left:10px; }
-  .site-header.is-open .nav,
-  .site-header.is-open .header-actions{ order:3; }
 }
 
 /* Tablets */
