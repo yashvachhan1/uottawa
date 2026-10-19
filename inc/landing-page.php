@@ -1914,12 +1914,12 @@ function uottawa_landing_page_shortcode($atts) {
     </div>
 
     <div class="field">
-      <label for="credential"><?php echo wp_kses_post(get_post_meta($post_id, 'text_why_uottawa_22', true) ?: 'College credential'); ?></label>
+      <label for="credential"><?php echo wp_kses_post(get_post_meta($post_id, 'text_why_uottawa_22', true) ?: 'Highest level of study'); ?></label>
       <input id="credential" type="text">
     </div>
 
     <div class="field">
-      <label for="start"><?php echo wp_kses_post(get_post_meta($post_id, 'text_why_uottawa_23', true) ?: 'Preferred start'); ?></label>
+      <label for="start"><?php echo wp_kses_post(get_post_meta($post_id, 'text_why_uottawa_23', true) ?: 'Intended start semester'); ?></label>
       <input id="start" type="text">
     </div>
 
