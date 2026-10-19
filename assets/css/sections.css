@@ -419,12 +419,18 @@
   align-items:center;
   gap:clamp(24px, 3vw, 58px);
 }
+/* Each icon's artwork fills a different share of its own canvas — the
+   envelope 60%, the phone all of it, the check 80% — so the three box sizes
+   Figma gives (73 / 41 / 53) are what make the drawn glyphs match. Keep them,
+   and hold the icons in a slot the width of the largest so the addresses
+   beside them still start at the same place. */
 .contact-link{
-  display:flex;
+  display:grid;
+  grid-template-columns:clamp(44px, 3.8vw, 73px) 1fr;
   align-items:center;
   gap:clamp(14px, 1.1vw, 22px);
 }
-.contact-link img{ flex:none; width:clamp(44px, 3.8vw, 73px); height:auto; }
+.contact-link img{ justify-self:center; width:clamp(44px, 3.8vw, 73px); height:auto; }
 .contact-link--sm img{ width:clamp(28px, 2.14vw, 41px); }
 .contact-link--check img{ width:clamp(34px, 2.76vw, 53px); }
 .contact-link a{

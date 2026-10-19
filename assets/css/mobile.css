@@ -272,11 +272,4 @@
   .enquiry__grid{ grid-template-columns:1fr; }
   .contact-links{ gap:20px; }
 
-  /* Side by side the three icons carry their own Figma sizes — 73, 41 and 53.
-     One per line they read as a column, and the envelope's extra width pushed
-     its address out of line with the two under it. A common box here lines
-     all three up. */
-  .contact-link img,
-  .contact-link--sm img,
-  .contact-link--check img{ width:34px; }
 }
