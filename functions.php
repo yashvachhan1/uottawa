@@ -445,18 +445,25 @@ function uottawa_first_run() {
 		'privacy-policy'     => array( __( 'Privacy policy', 'uottawa-online' ), 'page-privacy-policy.php' ),
 	);
 
-	// The program page was set up under its old slug. Move it across once,
-	// and only while it still carries that slug — a slug someone has since
-	// chosen is theirs.
-	$old = get_page_by_path( uottawa_program_slug_old() );
+	// The program page may be sitting under the slug it used to have, or
+	// under the other language's, if this install has been through the
+	// companion theme. Move it across once, and only while it carries one of
+	// those — a slug someone has since chosen is theirs, and a page already
+	// at the right slug is left alone.
+	if ( ! get_page_by_path( uottawa_program_slug() ) ) {
+		foreach ( array( uottawa_program_slug_old(), uottawa_program_slug_other() ) as $was ) {
+			$old = get_page_by_path( $was );
 
-	if ( $old && ! get_page_by_path( uottawa_program_slug() ) ) {
-		wp_update_post(
-			array(
-				'ID'        => $old->ID,
-				'post_name' => uottawa_program_slug(),
-			)
-		);
+			if ( $old ) {
+				wp_update_post(
+					array(
+						'ID'        => $old->ID,
+						'post_name' => uottawa_program_slug(),
+					)
+				);
+				break;
+			}
+		}
 	}
 
 	$ids = array();
