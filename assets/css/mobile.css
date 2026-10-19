@@ -257,7 +257,9 @@
 
 @media (max-width:1024px){
   .enquiry__title{ font-size:1.375rem; }    /* 22px */
-  .contact-row{ grid-template-columns:1fr; gap:clamp(32px, 4vw, 48px); }
+  /* Stacked, the gap between the two blocks is a gap between sections, not
+     the gap between columns it started as — 32px ran them together. */
+  .contact-row{ grid-template-columns:1fr; gap:var(--space-section); }
   /* The column is full width here, so drop the Figma width caps — keeping
      them would squeeze the copy into a narrow strip. */
   .contact-row .section-title,
@@ -269,4 +271,12 @@
 @media (max-width:560px){
   .enquiry__grid{ grid-template-columns:1fr; }
   .contact-links{ gap:20px; }
+
+  /* Side by side the three icons carry their own Figma sizes — 73, 41 and 53.
+     One per line they read as a column, and the envelope's extra width pushed
+     its address out of line with the two under it. A common box here lines
+     all three up. */
+  .contact-link img,
+  .contact-link--sm img,
+  .contact-link--check img{ width:34px; }
 }
