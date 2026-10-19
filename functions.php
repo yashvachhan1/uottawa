@@ -67,6 +67,12 @@ function uottawa_assets() {
 		wp_enqueue_style( 'uottawa-landing', $dir . '/assets/css/landing.css', array( 'uottawa-online' ), $v );
 	}
 
+	// A blog post is long-form and sizes its own type, so it carries its own
+	// stylesheet rather than bending the page scale.
+	if ( is_singular( 'post' ) ) {
+		wp_enqueue_style( 'uottawa-blog', $dir . '/assets/css/blog.css', array( 'uottawa-online' ), $v );
+	}
+
 	// The privacy policy keeps the microsite's own look, in its own file.
 	if ( is_page_template( 'page-privacy-policy.php' ) ) {
 		wp_enqueue_style( 'uottawa-legal', $dir . '/assets/css/legal.css', array( 'uottawa-online' ), $v );
