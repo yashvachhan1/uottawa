@@ -249,7 +249,7 @@ get_header();
     <article class="program-card">
       <h4>Bachelor of Arts, Interdisciplinary Studies (Online, Accelerated)</h4>
       <p>For college diploma graduates with 3+ years of work experience who want to build on that foundation with a uOttawa degree. Bring your diploma; we'll recognize it through transfer credit and build the rest of your degree around your working life.</p>
-      <a class="btn btn--red btn--program" href="<?php echo esc_url( home_url( '/online-programs/' ) ); ?>">Explore the program</a>
+      <a class="btn btn--red btn--program" href="<?php echo esc_url( home_url( '/' . uottawa_program_slug() . '/' ) ); ?>">Explore the program</a>
     </article>
   </div>
 </section>
