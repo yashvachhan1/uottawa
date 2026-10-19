@@ -568,8 +568,8 @@
     gap:12px;                       /* item spacing/12 */
   }
   .uottawa-lp details.acc summary::-webkit-details-marker{display:none;}
-  .uottawa-lp details.acc summary::before{content:"\25BA";font-size:1.309937rem;}
-  .uottawa-lp details.acc[open] summary::before{content:"\25BC";font-size:0.8125rem;}
+  .uottawa-lp details.acc summary::before{content:"\25BA";font-size:1.309937rem;color:var(--garnet, #8f001a);}
+  .uottawa-lp details.acc[open] summary::before{content:"\25BC";font-size:0.8125rem;color:var(--garnet, #8f001a);}
   .uottawa-lp details.acc summary:hover{background:var(--dark-hover);}
 
   .uottawa-lp .acc-body{padding:25px 20px 5px 44px;}   /* 1:619 */

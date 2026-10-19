@@ -219,7 +219,7 @@
   color:var(--white);
 }
 .faq-item__a{
-  padding:16px 20px 0 44px;
+  padding:16px 20px 20px 44px;
   font-size:var(--fs-body);
   line-height:1.25;
   font-weight:400;
