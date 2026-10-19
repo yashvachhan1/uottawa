@@ -73,7 +73,9 @@
 }
 .reason-card p{
   margin-top:9px;
-  font-size:var(--fs-body);
+  /* The same size the "Beyond the credential" cards use, not the section
+     body size. */
+  font-size:var(--fs-body-sm);
   line-height:1.25;
   font-weight:400;
   color:var(--mercury);
