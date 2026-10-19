@@ -155,9 +155,9 @@
 .day-row--reverse .day-media{ order:1; }
 
 .day-card{
-  border-bottom:1px solid var(--concrete);
-  border-right:1px solid var(--concrete);
-  padding:clamp(20px, 1.35vw, 26px) clamp(20px, 1.35vw, 26px) clamp(26px, 1.98vw, 38px);
+  /* No box: the copy sits under the photo and lines up with its edge. The
+     vertical padding stays, to hold it off the photo and off the button. */
+  padding:clamp(20px, 1.35vw, 26px) 0 clamp(26px, 1.98vw, 38px);
 }
 .day-card h4{
   font-size:var(--fs-day-title);
