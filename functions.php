@@ -207,31 +207,6 @@ function uottawa_program_slug_map( $map ) {
 add_filter( 'uottawa_language_slug_map', 'uottawa_program_slug_map' );
 
 /**
- * Send the old program-page URL to the new one rather than to a 404.
- */
-function uottawa_program_slug_redirect() {
-	if ( is_admin() || ! isset( $_SERVER['REQUEST_URI'] ) ) {
-		return;
-	}
-
-	$path = trim( (string) wp_parse_url( esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ), PHP_URL_PATH ), '/' );
-
-	if ( uottawa_program_slug_old() !== $path ) {
-		return;
-	}
-
-	$page = get_page_by_path( uottawa_program_slug() );
-
-	if ( ! $page ) {
-		return;
-	}
-
-	wp_safe_redirect( get_permalink( $page ), 301 );
-	exit;
-}
-add_action( 'template_redirect', 'uottawa_program_slug_redirect', 1 );
-
-/**
  * URL of a page by slug, falling back to the home page if it does not exist yet.
  */
 function uottawa_page_url( $slug ) {
