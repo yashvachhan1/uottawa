@@ -218,8 +218,14 @@
 
 @media (max-width:768px){
   .facts{ grid-template-columns:repeat(2, 1fr); }
+  /* The three-column step above clears item 4's rule and its inset, because
+     there it starts a row. Two across it sits in the right-hand column, so
+     restate both rather than just the rule. */
   .facts li:nth-child(odd){ border-left:0; padding-left:0; }
-  .facts li:nth-child(even){ border-left:1px solid var(--black); }
+  .facts li:nth-child(even){
+    border-left:1px solid var(--black);
+    padding-left:clamp(14px, 1.2vw, 23px);
+  }
   .reasons-icon-grid{ grid-template-columns:1fr; }
   .support-grid{ grid-template-columns:1fr; }
 }
