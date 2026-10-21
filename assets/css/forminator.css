@@ -163,10 +163,15 @@
   .forminator-card-wrapper .forminator-field-checkbox{margin-top:12px !important;}
 
   /* Validation, and the note that replaces the form once it is sent. */
+  /* Forminator gives this its own pale pink block, so pale text on top of it
+     was all but invisible. Pin both: dark garnet on that pink reads clearly
+     and still belongs to the palette. */
   .forminator-card-wrapper .forminator-error-message{
     font-family:inherit !important;
     font-size:0.8125rem !important;
-    color:#ffb3bd !important;
+    line-height:1.45 !important;
+    color:#5e0012 !important;
+    background:#f9e4e8 !important;
   }
   .forminator-card-wrapper .forminator-response-message{
     font-family:inherit !important;
