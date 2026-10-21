@@ -66,6 +66,13 @@
   border-bottom:2px solid transparent;
 }
 .nav a:hover{ border-bottom-color:var(--red); }
+/* The page you are on keeps the rule, rather than only showing it under the
+   pointer. WordPress sets the first three on a real menu; the fallback menu
+   marks its own with aria-current. */
+.nav .current-menu-item > a,
+.nav .current_page_item > a,
+.nav .current-menu-ancestor > a,
+.nav a[aria-current="page"]{ border-bottom-color:var(--red); }
 
 /* Last in the row, after the two buttons, and set as a nav item rather than
    as a third button. */

@@ -333,17 +333,22 @@ function uottawa_primary_menu_fallback() {
 		'news-events'        => __( 'News &amp; events', 'uottawa-online' ),
 	);
 
+	$here = (int) get_queried_object_id();
+
 	echo '<ul>';
 	foreach ( $items as $slug => $label ) {
-		$url = uottawa_page_url( $slug );
+		$page = uottawa_program_slug() === $slug
+			? uottawa_program_page()
+			: get_page_by_path( $slug );
 
-		if ( ! $url ) {
+		if ( ! $page ) {
 			continue;
 		}
 
 		printf(
-			'<li><a href="%s">%s</a></li>',
-			esc_url( $url ),
+			'<li><a href="%s"%s>%s</a></li>',
+			esc_url( get_permalink( $page ) ),
+			( $here && (int) $page->ID === $here ) ? ' aria-current="page"' : '',
 			wp_kses_post( $label )
 		);
 	}
