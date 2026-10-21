@@ -158,9 +158,10 @@
   .day-media img{ aspect-ratio:16 / 9; }
 
   /* Stacked: card, then photo, then the button last */
+  /* Stacked: photo, then the copy under it, then the button last. */
   .day-col{ display:contents; }
-  .day-row .day-card { order:1; }
-  .day-row .day-media{ order:2; }
+  .day-row .day-media{ order:1; }
+  .day-row .day-card { order:2; }
   .day-row .day__cta { order:3; justify-self:start; margin-top:clamp(20px, 3vw, 34px); }
 
 }
@@ -219,10 +220,11 @@
 @media (max-width:768px){
   .facts{ grid-template-columns:repeat(2, 1fr); }
   /* The three-column step above clears item 4's rule and its inset, because
-     there it starts a row. Two across it sits in the right-hand column, so
-     restate both rather than just the rule. */
-  .facts li:nth-child(odd){ border-left:0; padding-left:0; }
-  .facts li:nth-child(even){
+     there it starts a row. Two across every item carries one, the left
+     column included, so restate it for all of them. */
+  .facts li,
+  .facts li:first-child,
+  .facts li:nth-child(4){
     border-left:1px solid var(--black);
     padding-left:clamp(14px, 1.2vw, 23px);
   }
@@ -232,7 +234,11 @@
 
 @media (max-width:480px){
   .facts{ grid-template-columns:1fr; gap:18px; }
+  /* One per line, so no rules at all — every selector the wider steps use
+     has to be cleared, not just the plain one. */
   .facts li,
+  .facts li:first-child,
+  .facts li:nth-child(4),
   .facts li:nth-child(even){ border-left:0; padding-left:0; }
   .outcomes-grid{ grid-template-columns:1fr; }
   .matters .btn,
