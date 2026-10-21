@@ -270,8 +270,7 @@
      them would squeeze the copy into a narrow strip. */
   .contact-row .section-title,
   .contact-points p,
-  .contact-lead,
-  .enquiry__note{ max-width:none; }
+  .contact-lead{ max-width:none; }
 }
 
 @media (max-width:560px){
