@@ -114,15 +114,18 @@ function uottawa_demo_post_image( $file, $alt, $post ) {
  * Write the post, once.
  */
 function uottawa_demo_post() {
-	if ( get_option( 'uottawa_demo_post_setup' ) ) {
+	// Holds the id of the post once it has been written. Set only after the
+	// post exists: an earlier version marked this done up front, so a pass
+	// that did not get as far as writing anything left the site believing it
+	// had, and the post never appeared.
+	if ( get_option( 'uottawa_demo_post_created' ) ) {
 		return;
 	}
 
-	// Marked done before anything else: a half-finished attempt should not
-	// leave the site writing the post again on every admin page load.
-	update_option( 'uottawa_demo_post_setup', 1 );
+	$existing = get_page_by_path( uottawa_demo_post_slug(), OBJECT, 'post' );
 
-	if ( get_page_by_path( uottawa_demo_post_slug(), OBJECT, 'post' ) ) {
+	if ( $existing ) {
+		update_option( 'uottawa_demo_post_created', $existing->ID );
 		return;
 	}
 
@@ -166,9 +169,21 @@ function uottawa_demo_post() {
 		wp_set_post_categories( $id, array( (int) $term['term_id'] ) );
 	}
 
+	update_option( 'uottawa_demo_post_created', $id );
+
 	$image = uottawa_demo_post_image( $demo['image'], $demo['alt'], $id );
 
 	if ( $image ) {
 		set_post_thumbnail( $id, $image );
 	}
 }
+
+/**
+ * Setup runs this too, but only when the theme's version has moved on - and
+ * that reading comes from a cache that an object cache can hold stale for
+ * half an hour after the files land. The post has a guard of its own, so it
+ * does not need the version to agree: hang it off admin_init as well and it
+ * appears on the first admin screen after the update, whatever the cache
+ * happens to say.
+ */
+add_action( 'admin_init', 'uottawa_demo_post' );
