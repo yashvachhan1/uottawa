@@ -179,6 +179,13 @@
     line-height:1.5 !important;
     color:#fff !important;
   }
+  /* The error state comes on its own pale pink block, where white text is
+     invisible — the same pairing the field messages needed. Success keeps
+     the white, which sits on the card. */
+  .forminator-card-wrapper .forminator-response-message.forminator-error{
+    color:#5e0012 !important;
+    background:#f9e4e8 !important;
+  }
 
   /* Select2 hangs its open panel off <body>, outside the card, so these
      cannot be scoped to the card. landing.css only loads on this page, so
