@@ -209,7 +209,14 @@
 @media (max-width:1200px){
   .facts li{ font-size:1.25rem; }   /* 20px */
   .facts{ grid-template-columns:repeat(3, 1fr); row-gap:clamp(20px,2vw,28px); }
-  .facts li:nth-child(4){ border-left:0; padding-left:0; }
+  /* From here down every item carries a rule, the ones that start a row
+     included, so no column reads as a list without one. */
+  .facts li,
+  .facts li:first-child,
+  .facts li:nth-child(4){
+    border-left:1px solid var(--black);
+    padding-left:clamp(14px, 1.2vw, 23px);
+  }
   .outcomes-grid{ grid-template-columns:repeat(2, 1fr); }
 }
 
@@ -219,27 +226,12 @@
 
 @media (max-width:768px){
   .facts{ grid-template-columns:repeat(2, 1fr); }
-  /* The three-column step above clears item 4's rule and its inset, because
-     there it starts a row. Two across every item carries one, the left
-     column included, so restate it for all of them. */
-  .facts li,
-  .facts li:first-child,
-  .facts li:nth-child(4){
-    border-left:1px solid var(--black);
-    padding-left:clamp(14px, 1.2vw, 23px);
-  }
   .reasons-icon-grid{ grid-template-columns:1fr; }
   .support-grid{ grid-template-columns:1fr; }
 }
 
 @media (max-width:480px){
   .facts{ grid-template-columns:1fr; gap:18px; }
-  /* One per line, so no rules at all — every selector the wider steps use
-     has to be cleared, not just the plain one. */
-  .facts li,
-  .facts li:first-child,
-  .facts li:nth-child(4),
-  .facts li:nth-child(even){ border-left:0; padding-left:0; }
   .outcomes-grid{ grid-template-columns:1fr; }
   .matters .btn,
   .reasons .btn{ width:100%; }
