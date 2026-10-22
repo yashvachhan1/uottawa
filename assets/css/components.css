@@ -252,11 +252,15 @@
 }
 .article-card__media img{ width:100%; height:100%; object-fit:cover; }
 .article-card__placeholder{ font-size:0.75rem; line-height:1.4; font-weight:400; color:var(--boulder); }
-.article-card__body{ padding:20px; display:flex; flex-direction:column; align-items:flex-start; gap:6px; }
+/* A flat 6px between every part ran the card together. Figma spaces them
+   unevenly: the title sits close under its kicker, the rest stand further
+   apart, and the button has the most room above it. */
+.article-card__body{ padding:clamp(18px, 1.25vw, 24px); display:flex; flex-direction:column; align-items:flex-start; }
 .article-card__kicker { font-size:var(--fs-body-sm); line-height:1.2; font-weight:400; color:var(--americano); }
-.article-card__title  { font-size:var(--fs-h3);      line-height:1.375; color:var(--red); }
-.article-card__excerpt{ font-size:var(--fs-body-sm); line-height:1.5; font-weight:400; }
-.article-card__meta   { font-size:var(--fs-small);   line-height:1.55; font-weight:400; color:var(--americano); margin-bottom:6px; }
+.article-card__title  { margin-top:10px; font-size:var(--fs-h3); line-height:1.375; color:var(--red); }
+.article-card__excerpt{ margin-top:16px; font-size:var(--fs-body-sm); line-height:1.5; font-weight:400; }
+.article-card__meta   { margin-top:14px; font-size:var(--fs-small); line-height:1.55; font-weight:400; color:var(--americano); }
+.article-card__body .btn{ margin-top:24px; }
 
 /* ==========================================================================
    CTA BAND
