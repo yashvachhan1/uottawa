@@ -19,6 +19,7 @@ define( 'UOTTAWA_VERSION', '1.1.0' );
 require_once get_template_directory() . '/inc/landing-page.php';
 require_once get_template_directory() . '/inc/page-images.php';
 require_once get_template_directory() . '/inc/page-form.php';
+require_once get_template_directory() . '/inc/language-link.php';
 
 /* -------------------------------------------------------------------------
  * Setup
@@ -293,6 +294,15 @@ function uottawa_link_atts( $url ) {
  * uottawa_language_slug_map filter rather than changing this.
  */
 function uottawa_language_switch_url() {
+	// Set by hand on the page itself, when the two sites no longer name it
+	// the same. Appearance > Customize cannot know that per page, so the
+	// page's own field wins over anything worked out below.
+	$set = uottawa_language_url_override();
+
+	if ( $set ) {
+		return $set;
+	}
+
 	$base = untrailingslashit( uottawa_french_url() );
 	$map  = (array) apply_filters( 'uottawa_language_slug_map', array() );
 
