@@ -20,6 +20,7 @@ require_once get_template_directory() . '/inc/landing-page.php';
 require_once get_template_directory() . '/inc/page-images.php';
 require_once get_template_directory() . '/inc/page-form.php';
 require_once get_template_directory() . '/inc/language-link.php';
+require_once get_template_directory() . '/inc/demo-post.php';
 
 /* -------------------------------------------------------------------------
  * Setup
@@ -602,6 +603,10 @@ function uottawa_first_run() {
 	}
 
 	uottawa_first_run_menu( $ids );
+
+	// One real blog post, so the news row and the post design have something
+	// to show on a site that has not been written to yet.
+	uottawa_demo_post();
 
 	// Pretty permalinks, unless the site already has a structure set.
 	if ( ! get_option( 'permalink_structure' ) ) {
