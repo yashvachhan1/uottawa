@@ -149,6 +149,19 @@
     margin-left:auto !important;
   }
 
+  /* The required mark. Forminator leaves it to inherit, which on this dark
+     card made it white and indistinguishable from the label itself. The
+     design's own red is too dark to read against the card, so this is a
+     lighter red that still clears AA on it (4.9:1).
+
+     Inside a checkbox label Forminator turns spans into blocks, which
+     dropped the asterisk onto a line of its own — it belongs at the end of
+     the sentence it marks. */
+  .forminator-card-wrapper .forminator-required{
+    display:inline !important;
+    color:#ff6b6b !important;
+  }
+
   /* The consent boxes sit on the dark card, so their text is white, and the
      two of them need room between each other and the button. */
   .forminator-card-wrapper label.forminator-checkbox,
