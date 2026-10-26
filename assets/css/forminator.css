@@ -157,10 +157,19 @@
 
      A form whose option text does carry one would then show two, so that
      copy is hidden here and the mark comes from one place. */
-  .forminator-card-wrapper .forminator-checkbox-label .forminator-required{
+  .forminator-card-wrapper .forminator-checkbox-label .forminator-required,
+  .forminator-card-wrapper .forminator-checkbox__label .forminator-required{
     display:none !important;
   }
-  .forminator-card-wrapper .forminator-field.required .forminator-checkbox-label::after{
+  /* Three field types draw a consent checkbox and each says "required" in a
+     different place. The plain checkbox field says so on the group it wraps
+     the options in; the consent and GDPR fields leave the group unmarked and
+     say so on the input instead - and the consent field names its text span
+     differently again. All of it is read here, so the mark lands whichever
+     one a form was built with. */
+  .forminator-card-wrapper .forminator-field.required .forminator-checkbox-label::after,
+  .forminator-card-wrapper .forminator-field:has(input[type="checkbox"][data-required="true"]) .forminator-checkbox-label::after,
+  .forminator-card-wrapper .forminator-field:has(input[type="checkbox"][data-required="true"]) .forminator-checkbox__label::after{
     content:' *';
     color:#ff6b6b;
   }
