@@ -20,7 +20,7 @@
   <!-- ============================================================ HEADER -->
   <header class="site-header" id="site-header">
     <div class="container">
-      <a class="logo" href="<?php echo esc_url( uottawa_logo_url() ); ?>" aria-label="<?php esc_attr_e( 'uOttawa home', 'uottawa-online' ); ?>">
+      <a class="logo" href="<?php echo esc_url( uottawa_logo_url() ); ?>"<?php echo uottawa_link_atts( uottawa_logo_url() ); // phpcs:ignore WordPress.Security.EscapeOutput ?> aria-label="<?php esc_attr_e( 'uOttawa home', 'uottawa-online' ); ?>">
         <img class="logo__img" src="<?php echo esc_url( uottawa_asset( 'icons/logo.png' ) ); ?>" width="148" height="38" alt="uOttawa" />
       </a>
 
@@ -49,7 +49,8 @@
       </div>
 
       <div class="header-lang">
-        <a class="btn--lang" href="<?php echo esc_url( uottawa_language_switch_url() ); ?>" rel="noopener" lang="fr" title="Site en français">FR</a>
+        <?php $uottawa_lang_url = uottawa_language_switch_url(); ?>
+        <a class="btn--lang" href="<?php echo esc_url( $uottawa_lang_url ); ?>"<?php echo uottawa_link_atts( $uottawa_lang_url ); // phpcs:ignore WordPress.Security.EscapeOutput ?> lang="fr" title="Site en français">FR</a>
       </div>
     </div>
   </header>

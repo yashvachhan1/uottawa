@@ -149,6 +149,22 @@
     margin-left:auto !important;
   }
 
+  /* A checkbox field has no label of its own to carry the required mark, so
+     Forminator shows nothing beside it however the field is set. The group
+     does say so though - a required one is .forminator-field.required - and
+     that is what this reads, so any form gets the mark without its option
+     text having to spell one out.
+
+     A form whose option text does carry one would then show two, so that
+     copy is hidden here and the mark comes from one place. */
+  .forminator-card-wrapper .forminator-checkbox-label .forminator-required{
+    display:none !important;
+  }
+  .forminator-card-wrapper .forminator-field.required .forminator-checkbox-label::after{
+    content:' *';
+    color:#ff6b6b;
+  }
+
   /* The required mark. Forminator leaves it to inherit, which on this dark
      card made it white and indistinguishable from the label itself. The
      design's own red is too dark to read against the card, so this is a

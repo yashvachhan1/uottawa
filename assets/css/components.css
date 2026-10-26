@@ -78,7 +78,11 @@
    as a third button. */
 .header-lang{ flex:none; margin-left:auto; }
 .nav ~ .header-lang{ margin-left:0; }
-.header-lang .btn--lang{
+/* Hung off the header rather than off .header-lang: the switch is the only
+   .btn--lang there is, and tying it to its wrapper meant a header built
+   before that wrapper existed fell back to the pill and lost the hover
+   underline with it. */
+.site-header .btn--lang{
   /* Reads as a nav item, not as a third button: no pill, no outline. */
   display:inline-block;
   background:none;
@@ -92,7 +96,8 @@
   white-space:nowrap;
   border-bottom:2px solid transparent;
 }
-.header-lang .btn--lang:hover{ background:none; color:var(--ink); border-bottom-color:var(--red); }
+.site-header .btn--lang:hover,
+.site-header .btn--lang:focus-visible{ background:none; color:var(--ink); border-bottom-color:var(--red); }
 
 .header-actions{ display:flex; gap:10px; flex:none; }
 

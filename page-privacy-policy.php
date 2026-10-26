@@ -10,6 +10,10 @@
  */
 
 get_header();
+
+// The page is the client's own markup, so its links are not built through
+// uottawa_link_atts(). Buffer it and apply the same rule to the lot.
+ob_start();
 ?>
 
 <div class="uottawa-legal">
@@ -104,4 +108,8 @@ get_header();
 
 </div>
 
-<?php get_footer(); ?>
+<?php
+echo uottawa_external_links( ob_get_clean() ); // phpcs:ignore WordPress.Security.EscapeOutput
+
+get_footer();
+

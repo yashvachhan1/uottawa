@@ -11,6 +11,9 @@
 
 get_header();
 
-echo do_shortcode( '[uottawa_landing]' );
+// The catalogue links and anything typed into the page's own fields are
+// built here rather than by a template, so the rule that sends off-site
+// links to their own tab is applied to the finished markup.
+echo uottawa_external_links( do_shortcode( '[uottawa_landing]' ) ); // phpcs:ignore WordPress.Security.EscapeOutput
 
 get_footer();

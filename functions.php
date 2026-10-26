@@ -303,6 +303,53 @@ function uottawa_link_atts( $url ) {
 }
 
 /**
+ * Give every link in a block of HTML that leaves this site its own tab.
+ *
+ * The templates call uottawa_link_atts() where they build a link themselves,
+ * but most links are not built there: they are written into a page, typed
+ * into a landing-page field, or sit in markup copied from the client. This
+ * runs over finished HTML so all of them are covered by the same rule.
+ *
+ * A link that already names a target is left as it is, and so is anything
+ * without a host of its own - relative paths, mailto:, tel: and #anchors.
+ *
+ * @param string $html Rendered HTML.
+ */
+function uottawa_external_links( $html ) {
+	if ( false === stripos( $html, '<a ' ) ) {
+		return $html;
+	}
+
+	return preg_replace_callback(
+		'#<a\s[^>]*>#i',
+		function ( $match ) {
+			$tag = $match[0];
+
+			if ( preg_match( '/\starget\s*=/i', $tag ) ) {
+				return $tag;
+			}
+
+			// \x27 rather than an escaped quote, so the pattern reads the same
+			// whichever kind of quote the href is written with.
+			if ( ! preg_match( '/\shref\s*=\s*["\x27]([^"\x27]*)/i', $tag, $href ) ) {
+				return $tag;
+			}
+
+			$atts = uottawa_link_atts( html_entity_decode( $href[1], ENT_QUOTES ) );
+
+			if ( ! $atts ) {
+				return $tag;
+			}
+
+			return rtrim( substr( $tag, 0, -1 ), '/' ) . $atts . '>';
+		},
+		$html
+	);
+}
+add_filter( 'the_content', 'uottawa_external_links', 20 );
+add_filter( 'widget_text_content', 'uottawa_external_links', 20 );
+
+/**
  * Where the language switch sends you: the same page on the other site, not
  * its home page.
  *
@@ -789,7 +836,8 @@ function uottawa_footer_line() {
 		$label = esc_html( trim( $part ) );
 
 		if ( ! empty( $urls[ $i ] ) ) {
-			$label = '<a href="' . esc_url( $urls[ $i ] ) . '">' . $label . '</a>';
+			$label = '<a href="' . esc_url( $urls[ $i ] ) . '"'
+				. uottawa_link_atts( $urls[ $i ] ) . '>' . $label . '</a>';
 		}
 
 		$out[] = $label;
