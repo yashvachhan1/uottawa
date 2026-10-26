@@ -13,7 +13,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'UOTTAWA_VERSION', '1.1.0' );
+/**
+ * The version every stylesheet and script is served under.
+ *
+ * This was a number of its own, and it sat at 1.1.0 while the theme itself
+ * moved on - so every asset URL stayed identical from one release to the
+ * next. Browsers, and any CDN in front of the site, went on serving the CSS
+ * they already had: a pull changed the files on disk and nothing changed on
+ * screen. Taking it from the theme's own version means an update moves the
+ * URL, which is what actually fetches the new file.
+ */
+$uottawa_version = wp_get_theme( get_template() )->get( 'Version' );
+
+define( 'UOTTAWA_VERSION', $uottawa_version ? $uottawa_version : '1.1.0' );
+
+unset( $uottawa_version );
 
 // Program landing page: editor meta boxes + the [uottawa_landing] shortcode.
 require_once get_template_directory() . '/inc/landing-page.php';
