@@ -80,9 +80,54 @@ function uottawa_page_image_alt( $key, $fallback ) {
 		if ( '' !== trim( (string) $set ) ) {
 			return $set;
 		}
+
+		// Nothing written on the page, so ask the media library about the
+		// picture that is actually in the slot. Someone who swapped the
+		// picture and described it there expects that description to show,
+		// and the design's own wording describes a picture that is no
+		// longer on screen.
+		$chosen = get_post_meta( $id, $key, true );
+
+		if ( $chosen ) {
+			$alt = uottawa_attachment_alt( $chosen );
+
+			if ( '' !== $alt ) {
+				return $alt;
+			}
+		}
 	}
 
 	return $fallback;
+}
+
+/**
+ * The alt text the media library holds for a picture, found by its URL.
+ *
+ * The pickers store a URL rather than an id, so the attachment has to be
+ * looked up. A URL copied at a particular size carries that size in its
+ * name, which matches no attachment, so the size is taken off and tried
+ * again before giving up.
+ *
+ * @param string $url Image URL.
+ */
+function uottawa_attachment_alt( $url ) {
+	$url = strtok( $url, '?' );
+
+	$id = attachment_url_to_postid( $url );
+
+	if ( ! $id ) {
+		$full = preg_replace( '/-\d+x\d+(\.[a-z0-9]+)$/i', '$1', $url );
+
+		if ( $full !== $url ) {
+			$id = attachment_url_to_postid( $full );
+		}
+	}
+
+	if ( ! $id ) {
+		return '';
+	}
+
+	return trim( (string) get_post_meta( $id, '_wp_attachment_image_alt', true ) );
 }
 
 /**
