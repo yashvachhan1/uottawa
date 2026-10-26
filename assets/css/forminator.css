@@ -157,8 +157,7 @@
 
      A form whose option text does carry one would then show two, so that
      copy is hidden here and the mark comes from one place. */
-  .forminator-card-wrapper .forminator-checkbox-label .forminator-required,
-  .forminator-card-wrapper .forminator-checkbox__label .forminator-required{
+  .forminator-card-wrapper :is(.forminator-checkbox-label, .forminator-checkbox__label) .forminator-required{
     display:none !important;
   }
   /* Three field types draw a consent checkbox and each says "required" in a
@@ -166,10 +165,19 @@
      the options in; the consent and GDPR fields leave the group unmarked and
      say so on the input instead - and the consent field names its text span
      differently again. All of it is read here, so the mark lands whichever
-     one a form was built with. */
-  .forminator-card-wrapper .forminator-field.required .forminator-checkbox-label::after,
-  .forminator-card-wrapper .forminator-field:has(input[type="checkbox"][data-required="true"]) .forminator-checkbox-label::after,
-  .forminator-card-wrapper .forminator-field:has(input[type="checkbox"][data-required="true"]) .forminator-checkbox__label::after{
+     one a form was built with.
+
+     Where the text sits in a paragraph of its own - which is how the consent
+     field writes it - the mark goes inside that paragraph. On the wrapper it
+     would follow a block and drop to a line by itself. */
+  .forminator-card-wrapper
+    :is(.forminator-field.required,
+        .forminator-field:has(input[type="checkbox"][data-required="true"]))
+    :is(.forminator-checkbox-label, .forminator-checkbox__label):not(:has(p))::after,
+  .forminator-card-wrapper
+    :is(.forminator-field.required,
+        .forminator-field:has(input[type="checkbox"][data-required="true"]))
+    :is(.forminator-checkbox-label, .forminator-checkbox__label) > p:last-of-type::after{
     content:' *';
     color:#ff6b6b;
   }
