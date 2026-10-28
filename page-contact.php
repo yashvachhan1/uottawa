@@ -25,6 +25,22 @@ get_header();
             <p>Learn more about admission requirements, application deadlines and next steps.</p>
           </div>
         </div>
+
+        <div class="contact-aside">
+          <h2 class="section-title">General inquiries</h2>
+          <p class="contact-lead">Our team is here to answer questions and connect you with the resources you need.</p>
+
+          <div class="contact-links">
+            <span class="contact-link">
+              <img src="<?php echo esc_url( uottawa_asset( 'icons/icon-email.svg' ) ); ?>" width="73" height="73" alt="">
+              <a href="mailto:admissions@online.uottawa.ca">admissions@online.uottawa.ca</a>
+            </span>
+            <span class="contact-link contact-link--sm">
+              <img src="<?php echo esc_url( uottawa_asset( 'icons/icon-phone.svg' ) ); ?>" width="41" height="41" alt="">
+              <a href="tel:+16133177079">+1 (613) 317-7079</a>
+            </span>
+          </div>
+        </div>
       </div>
 
       <!-- Enquiry form -->
@@ -112,22 +128,6 @@ get_header();
     </div>
 
     <div class="contact-row">
-      <div>
-        <h2 class="section-title">General inquiries</h2>
-        <p class="contact-lead">Our team is here to answer questions and connect you with the resources you need.</p>
-
-        <div class="contact-links">
-          <span class="contact-link">
-            <img src="<?php echo esc_url( uottawa_asset( 'icons/icon-email.svg' ) ); ?>" width="73" height="73" alt="">
-            <a href="mailto:admissions@online.uottawa.ca">admissions@online.uottawa.ca</a>
-          </span>
-          <span class="contact-link contact-link--sm">
-            <img src="<?php echo esc_url( uottawa_asset( 'icons/icon-phone.svg' ) ); ?>" width="41" height="41" alt="">
-            <a href="tel:+16133177079">+1 (613) 317-7079</a>
-          </span>
-        </div>
-      </div>
-
       <div>
         <h2 class="section-title">Ready to apply?</h2>
         <p class="contact-lead">Follow the link below to get started.</p>

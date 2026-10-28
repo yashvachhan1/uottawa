@@ -385,6 +385,12 @@
   .contact-row + .contact-row > div > .contact-links{ grid-row:3; }
 }
 
+/* The contact details, in the column beside the form rather than in a row of
+   their own below it. The three points above leave that column well short of
+   the form's height, so the page used to carry a band of nothing down its
+   left side while the form ran on. */
+.contact-aside{ margin-top:clamp(36px, 3.3333vw, 64px); }
+
 /* Figma holds the left column narrower than its grid cell:
      rule under each heading 1080 / 1920 = 56.25vw
      body copy              1054 / 1920 = 54.8958vw   (this is what makes
@@ -396,7 +402,10 @@
   margin-top:clamp(24px, 2.1vw, 40px);
   display:flex;
   flex-direction:column;
-  gap:clamp(28px, 3.3333vw, 64px);
+  /* Each of these is a heading and a sentence, so they read as one list
+     rather than as three sections; the gap Figma gives held them far
+     enough apart to read as three. */
+  gap:clamp(20px, 2.1vw, 40px);
 }
 .contact-points h3{
   font-size:var(--fs-h3);
