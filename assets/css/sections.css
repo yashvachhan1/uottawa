@@ -368,7 +368,7 @@
 }
 /* A section's worth of air was more than the two blocks need: they are
    two short lists on one page, not two sections of it. */
-.contact-row + .contact-row{ margin-top:clamp(36px, 2.9vw, 56px); }
+.contact-row + .contact-row{ margin-top:clamp(24px, 1.9vw, 36px); }
 
 /* The second row's two columns each hold a heading, a lead and a list. A
    heading that wraps — French runs longer than English — pushed its own
@@ -398,10 +398,14 @@
      body copy              1054 / 1920 = 54.8958vw   (this is what makes
                                                        "…and graduate" wrap) */
 .contact-row .section-title{ max-width:min(56.25vw, 1080px); }
+/* The rule sits closer to the words it underlines here: the page is a
+   stack of short blocks and 16px held each heading apart from its own
+   rule as far as the rule stood from the block under it. */
+.contact-row .section-title{ padding-bottom:10px; }
 
 /* ---- Left column: a heading then three short blocks ---- */
 .contact-points{
-  margin-top:clamp(24px, 2.1vw, 40px);
+  margin-top:clamp(16px, 1.3vw, 24px);
   display:flex;
   flex-direction:column;
   /* Each of these is a heading and a sentence, so they read as one list
