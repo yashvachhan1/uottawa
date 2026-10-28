@@ -41,6 +41,18 @@ get_header();
             </span>
           </div>
         </div>
+
+        <div class="contact-aside">
+          <h2 class="section-title">Ready to apply?</h2>
+          <p class="contact-lead">Follow the link below to get started.</p>
+
+          <div class="contact-links">
+            <span class="contact-link contact-link--check">
+              <img src="<?php echo esc_url( uottawa_asset( 'icons/icon-check.svg' ) ); ?>" width="53" height="53" alt="">
+              <a href="<?php echo esc_url( uottawa_cta_url( 'apply' ) ); ?>"<?php echo uottawa_link_atts( uottawa_cta_url( 'apply' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>>Apply today</a>
+            </span>
+          </div>
+        </div>
       </div>
 
       <!-- Enquiry form -->
@@ -127,17 +139,6 @@ get_header();
       <?php endif; ?>
     </div>
 
-    <div class="contact-row">
-      <div>
-        <h2 class="section-title">Ready to apply?</h2>
-        <p class="contact-lead">Follow the link below to get started.</p>
-
-        <div class="contact-links">
-          <span class="contact-link contact-link--check">
-            <img src="<?php echo esc_url( uottawa_asset( 'icons/icon-check.svg' ) ); ?>" width="53" height="53" alt="">
-            <a href="<?php echo esc_url( uottawa_cta_url( 'apply' ) ); ?>"<?php echo uottawa_link_atts( uottawa_cta_url( 'apply' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>>Apply today</a>
-          </span>
-        </div>
       </div>
     </div>
 

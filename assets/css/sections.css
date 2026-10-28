@@ -368,24 +368,10 @@
 }
 /* A section's worth of air was more than the two blocks need: they are
    two short lists on one page, not two sections of it. */
-.contact-row + .contact-row{ margin-top:clamp(24px, 1.9vw, 36px); }
-
-/* The second row's two columns each hold a heading, a lead and a list. A
-   heading that wraps — French runs longer than English — pushed its own
-   column's rule and everything under it below the other column's. Flatten
-   the wrappers into the grid so the three parts share rows and line up
-   whatever the wording. The parts keep their own margins, so no row gap. */
-/* Only while the two columns are side by side; below that the row stacks and
-   placing items by column would hold the second one open. */
-@media (min-width:1025px){
-  .contact-row + .contact-row{ row-gap:0; }
-  .contact-row + .contact-row > div{ display:contents; }
-  .contact-row + .contact-row > div:nth-child(1) > *{ grid-column:1; }
-  .contact-row + .contact-row > div:nth-child(2) > *{ grid-column:2; }
-  .contact-row + .contact-row > div > .section-title{ grid-row:1; align-self:end; }
-  .contact-row + .contact-row > div > .contact-lead{ grid-row:2; }
-  .contact-row + .contact-row > div > .contact-links{ grid-row:3; }
-}
+/* There was a second row under this one, holding the two blocks that now sit
+   in the column beside the form. It needed a good deal of work to keep its
+   two columns in step when a French heading wrapped; one column needs none
+   of it. */
 
 /* The contact details, in the column beside the form rather than in a row of
    their own below it. The three points above leave that column well short of
