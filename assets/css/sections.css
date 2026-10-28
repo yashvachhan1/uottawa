@@ -423,15 +423,15 @@
 }
 
 /* ---- Contact links (icon + underlined red link) ---- */
-/* One under the other rather than side by side, and closer together: in a
-   row the address and the number read as two columns of something, which
-   they are not - they are two ways of reaching the same team. */
+/* Side by side, in a column wide enough to take both. They wrap on to their
+   own lines where it is not, and the row gap below is what separates them
+   then. */
 .contact-links{
   margin-top:clamp(16px, 1.3vw, 24px);
   display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:clamp(12px, 0.95vw, 18px);
+  flex-wrap:wrap;
+  align-items:center;
+  gap:clamp(12px, 0.95vw, 18px) clamp(24px, 2.2vw, 42px);
 }
 /* Each icon's artwork fills a different share of its own canvas — the
    envelope 60%, the phone all of it, the check 80% — so the three box sizes
