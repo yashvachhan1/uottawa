@@ -366,7 +366,9 @@
   gap:clamp(28px, 1.7vw, 32px);
   align-items:start;
 }
-.contact-row + .contact-row{ margin-top:var(--space-section); }
+/* A section's worth of air was more than the two blocks need: they are
+   two short lists on one page, not two sections of it. */
+.contact-row + .contact-row{ margin-top:clamp(36px, 2.9vw, 56px); }
 
 /* The second row's two columns each hold a heading, a lead and a list. A
    heading that wraps — French runs longer than English — pushed its own
@@ -389,7 +391,7 @@
    their own below it. The three points above leave that column well short of
    the form's height, so the page used to carry a band of nothing down its
    left side while the form ran on. */
-.contact-aside{ margin-top:clamp(36px, 3.3333vw, 64px); }
+.contact-aside{ margin-top:clamp(28px, 2.1vw, 40px); }
 
 /* Figma holds the left column narrower than its grid cell:
      rule under each heading 1080 / 1920 = 56.25vw
@@ -425,11 +427,11 @@
    row the address and the number read as two columns of something, which
    they are not - they are two ways of reaching the same team. */
 .contact-links{
-  margin-top:clamp(24px, 2.1vw, 40px);
+  margin-top:clamp(16px, 1.3vw, 24px);
   display:flex;
   flex-direction:column;
   align-items:flex-start;
-  gap:clamp(16px, 1.3vw, 24px);
+  gap:clamp(12px, 0.95vw, 18px);
 }
 /* Each icon's artwork fills a different share of its own canvas — the
    envelope 60%, the phone all of it, the check 80% — so the three box sizes
@@ -454,7 +456,7 @@
 .contact-link a:hover{ text-decoration:none; }
 
 .contact-lead{
-  margin-top:clamp(20px, 1.8vw, 35px);
+  margin-top:clamp(14px, 1.15vw, 22px);
   max-width:min(50.2604vw, 965px);   /* Figma text node width */
   font-size:var(--fs-body);
   line-height:1.33;
