@@ -50,6 +50,26 @@
       flex:0 0 100% !important;max-width:100% !important;width:100% !important;
     }
   }
+  /* Row spacing, set here rather than left to Forminator.
+     Forminator puts a bottom margin on every column in a row but the last,
+     so that columns keep apart once they stack on a narrow screen. Side by
+     side there is nothing to keep apart and that margin just sits under the
+     row, which is why the gap under the two-column rows came out twice the
+     gap under the full-width ones. Below the width where they stack, it
+     stays.
+     The row's own margin comes from the stylesheet Forminator generates per
+     form, so it is not the same from one form to the next - taking it from
+     here instead is what makes two forms on two pages read alike. 20px is
+     the figure the contact page's own form uses. */
+  .forminator-card-wrapper .forminator-row{ margin-bottom:20px !important; }
+  .forminator-card-wrapper .forminator-row:last-child{ margin-bottom:0 !important; }
+
+  @media (min-width:641px){
+    .forminator-card-wrapper .forminator-row > .forminator-col{
+      margin-bottom:0 !important;
+    }
+  }
+
   .forminator-card-wrapper .forminator-label{
     display:block !important;
     font-size:0.895625rem !important;
@@ -206,7 +226,10 @@
     line-height:1.45 !important;
     color:#fff !important;
   }
-  .forminator-card-wrapper .forminator-field-checkbox{margin-top:12px !important;}
+  /* The row spacing above already separates these; a top margin of their
+     own used to be what gave them room, and now it only makes the gap
+     before the consent boxes larger than every other gap in the form. */
+  .forminator-card-wrapper .forminator-field-checkbox{margin-top:0 !important;}
 
   /* Validation, and the note that replaces the form once it is sent. */
   /* Forminator gives this its own pale pink block, so pale text on top of it
