@@ -242,15 +242,33 @@
     color:#5e0012 !important;
     background:#f9e4e8 !important;
   }
+  /* The note that comes back once the form is sent, either way. Forminator
+     puts it on a block of its own - pale green when it went through, pale
+     pink when it did not - and coloured it from the form's own palette, so
+     the white here was landing on pale green and the thank-you could barely
+     be read at all. Both ends are pinned instead: dark green on pale green
+     (7.3:1) and dark garnet on pale pink (11.7:1).
+
+     The text itself sits in a label inside, which the form's own stylesheet
+     colours too, so that is brought back to the block's colour. */
   .forminator-card-wrapper .forminator-response-message{
     font-family:inherit !important;
     font-size:0.9375rem !important;
     line-height:1.5 !important;
-    color:#fff !important;
+    color:#0b5a30 !important;
+    background:#e3f4e9 !important;
+    padding:14px 16px !important;
+    border-radius:3.583px !important;
   }
-  /* The error state comes on its own pale pink block, where white text is
-     invisible — the same pairing the field messages needed. Success keeps
-     the white, which sits on the card. */
+  .forminator-card-wrapper .forminator-response-message label{
+    font-family:inherit !important;
+    font-size:inherit !important;
+    line-height:inherit !important;
+    font-weight:400 !important;
+    color:inherit !important;
+    background:none !important;
+    margin:0 !important;
+  }
   .forminator-card-wrapper .forminator-response-message.forminator-error{
     color:#5e0012 !important;
     background:#f9e4e8 !important;
