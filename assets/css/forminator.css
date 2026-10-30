@@ -215,16 +215,35 @@
     color:#ff6b6b !important;
   }
 
-  /* The consent boxes sit on the dark card, so their text is white, and the
-     two of them need room between each other and the button. */
+  /* The consent boxes sit on the dark card, so their text is white.
+
+     A plain checkbox field keeps its text inside the label, but a consent
+     field writes it into a block beside the label instead - which is why
+     only the first of the two was white. Left to the form's own palette the
+     other came out #2D2D2C on a #2D2D2C card: there, and unreadable. */
   .forminator-card-wrapper label.forminator-checkbox,
-  .forminator-card-wrapper label.forminator-radio{
+  .forminator-card-wrapper label.forminator-radio,
+  .forminator-card-wrapper .forminator-checkbox__label,
+  .forminator-card-wrapper .forminator-consent__label{
     align-items:flex-start !important;
     gap:10px !important;
     font-family:inherit !important;
     font-size:0.895625rem !important;
     line-height:1.45 !important;
     color:#fff !important;
+  }
+  .forminator-card-wrapper .forminator-checkbox__label p,
+  .forminator-card-wrapper .forminator-consent__label p{
+    margin:0 !important;
+    color:inherit !important;
+    font-size:inherit !important;
+    line-height:inherit !important;
+  }
+  /* The link inside reads as a link rather than as more of the sentence. */
+  .forminator-card-wrapper .forminator-checkbox__label a,
+  .forminator-card-wrapper .forminator-consent__label a{
+    color:inherit !important;
+    text-decoration:underline !important;
   }
   /* The row spacing above already separates these; a top margin of their
      own used to be what gave them room, and now it only makes the gap
