@@ -239,9 +239,14 @@
     font-size:inherit !important;
     line-height:inherit !important;
   }
-  /* The link inside reads as a link rather than as more of the sentence. */
+  /* The link inside reads as a link rather than as more of the sentence.
+     A consent field puts the text in a block of its own and a plain
+     checkbox field keeps it in the label, so both are named - the privacy
+     link was underlined on one kind of form and not the other. */
   .forminator-card-wrapper .forminator-checkbox__label a,
-  .forminator-card-wrapper .forminator-consent__label a{
+  .forminator-card-wrapper .forminator-consent__label a,
+  .forminator-card-wrapper label.forminator-checkbox a,
+  .forminator-card-wrapper label.forminator-radio a{
     color:inherit !important;
     text-decoration:underline !important;
   }

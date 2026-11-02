@@ -255,9 +255,19 @@
 
 @media (max-width:1024px){
   .enquiry__title{ font-size:1.375rem; }    /* 22px */
-  /* Stacked, the gap between the two blocks is a gap between sections, not
-     the gap between columns it started as — 32px ran them together. */
-  .contact-row{ grid-template-columns:1fr; gap:var(--space-section); }
+  /* Stacked, the form belongs straight after the opening section rather than
+     at the foot of the page: it is what the page is for, and the two blocks
+     under it are what to do if the form is not the answer. The column it
+     shares the row with is flattened so the form can sit between its parts,
+     and each part keeps its own spacing, so the row carries none. */
+  .contact-row{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .contact-row > *:not(.enquiry){ display:contents; }
+  .contact-row > .enquiry{ order:1; margin-top:var(--space-section); }
+  .contact-row .contact-aside{ order:2; }
   /* The column is full width here, so drop the Figma width caps — keeping
      them would squeeze the copy into a narrow strip. */
   .contact-row .section-title,

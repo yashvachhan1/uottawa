@@ -49,8 +49,7 @@
       </div>
 
       <div class="header-lang">
-        <?php $uottawa_lang_url = uottawa_language_switch_url(); ?>
-        <a class="btn--lang" href="<?php echo esc_url( $uottawa_lang_url ); ?>"<?php echo uottawa_link_atts( $uottawa_lang_url ); // phpcs:ignore WordPress.Security.EscapeOutput ?> lang="fr" title="Site en français">FR</a>
+        <a class="btn--lang" href="<?php echo esc_url( uottawa_language_switch_url() ); ?>" rel="noopener" lang="fr" title="Site en français">FR</a>
       </div>
     </div>
   </header>
