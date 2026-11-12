@@ -153,6 +153,7 @@
     flex-direction:column;
     gap:12px;
   }
+  .site-header.is-open .nav .menu-item-has-children::after{ display:none; }
   .site-header.is-open .nav .sub-menu a{ padding:0; }
   .site-header.is-open .nav .sub-menu a:hover,
   .site-header.is-open .nav .sub-menu a:focus-visible{ background:none; }

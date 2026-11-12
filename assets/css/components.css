@@ -87,7 +87,7 @@
 
 .nav .sub-menu{
   position:absolute;
-  top:100%;
+  top:calc(100% + 10px);
   left:0;
   z-index:20;
   display:block;
@@ -103,6 +103,23 @@
   transform:translateY(-4px);
   transition:opacity .14s ease, transform .14s ease, visibility 0s linear .14s;
 }
+/* The panel stands clear of the item's own rule, which leaves a strip the
+   pointer has to cross - and crossing it would take the pointer off the item
+   and shut the panel before it got there. This reaches the item's hit area
+   down over that strip.
+
+   It hangs off the item rather than off the panel: a hidden panel cannot be
+   hovered, so a bridge belonging to it would not be there at the moment it
+   is needed. Nothing is drawn, and the strip stays inside the header. */
+.nav .menu-item-has-children::after{
+  content:'';
+  position:absolute;
+  left:0;
+  right:0;
+  top:100%;
+  height:12px;
+}
+
 .nav li:hover > .sub-menu,
 .nav li:focus-within > .sub-menu{
   visibility:visible;
