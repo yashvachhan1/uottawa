@@ -74,6 +74,61 @@
 .nav .current-menu-ancestor > a,
 .nav a[aria-current="page"]{ border-bottom-color:var(--red); }
 
+/* ---- Dropdown ----
+   A menu item with children keeps them in a panel under it, shown on hover
+   and on keyboard focus alike - :focus-within is what lets someone tabbing
+   through the header reach the items inside. The panel is laid out at all
+   times and hidden with visibility, so its width is settled before it is
+   ever shown and it does not jump open.
+
+   The parent stays a link to its own page; the panel opens from the whole
+   item, so nothing has to be clicked to see what is inside. */
+.nav li{ position:relative; }
+
+.nav .sub-menu{
+  position:absolute;
+  top:100%;
+  left:0;
+  z-index:20;
+  display:block;
+  flex-direction:column;
+  gap:0;
+  min-width:max(100%, 220px);
+  padding:10px 0;
+  background:var(--white);
+  border-top:2px solid var(--red);
+  box-shadow:0 8px 24px rgba(0, 0, 0, .16);
+  visibility:hidden;
+  opacity:0;
+  transform:translateY(-4px);
+  transition:opacity .14s ease, transform .14s ease, visibility 0s linear .14s;
+}
+.nav li:hover > .sub-menu,
+.nav li:focus-within > .sub-menu{
+  visibility:visible;
+  opacity:1;
+  transform:none;
+  transition-delay:0s;
+}
+
+.nav .sub-menu li{ display:block; }
+.nav .sub-menu a{
+  display:block;
+  padding:8px 20px;
+  border-bottom:0;
+  white-space:normal;
+}
+.nav .sub-menu a:hover,
+.nav .sub-menu a:focus-visible{ background:var(--concrete); color:var(--red); }
+/* The rule under a top-level item is the page marker; inside the panel it
+   would read as an underlined row, so the colour carries it instead. */
+.nav .sub-menu .current-menu-item > a{ border-bottom:0; color:var(--red); }
+
+/* An item with a dropdown keeps its own rule while the panel is open, so the
+   two read as one thing. */
+.nav li:hover > a,
+.nav li:focus-within > a{ border-bottom-color:var(--red); }
+
 /* Last in the row, after the two buttons, and set as a nav item rather than
    as a third button. */
 .header-lang{ flex:none; margin-left:auto; }

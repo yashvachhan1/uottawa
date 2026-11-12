@@ -133,6 +133,35 @@
   }
   .site-header.is-open .nav{ order:2; margin-left:0; padding-top:16px; }
   .site-header.is-open .nav ul{ flex-direction:column; gap:14px; }
+
+  /* In the collapsed panel there is nothing to hover and nowhere to hang a
+     dropdown, so the children sit in the list under their parent, indented
+     behind a rule. The panel scrolls, so the list can be as long as it is. */
+  .site-header.is-open .nav .sub-menu{
+    position:static;
+    min-width:0;
+    margin:12px 0 0 14px;
+    padding:0 0 0 14px;
+    background:none;
+    border-top:0;
+    border-left:2px solid var(--alto);
+    box-shadow:none;
+    visibility:visible;
+    opacity:1;
+    transform:none;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .site-header.is-open .nav .sub-menu a{ padding:0; }
+  .site-header.is-open .nav .sub-menu a:hover,
+  .site-header.is-open .nav .sub-menu a:focus-visible{ background:none; }
+  /* Nothing opens or closes here, so the parent keeps its rule for the page
+     it is on and nothing else. */
+  .site-header.is-open .nav li:hover > a,
+  .site-header.is-open .nav li:focus-within > a{ border-bottom-color:transparent; }
+  .site-header.is-open .nav .current-menu-item > a,
+  .site-header.is-open .nav .current-menu-ancestor > a{ border-bottom-color:var(--red); }
   .site-header.is-open .header-actions{ order:3; padding-top:16px; }
   .site-header.is-open .header-lang{ order:4; margin-left:0; padding:14px 0 16px; }
   .site-header .container{ flex-wrap:wrap; }

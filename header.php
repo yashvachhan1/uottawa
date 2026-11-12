@@ -35,7 +35,10 @@
             'theme_location' => 'primary',
             'container'      => false,
             'items_wrap'     => '<ul>%3$s</ul>',
-            'depth'          => 1,
+            // One level of children, so a menu item with a dropdown under it
+            // renders it. At 1 WordPress drops every child before the markup
+            // is built, and a dropdown added in the admin never appeared.
+            'depth'          => 2,
             'fallback_cb'    => 'uottawa_primary_menu_fallback',
           )
         );
