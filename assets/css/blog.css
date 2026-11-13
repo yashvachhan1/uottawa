@@ -91,6 +91,35 @@
 .post__body a{ color:var(--red); text-decoration:underline; }
 .post__body a:hover{ text-decoration:none; }
 .post__body img{ max-width:100%; height:auto; }
+
+/* ---------- Figures and their captions ----------
+   An infographic in the copy carries its own title under it, in a band the
+   width of the picture. The writer types it in the editor's Caption field,
+   right under the image - nothing has to be written by hand, and a picture
+   with no caption simply has no band.
+
+   The subtitle and the source line are drawn into the artwork itself, so
+   they are not markup and nothing here needs to hold them. */
+.post__body figure{
+  margin:clamp(24px, 2.2vw, 40px) 0;
+}
+.post__body figure img{
+  display:block;
+  margin:0 auto;
+}
+.post__body figcaption,
+.post__body .wp-caption-text{
+  margin:0;
+  padding:12px 16px;
+  background:var(--concrete);
+  color:var(--boulder);
+  font-size:0.85rem;
+  line-height:1.45;
+  text-align:center;
+}
+/* A caption on its own, with no picture over it, would read as a stray
+   grey band. */
+.post__body figure > figcaption:first-child{ display:none; }
 .post__body blockquote{
   padding-left:clamp(16px, 1.2vw, 23px);
   border-left:3px solid var(--red);
