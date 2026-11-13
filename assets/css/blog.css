@@ -117,6 +117,22 @@
   line-height:1.45;
   text-align:center;
 }
+/* Some graphics carry a subtitle as well. Both go in the one caption field:
+   the title in bold, then a line break, then the subtitle. The title takes
+   its own line and a little more weight, and a caption with no subtitle is
+   simply one line. */
+.post__body figcaption strong,
+.post__body figcaption b{
+  display:block;
+  color:var(--ink);
+  font-size:0.9375rem;
+  font-weight:700;
+}
+/* The break that ends the title line has already been made by the block
+   above, so the one in the markup would leave a gap. */
+.post__body figcaption strong + br,
+.post__body figcaption b + br{ display:none; }
+
 /* A caption on its own, with no picture over it, would read as a stray
    grey band. */
 .post__body figure > figcaption:first-child{ display:none; }
