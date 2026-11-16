@@ -9,8 +9,62 @@
     toggle.addEventListener('click', function () {
       var open = header.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', String(open));
+
+      // Closing the panel puts every dropdown back, so opening it again
+      // starts from the menu rather than from wherever it was left.
+      if (!open) {
+        Array.prototype.forEach.call(
+          header.querySelectorAll('.nav .is-open'),
+          function (li) { closeSub(li); }
+        );
+      }
     });
   }
+
+  /* ---- Dropdowns inside the collapsed menu ----------------------------- */
+  /* On a wide screen a dropdown opens under the pointer and needs nothing
+     here. Collapsed there is nothing to hover, and leaving the children
+     showing turns the menu into a list of everything at once - so the parent
+     gets a button beside it and holds them until it is asked. */
+
+  function closeSub(li) {
+    var btn = li.querySelector(':scope > .nav-sub-toggle');
+    li.classList.remove('is-open');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+  }
+
+  Array.prototype.forEach.call(
+    document.querySelectorAll('.nav .menu-item-has-children'),
+    function (li) {
+      var link = li.querySelector(':scope > a');
+      var sub  = li.querySelector(':scope > .sub-menu');
+
+      if (!link || !sub) return;
+
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'nav-sub-toggle';
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', link.textContent.trim());
+      btn.innerHTML = '<span aria-hidden="true"></span>';
+
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var open = !li.classList.contains('is-open');
+
+        // One at a time, so the panel never runs away down the page.
+        Array.prototype.forEach.call(
+          document.querySelectorAll('.nav .menu-item-has-children.is-open'),
+          function (other) { if (other !== li) closeSub(other); }
+        );
+
+        li.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', String(open));
+      });
+
+      link.insertAdjacentElement('afterend', btn);
+    }
+  );
 
   /* ---- FAQ accordion --------------------------------------------------- */
   var OPEN   = '▼'; /* triangle down  */

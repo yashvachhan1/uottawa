@@ -128,6 +128,11 @@
   transition-delay:0s;
 }
 
+/* The button the script puts beside a parent belongs to the collapsed menu;
+   on a wide screen the dropdown opens under the pointer and it would only
+   be something else to look at. */
+.nav-sub-toggle{ display:none; }
+
 .nav .sub-menu li{ display:block; }
 .nav .sub-menu a{
   display:block;

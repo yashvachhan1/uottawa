@@ -137,10 +137,48 @@
   /* In the collapsed panel there is nothing to hover and nowhere to hang a
      dropdown, so the children sit in the list under their parent, indented
      behind a rule. The panel scrolls, so the list can be as long as it is. */
+  /* The parent sits on a row with a button beside it, so the name stays a
+     link to its own page and the arrow is what opens the list under it. */
+  .site-header.is-open .nav .menu-item-has-children{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:10px;
+  }
+
+  .site-header.is-open .nav-sub-toggle{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex:none;
+    width:36px;
+    height:36px;
+    margin:-8px 0;
+    padding:0;
+    background:none;
+    border:0;
+    cursor:pointer;
+  }
+  .site-header.is-open .nav-sub-toggle span{
+    display:block;
+    width:9px;
+    height:9px;
+    border-right:2px solid var(--ink);
+    border-bottom:2px solid var(--ink);
+    transform:translateY(-2px) rotate(45deg);
+    transition:transform .15s ease;
+  }
+  .site-header.is-open .menu-item-has-children.is-open > .nav-sub-toggle span{
+    transform:translateY(2px) rotate(-135deg);
+  }
+
+  /* Closed until the arrow is pressed. It used to stand open, so the menu
+     arrived as a list of everything at once. */
   .site-header.is-open .nav .sub-menu{
     position:static;
     min-width:0;
-    margin:12px 0 0 14px;
+    flex-basis:100%;
+    margin:0 0 0 14px;
     padding:0 0 0 14px;
     background:none;
     border-top:0;
@@ -149,9 +187,13 @@
     visibility:visible;
     opacity:1;
     transform:none;
-    display:flex;
+    display:none;
     flex-direction:column;
     gap:12px;
+  }
+  .site-header.is-open .nav .menu-item-has-children.is-open > .sub-menu{
+    display:flex;
+    margin-top:12px;
   }
   .site-header.is-open .nav .menu-item-has-children::after{ display:none; }
   .site-header.is-open .nav .sub-menu a{ padding:0; }
