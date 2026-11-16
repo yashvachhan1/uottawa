@@ -66,6 +66,101 @@
     }
   );
 
+  /* ---- Dropdown ---------------------------------------------------------
+     A native select draws its open list with the operating system, so no
+     stylesheet reaches it: the panel arrives in the system font with the
+     system highlight, beside controls that look nothing like it. This puts
+     a list of our own over the top. The select itself stays in the page and
+     stays the thing that holds the value, so nothing that reads it has to
+     change and a browser without this still has a working control. */
+
+  function enhanceSelect(select) {
+    var wrap = document.createElement('div');
+    wrap.className = 'select';
+
+    var button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'select__button';
+    button.setAttribute('aria-haspopup', 'listbox');
+    button.setAttribute('aria-expanded', 'false');
+
+    var list = document.createElement('ul');
+    list.className = 'select__list';
+    list.setAttribute('role', 'listbox');
+    list.hidden = true;
+
+    var options = Array.prototype.map.call(select.options, function (opt, i) {
+      var li = document.createElement('li');
+      li.className = 'select__option';
+      li.setAttribute('role', 'option');
+      li.setAttribute('data-value', opt.value);
+      li.textContent = opt.textContent;
+      li.addEventListener('click', function () { choose(i); });
+      list.appendChild(li);
+      return li;
+    });
+
+    var open = false;
+    var active = select.selectedIndex;
+
+    function paint() {
+      button.textContent = select.options[select.selectedIndex].textContent;
+      options.forEach(function (li, i) {
+        li.setAttribute('aria-selected', String(i === select.selectedIndex));
+        li.classList.toggle('is-active', i === active);
+      });
+    }
+
+    function setOpen(next) {
+      open = next;
+      list.hidden = !open;
+      button.setAttribute('aria-expanded', String(open));
+      wrap.classList.toggle('is-open', open);
+      if (open) { active = select.selectedIndex; paint(); }
+    }
+
+    function choose(i) {
+      select.selectedIndex = i;
+      active = i;
+      paint();
+      setOpen(false);
+      button.focus();
+      select.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+
+    button.addEventListener('click', function () { setOpen(!open); });
+
+    button.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (!open) { setOpen(true); return; }
+        if (e.key === 'Enter' || e.key === ' ') { choose(active); return; }
+        active += (e.key === 'ArrowDown' ? 1 : -1);
+        active = Math.max(0, Math.min(options.length - 1, active));
+        paint();
+      } else if (e.key === 'Escape' && open) {
+        setOpen(false);
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (open && !wrap.contains(e.target)) setOpen(false);
+    });
+
+    select.parentNode.insertBefore(wrap, select);
+    wrap.appendChild(button);
+    wrap.appendChild(list);
+    wrap.appendChild(select);
+    select.classList.add('select__native');
+
+    paint();
+  }
+
+  Array.prototype.forEach.call(
+    document.querySelectorAll('[data-filter-category]'),
+    enhanceSelect
+  );
+
   /* ---- Article filter --------------------------------------------------- */
   /* The cards are already on the page, so narrowing them is a matter of
      hiding the ones that do not match rather than going back to the server.
