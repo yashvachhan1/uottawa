@@ -506,21 +506,12 @@ function uottawa_article_cards( $args = array() ) {
 		wp_reset_postdata();
 	}
 
-	// The design lays this row out for a fixed number of cards. Until the site
-	// has that many posts, fill the rest with the design's own placeholder so
-	// the row keeps its shape instead of collapsing to whatever exists.
-	for ( $i = $shown; $i < (int) $args['count']; $i++ ) {
-		uottawa_article_card(
-			array(
-				'url'     => '#',
-				'media'   => '',
-				'kicker'  => $args['labels']['kicker'],
-				'title'   => $args['labels']['title'],
-				'excerpt' => $args['labels']['excerpt'],
-				'meta'    => $args['labels']['meta'],
-			)
-		);
-	}
+	// A row short of posts used to be padded out with the design's own
+	// placeholder card, which kept its shape while there was nothing to put
+	// in it. There is real writing now, and a card reading "[Title]" beside
+	// two real ones looks like something is broken rather than unfinished -
+	// so a row shows what there is, and nothing where there is none.
+	unset( $shown );
 }
 
 function uottawa_article_card( $card ) {
