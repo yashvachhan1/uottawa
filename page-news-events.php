@@ -28,8 +28,8 @@ get_header();
       <?php
       uottawa_article_cards(
         array(
-          'count'  => 3,
-          'offset' => 0,
+          'count'    => 3,
+          'featured' => true,
           'labels' => array(
             'kicker'  => '[Program Name]',
             'title'   => '[Blog post title]',
@@ -60,7 +60,10 @@ get_header();
       uottawa_article_cards(
         array(
           'count'  => 3,
-          'offset' => 3,
+          // The three most recently published, which is what the heading
+          // says. It overlaps the featured row while there are only a few
+          // posts, and stops doing so as more are written.
+          'offset' => 0,
           'labels' => array(
             'kicker'  => '[Program]',
             'title'   => '[Title]',

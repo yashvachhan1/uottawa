@@ -34,6 +34,7 @@ require_once get_template_directory() . '/inc/landing-page.php';
 require_once get_template_directory() . '/inc/page-images.php';
 require_once get_template_directory() . '/inc/page-form.php';
 require_once get_template_directory() . '/inc/language-link.php';
+require_once get_template_directory() . '/inc/featured-post.php';
 require_once get_template_directory() . '/inc/demo-post.php';
 
 /* -------------------------------------------------------------------------
@@ -457,6 +458,9 @@ function uottawa_article_cards( $args = array() ) {
 		array(
 			'count'  => 3,
 			'offset' => 0,
+			// Set to take the posts chosen on their own edit screens rather
+			// than whatever is newest.
+			'featured' => false,
 			'labels' => array(
 				'kicker'  => '[Program Name]',
 				'title'   => '[Blog post title]',
@@ -466,15 +470,30 @@ function uottawa_article_cards( $args = array() ) {
 		)
 	);
 
-	$query = new WP_Query(
-		array(
-			'post_type'           => 'post',
-			'posts_per_page'      => (int) $args['count'],
-			'offset'              => (int) $args['offset'],
-			'ignore_sticky_posts' => true,
-			'no_found_rows'       => true,
-		)
-	);
+	if ( $args['featured'] ) {
+		$ids = uottawa_featured_ids( (int) $args['count'] );
+
+		$query = new WP_Query(
+			array(
+				'post_type'           => 'post',
+				'post__in'            => $ids ? $ids : array( 0 ),
+				'orderby'             => 'post__in',
+				'posts_per_page'      => (int) $args['count'],
+				'ignore_sticky_posts' => true,
+				'no_found_rows'       => true,
+			)
+		);
+	} else {
+		$query = new WP_Query(
+			array(
+				'post_type'           => 'post',
+				'posts_per_page'      => (int) $args['count'],
+				'offset'              => (int) $args['offset'],
+				'ignore_sticky_posts' => true,
+				'no_found_rows'       => true,
+			)
+		);
+	}
 
 	$shown = 0;
 
