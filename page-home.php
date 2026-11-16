@@ -100,7 +100,7 @@ get_header();
       </article>
       <article class="reason-card">
         <h4>A community of peers</h4>
-        <p>Learn alongside ambitious working professionals and returning learners from across Canada, expanding your professional network into a global community of over 200,000 uOttawa alumni.</p>
+        <p>Learn alongside ambitious working professionals and returning learners from across Canada, expanding your professional network into a global community of over 300,000 uOttawa alumni.</p>
       </article>
       <article class="reason-card">
         <h4>Prior learning, recognized</h4>
@@ -272,7 +272,8 @@ get_header();
           <span>What makes uOttawa Online different from other online programs?</span>
         </button>
         <div class="faq-item__a">
-          <p>The name on your degree. You&rsquo;re learning through a university with almost two centuries of academic history and U15 standing as one of Canada&rsquo;s 15 leading research-intensive institutions.</p>
+          <p>The name on your degree. You're learning through a university with almost two centuries of academic history and U15 standing as one of Canada's 15 leading research-intensive institutions.
+</p>
         </div>
       </div>
 
@@ -281,7 +282,8 @@ get_header();
           <span class="faq-item__marker">&#9658;</span>
           <span>Do I need to stop working to study online?</span>
         </button>
-        <div class="faq-item__a"><p>No. uOttawa Online is built around learners who are already working.</p></div>
+        <div class="faq-item__a"><p>No. uOttawa Online programs are designed for working adults, with flexible delivery and multiple intakes per year.
+</p></div>
       </div>
 
       <div class="faq-item">
@@ -289,7 +291,8 @@ get_header();
           <span class="faq-item__marker">&#9658;</span>
           <span>Can international students apply?</span>
         </button>
-        <div class="faq-item__a"><p>Yes. Admission requirements and application steps are confirmed with your enrolment advisor.</p></div>
+        <div class="faq-item__a"><p>International students should speak with an admissions advisor before applying. Studying online and pursuing a visa or work permit pathway in Canada involves its own requirements, and an online program may not lead directly to a Canadian study permit or post-graduation work permit. <a href="/contact">Contact our team</a> for guidance specific to your situation.
+</p></div>
       </div>
 
       <div class="faq-item">
@@ -297,7 +300,8 @@ get_header();
           <span class="faq-item__marker">&#9658;</span>
           <span>Is a uOttawa Online degree the same as one earned on campus?</span>
         </button>
-        <div class="faq-item__a"><p>Yes. The same faculty, the same standard, and the same credential.</p></div>
+        <div class="faq-item__a"><p>Yes. It's the same University of Ottawa degree, taught by the same faculty and held to the same standard. Your diploma makes no distinction between online and in-person study.
+</p></div>
       </div>
 
       <div class="faq-item">
@@ -305,7 +309,7 @@ get_header();
           <span class="faq-item__marker">&#9658;</span>
           <span>What programs does uOttawa Online offer?</span>
         </button>
-        <div class="faq-item__a"><p>See Our programs above for the current list of online offerings.</p></div>
+        <div class="faq-item__a"><p>Our first program, the <a href="/bachelor-of-arts-interdisciplinary-studies-online-accelerated/">Bachelor of Arts, Interdisciplinary Studies (Online, Accelerated)</a>, is now enrolling, with more programs planned as uOttawa Online grows.</p></div>
       </div>
 
       <div class="faq-item">
@@ -313,7 +317,7 @@ get_header();
           <span class="faq-item__marker">&#9658;</span>
           <span>Are there any on-campus requirements?</span>
         </button>
-        <div class="faq-item__a"><p>Programs listed as 100% online can be completed without coming to campus.</p></div>
+        <div class="faq-item__a"><p>No. uOttawa Online programs are delivered fully online, with no mandatory residency or in-person requirement.</p></div>
       </div>
 
       <div class="faq-item">
@@ -321,7 +325,8 @@ get_header();
           <span class="faq-item__marker">&#9658;</span>
           <span>What&rsquo;s the online learning experience like?</span>
         </button>
-        <div class="faq-item__a"><p>A mix of recorded lectures, short exercises, virtual office hours, and weekly assignments.</p></div>
+        <div class="faq-item__a"><p>It's term-based, structured and instructor-led. You'll engage directly with uOttawa faculty and a cohort of fellow working professionals and returning learners throughout the program.
+</p></div>
       </div>
 
       <div class="faq-item">
@@ -329,7 +334,8 @@ get_header();
           <span class="faq-item__marker">&#9658;</span>
           <span>Will my previous college or university credit count?</span>
         </button>
-        <div class="faq-item__a"><p>Often, yes. Your advisor reviews your prior credit through our transfer pathways.</p></div>
+        <div class="faq-item__a"><p>Often, yes. While credit recognition varies by program, eligible prior learning counts toward your program, so you're not repeating work you've already done.
+</p></div>
       </div>
 
       <div class="faq-item">
@@ -337,7 +343,7 @@ get_header();
           <span class="faq-item__marker">&#9658;</span>
           <span>Is financial aid available?</span>
         </button>
-        <div class="faq-item__a"><p>Yes. Your advisor can walk you through the options available to you.</p></div>
+        <div class="faq-item__a"><p>Financial planning is an important part of choosing a university.<a href="/contact"> Contact our team </a> for information on tuition, payment options and financial aid opportunities for your program.</a></p></div>
       </div>
     </div>
   </div>
