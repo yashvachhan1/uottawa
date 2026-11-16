@@ -59,8 +59,8 @@ get_header();
       <?php
       uottawa_article_cards(
         array(
-          'count'  => 6,
-          'offset' => 6,
+          'count'  => 3,
+          'offset' => 3,
           'labels' => array(
             'kicker'  => '[Program]',
             'title'   => '[Title]',
