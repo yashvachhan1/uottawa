@@ -333,12 +333,60 @@
   margin-top:clamp(20px, 1.9vw, 36px);
   display:flex;
   flex-wrap:wrap;
-  align-items:baseline;
+  align-items:center;
   gap:clamp(12px, 1.1vw, 21px);
   font-size:var(--fs-body);
   line-height:1.5;
 }
 .filter-bar__label{ font-weight:700; color:var(--ink); }
+
+/* The two controls. They answer as they are used rather than on a button,
+   so there is nothing to press and nothing that looks like it wants to be
+   pressed. */
+.filter-bar__select,
+.filter-bar__search{
+  font-family:inherit;
+  font-size:var(--fs-body-sm);
+  line-height:1.4;
+  color:var(--ink);
+  background:var(--white);
+  border:1px solid var(--alto);
+  border-radius:4px;
+  padding:9px 12px;
+  min-width:0;
+}
+.filter-bar__select{
+  min-width:min(100%, 260px);
+  /* The arrow is drawn here: left to the browser it comes out differently
+     on every platform, and beside a text box of our own that reads as two
+     different kinds of control. */
+  appearance:none;
+  -webkit-appearance:none;
+  padding-right:36px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%232D2D2C' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 13px center;
+  background-size:10px 6px;
+  cursor:pointer;
+}
+.filter-bar__search{ min-width:min(100%, 240px); }
+.filter-bar__select:focus-visible,
+.filter-bar__search:focus-visible{
+  outline:2px solid var(--red);
+  outline-offset:1px;
+}
+
+/* Said once, under the row, when the two controls between them leave
+   nothing to show. */
+.filter-bar__empty{
+  margin-top:clamp(20px, 1.9vw, 36px);
+  font-size:var(--fs-body-sm);
+  line-height:1.5;
+  color:var(--boulder);
+}
+
+/* A hidden card must not keep its place in the grid. */
+.articles-grid .article-card[hidden]{ display:none; }
 .filter-bar a{
   font-weight:400;
   color:var(--ink);

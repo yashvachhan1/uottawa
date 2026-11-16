@@ -66,6 +66,51 @@
     }
   );
 
+  /* ---- Article filter --------------------------------------------------- */
+  /* The cards are already on the page, so narrowing them is a matter of
+     hiding the ones that do not match rather than going back to the server.
+     It answers as you type, and the whole row is there again the moment the
+     box is cleared. */
+
+  var filter = document.querySelector('[data-filter]');
+
+  if (filter) {
+    var category = filter.querySelector('[data-filter-category]');
+    var topic    = filter.querySelector('[data-filter-topic]');
+    var grid     = filter.parentElement.querySelector('.articles-grid');
+    var empty    = filter.parentElement.querySelector('[data-filter-empty]');
+    var cards    = grid ? grid.querySelectorAll('.article-card') : [];
+
+    var apply = function () {
+      var want = category ? category.value : '';
+      var term = topic ? topic.value.trim().toLowerCase() : '';
+      var shown = 0;
+
+      Array.prototype.forEach.call(cards, function (card) {
+        var terms = (card.getAttribute('data-terms') || '').split(',');
+        var text  = (card.getAttribute('data-text') || '').toLowerCase();
+
+        var ok = (!want || terms.indexOf(want) !== -1)
+              && (!term || text.indexOf(term) !== -1);
+
+        card.hidden = !ok;
+        if (ok) shown++;
+      });
+
+      if (empty) empty.hidden = shown !== 0;
+    };
+
+    if (category) category.addEventListener('change', apply);
+    if (topic) {
+      topic.addEventListener('input', apply);
+      // Enter would submit a form if one is ever wrapped round this, and
+      // there is nothing to submit to.
+      topic.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') e.preventDefault();
+      });
+    }
+  }
+
   /* ---- FAQ accordion --------------------------------------------------- */
   var OPEN   = '▼'; /* triangle down  */
   var CLOSED = '►'; /* triangle right */

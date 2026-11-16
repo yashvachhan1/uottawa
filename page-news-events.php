@@ -49,20 +49,34 @@ get_header();
   <div class="container">
     <h2 class="section-title">Latest articles</h2>
 
-    <p class="filter-bar">
+    <?php
+    // Every category that actually has something in it. Nothing to choose
+    // between means no point offering the choice.
+    $uottawa_cats = get_categories( array( 'hide_empty' => true ) );
+    ?>
+    <div class="filter-bar" data-filter>
       <span class="filter-bar__label">Filter by:</span>
-      <a class="is-active" href="#">All programs</a>
-      <a href="#">Topic</a>
-    </p>
+
+      <label class="screen-reader-text" for="filter-category"><?php esc_html_e( 'Filter by program', 'uottawa-online' ); ?></label>
+      <select class="filter-bar__select" id="filter-category" data-filter-category>
+        <option value=""><?php esc_html_e( 'All programs', 'uottawa-online' ); ?></option>
+        <?php foreach ( $uottawa_cats as $uottawa_cat ) : ?>
+          <option value="<?php echo esc_attr( $uottawa_cat->slug ); ?>"><?php echo esc_html( $uottawa_cat->name ); ?></option>
+        <?php endforeach; ?>
+      </select>
+
+      <label class="screen-reader-text" for="filter-topic"><?php esc_html_e( 'Search by topic', 'uottawa-online' ); ?></label>
+      <input class="filter-bar__search" id="filter-topic" type="search" data-filter-topic
+        placeholder="<?php esc_attr_e( 'Topic', 'uottawa-online' ); ?>" autocomplete="off">
+    </div>
 
     <div class="articles-grid articles-grid--3">
       <?php
       uottawa_article_cards(
         array(
-          'count'  => 3,
-          // The three most recently published, which is what the heading
-          // says. It overlaps the featured row while there are only a few
-          // posts, and stops doing so as more are written.
+          // Every post, because the filter above the row is what narrows it.
+          // A filter over a fixed three would have nothing to do.
+          'count'  => -1,
           'offset' => 0,
           'labels' => array(
             'kicker'  => '[Program]',
@@ -75,6 +89,8 @@ get_header();
       ?>
 
     </div>
+
+    <p class="filter-bar__empty" data-filter-empty hidden><?php esc_html_e( 'No articles match that. Try another program or a different word.', 'uottawa-online' ); ?></p>
   </div>
 </section>
 

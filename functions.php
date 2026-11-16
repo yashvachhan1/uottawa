@@ -518,6 +518,8 @@ function uottawa_article_cards( $args = array() ) {
 					'title'   => get_the_title(),
 					'excerpt' => wp_trim_words( get_the_excerpt(), 22 ),
 					'meta'    => $meta,
+					'terms'   => implode( ',', wp_list_pluck( $terms, 'slug' ) ),
+					'text'    => wp_strip_all_tags( get_the_title() . ' ' . get_the_excerpt() . ' ' . implode( ' ', wp_list_pluck( $terms, 'name' ) ) ),
 				)
 			);
 			++$shown;
@@ -534,8 +536,16 @@ function uottawa_article_cards( $args = array() ) {
 }
 
 function uottawa_article_card( $card ) {
+	// The filter above the row reads these: the category it is filed under,
+	// and the words the topic box searches. Both are already on the page in
+	// the card, but reading them back out of the markup would mean matching
+	// on whatever the design happens to show rather than on the post.
+	$terms = isset( $card['terms'] ) ? $card['terms'] : '';
+	$text  = isset( $card['text'] ) ? $card['text'] : '';
 	?>
-	<article class="article-card">
+	<article class="article-card"
+		data-terms="<?php echo esc_attr( $terms ); ?>"
+		data-text="<?php echo esc_attr( $text ); ?>">
 		<div class="article-card__media">
 			<?php if ( $card['media'] ) : ?>
 				<?php echo wp_kses_post( $card['media'] ); ?>
