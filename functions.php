@@ -35,6 +35,7 @@ require_once get_template_directory() . '/inc/page-images.php';
 require_once get_template_directory() . '/inc/page-form.php';
 require_once get_template_directory() . '/inc/language-link.php';
 require_once get_template_directory() . '/inc/featured-post.php';
+require_once get_template_directory() . '/inc/post-link.php';
 require_once get_template_directory() . '/inc/demo-post.php';
 
 /* -------------------------------------------------------------------------
@@ -565,9 +566,15 @@ function uottawa_article_cards( $args = array() ) {
 				get_the_date()
 			);
 
+			// The button can be pointed somewhere else on the post itself,
+			// which is how the French site sends readers to the English
+			// post rather than keeping a copy of its own.
+			list( $card_url, $card_atts ) = uottawa_card_link( get_the_ID(), get_permalink() );
+
 			uottawa_article_card(
 				array(
-					'url'     => get_permalink(),
+					'url'     => $card_url,
+					'atts'    => $card_atts,
 					'media'   => has_post_thumbnail() ? get_the_post_thumbnail( null, 'large' ) : '',
 					'kicker'  => $kicker,
 					'title'   => get_the_title(),
@@ -613,7 +620,7 @@ function uottawa_article_card( $card ) {
 			<h3 class="article-card__title"><?php echo esc_html( $card['title'] ); ?></h3>
 			<p class="article-card__excerpt"><?php echo esc_html( $card['excerpt'] ); ?></p>
 			<p class="article-card__meta"><?php echo esc_html( $card['meta'] ); ?></p>
-			<a class="btn btn--red btn--read" href="<?php echo esc_url( $card['url'] ); ?>"><?php echo esc_html( uottawa_read_more_text() ); ?></a>
+			<a class="btn btn--red btn--read" href="<?php echo esc_url( $card['url'] ); ?>"<?php echo isset( $card['atts'] ) ? $card['atts'] : ''; // phpcs:ignore WordPress.Security.EscapeOutput ?>><?php echo esc_html( uottawa_read_more_text() ); ?></a>
 		</div>
 	</article>
 	<?php
