@@ -595,15 +595,16 @@
    either side of the row say less than nothing. */
 .carousel.is-static .carousel__arrow{ display:none; }
 
-/* ---- News & events: the picture on a card ----
-   The card's ratio put the picture at about 125px on this page, which the
-   client asked to take to 200px. A height rather than a ratio, because 200
-   is the number asked for and a ratio only gives it at one card width.
+/* ---- The picture on an article card ----
+   The card's ratio put it at about 125px, which the client asked to take to
+   200px. A height rather than a ratio, because 200 is the number asked for
+   and a ratio only gives it at one card width.
 
-   Only on this page: the cards on the home page were not part of the ask,
-   and they share the component. */
+   Wherever the cards appear - the two rows on the news page and the row on
+   the home page - so they read as the same thing in both places. */
 .featured .article-card__media,
-.latest .article-card__media{
+.latest .article-card__media,
+.articles .article-card__media{
   aspect-ratio:auto;
   height:200px;
 }
