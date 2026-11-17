@@ -8,25 +8,21 @@
 
 .post__layout{
   display:grid;
-  grid-template-columns:minmax(0, 1fr) 360px;
+  grid-template-columns:minmax(0, 800px) 360px;
+  justify-content:center;
   gap:clamp(32px, 3.3vw, 64px);
   align-items:start;
 }
 
-/* ---------- Breadcrumb ---------- */
-.breadcrumb{
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  gap:8px;
-  margin-bottom:clamp(16px, 1.4vw, 26px);
-  font-size:var(--fs-nav);
-  line-height:1.5;
-  color:var(--boulder);
+/* The article sits in a box of its own, 800px across including the padding.
+   Long-form reads better on a narrower measure, the graphics sit better on
+   it, and the border lifts the column off the page behind it. */
+.post__main{
+  background:var(--white);
+  border:1px solid var(--gallery);
+  box-shadow:0 2px 14px rgba(0, 0, 0, .06);
+  padding:clamp(20px, 2.2vw, 36px);
 }
-.breadcrumb a{ color:var(--boulder); }
-.breadcrumb a:hover{ color:var(--red); text-decoration:underline; }
-.breadcrumb__current{ color:var(--ink); }
 
 /* ---------- Header ---------- */
 .post__media{
@@ -150,11 +146,25 @@
 }
 .post__body th{ background:var(--concrete); font-weight:700; }
 
-/* ---------- Recent posts ---------- */
-.post__aside{
-  position:sticky;
-  top:calc(var(--header-h) + 24px);
+/* ---------- The two rules the copy asks for ----------
+   One under the takeaways at the top, one over the key terms at the foot.
+   The class is put on the heading by uottawa_blog_rules(); the rule under
+   the takeaways goes on the list, because that is where the block ends. */
+.post__body .uottawa-rule-under + ul,
+.post__body .uottawa-rule-under + ol{
+  padding-bottom:clamp(18px, 1.6vw, 28px);
+  border-bottom:1px solid var(--alto);
 }
+.post__body .uottawa-rule-over{
+  margin-top:clamp(28px, 2.6vw, 44px);
+  padding-top:clamp(22px, 2vw, 34px);
+  border-top:1px solid var(--alto);
+}
+
+/* ---------- Recent posts ---------- */
+/* The recent posts stay where they are put. Following the reader down a
+   long article is more movement than the list is worth. */
+.post__aside{ position:static; }
 .recent__title{
   padding:16px 20px;
   background:var(--red);
@@ -200,5 +210,4 @@
   /* The column is full width here, so the recent posts drop below it and
      stop being sticky. */
   .post__layout{ grid-template-columns:1fr; }
-  .post__aside{ position:static; }
 }

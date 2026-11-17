@@ -318,6 +318,61 @@ function uottawa_link_atts( $url ) {
 }
 
 /**
+ * The rules a blog post draws, and the ones it does not.
+ *
+ * The copy came over with a line above and below every graphic, which left
+ * each one walled off from the writing it belongs to. The client wants them
+ * gone, and a line in two other places instead: under the takeaways at the
+ * top, and over the key terms at the foot.
+ *
+ * Done here rather than by editing the posts, so it holds for anything
+ * written later and takes nothing away that an editor would have to put
+ * back.
+ *
+ * @param string $html The post body.
+ */
+function uottawa_blog_rules( $html ) {
+	if ( ! is_singular( 'post' ) ) {
+		return $html;
+	}
+
+	// A line either side of a picture.
+	$html = preg_replace( '#<hr[^>]*>\s*(?=<figure)#i', '', $html );
+	$html = preg_replace( '#(</figure>)\s*<hr[^>]*>#i', '$1', $html );
+
+	// The two headings that do want one. Matched on what they say, because
+	// nothing in the markup tells them apart.
+	$rules = array(
+		'key takeaways' => 'uottawa-rule-under',
+		'key terms'     => 'uottawa-rule-over',
+	);
+
+	return preg_replace_callback(
+		'#<(h[1-6])([^>]*)>(.*?)</\1>#is',
+		function ( $m ) use ( $rules ) {
+			$text = strtolower( trim( wp_strip_all_tags( $m[3] ) ) );
+
+			if ( ! isset( $rules[ $text ] ) ) {
+				return $m[0];
+			}
+
+			$class = $rules[ $text ];
+			$attrs = $m[2];
+
+			if ( preg_match( '/\sclass\s*=\s*"([^"]*)"/i', $attrs ) ) {
+				$attrs = preg_replace( '/(\sclass\s*=\s*")/i', '$1' . $class . ' ', $attrs, 1 );
+			} else {
+				$attrs .= ' class="' . $class . '"';
+			}
+
+			return '<' . $m[1] . $attrs . '>' . $m[3] . '</' . $m[1] . '>';
+		},
+		$html
+	);
+}
+add_filter( 'the_content', 'uottawa_blog_rules', 9 );
+
+/**
  * Give every link in a block of HTML that leaves this site its own tab.
  *
  * The templates call uottawa_link_atts() where they build a link themselves,
@@ -918,6 +973,41 @@ function uottawa_privacy_page() {
 }
 
 /**
+ * Google Tag Manager.
+ *
+ * The container id is set under Appearance > Customize rather than written
+ * in here, so the two sites can carry different ones and neither needs a
+ * release to change it. Empty means nothing is printed at all: a half-built
+ * tag is worse than none.
+ */
+function uottawa_gtm_id() {
+	$id = trim( (string) get_theme_mod( 'uottawa_gtm_id', '' ) );
+
+	// Only ever a container id, never a fragment of script.
+	return preg_match( '/^GTM-[A-Z0-9]+$/', $id ) ? $id : '';
+}
+
+/**
+ * The tag itself, in the head.
+ */
+function uottawa_gtm() {
+	$id = uottawa_gtm_id();
+
+	if ( ! $id ) {
+		return;
+	}
+	?>
+<script async src="https://www.googletagmanager.com/gtm.js?id=<?php echo esc_attr( $id ); ?>"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
+	<?php
+}
+add_action( 'wp_head', 'uottawa_gtm', 1 );
+
+/**
  * What the button on an article card says.
  *
  * It appears on every card on two pages, so it is set once under
@@ -955,6 +1045,7 @@ function uottawa_customize( $wp_customize ) {
 	$fields = array(
 		'uottawa_apply_url'    => array( __( '"Apply now" link', 'uottawa-online' ), 'https://www.uottawa.ca/study/applying-uottawa' ),
 		'uottawa_request_url'  => array( __( '"Request info" link', 'uottawa-online' ), '/contact/' ),
+		'uottawa_gtm_id'       => array( __( 'Google Tag Manager ID (GTM-XXXXXXX)', 'uottawa-online' ), '' ),
 		'uottawa_read_more'    => array( __( '"Read more" button text', 'uottawa-online' ), 'Read more' ),
 		'uottawa_footer_text'  => array( __( 'Footer text', 'uottawa-online' ), '© University of Ottawa  |  Privacy  |  Accessibility' ),
 		'uottawa_privacy_url'  => array( __( '"Privacy" link (blank: the site&rsquo;s privacy page)', 'uottawa-online' ), '' ),

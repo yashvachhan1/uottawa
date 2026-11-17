@@ -527,6 +527,19 @@
   font-weight:400;
 }
 
+/* ---- News & events: the picture on a card ----
+   The card's ratio put the picture at about 125px on this page, which the
+   client asked to take to 200px. A height rather than a ratio, because 200
+   is the number asked for and a ratio only gives it at one card width.
+
+   Only on this page: the cards on the home page were not part of the ask,
+   and they share the component. */
+.featured .article-card__media,
+.latest .article-card__media{
+  aspect-ratio:auto;
+  height:200px;
+}
+
 /* ---- Contact links (icon + underlined red link) ---- */
 /* Side by side, in a column wide enough to take both. They wrap on to their
    own lines where it is not, and the row gap below is what separates them

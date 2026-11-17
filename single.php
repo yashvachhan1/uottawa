@@ -16,7 +16,6 @@ while ( have_posts() ) :
 
 	$uottawa_terms  = get_the_category();
 	$uottawa_kicker = $uottawa_terms ? $uottawa_terms[0]->name : '';
-	$uottawa_news   = get_page_by_path( 'news-events' );
 	?>
 
 <section class="section post">
@@ -24,15 +23,6 @@ while ( have_posts() ) :
 
     <article class="post__main">
 
-      <nav class="breadcrumb" aria-label="<?php esc_attr_e( 'Breadcrumb', 'uottawa-online' ); ?>">
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'uottawa-online' ); ?></a>
-        <?php if ( $uottawa_news ) : ?>
-          <span aria-hidden="true">/</span>
-          <a href="<?php echo esc_url( get_permalink( $uottawa_news ) ); ?>"><?php esc_html_e( 'News &amp; events', 'uottawa-online' ); ?></a>
-        <?php endif; ?>
-        <span aria-hidden="true">/</span>
-        <span class="breadcrumb__current"><?php the_title(); ?></span>
-      </nav>
 
       <figure class="post__media">
         <?php if ( has_post_thumbnail() ) : ?>
