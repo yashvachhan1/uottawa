@@ -312,10 +312,13 @@
 /* ---------- News & events ---------- */
 @media (max-width:1024px){
   .articles-grid--3{ grid-template-columns:repeat(2, 1fr); }
+/* Two across, then one, the same steps the grid took. */
+  .carousel__track > .article-card{ flex-basis:calc((100% - 20px) / 2); }
 }
 
 @media (max-width:768px){
   .articles-grid--3{ grid-template-columns:1fr; }
+.carousel__track > .article-card{ flex-basis:100%; }
 }
 
 /* ---------- Contact ---------- */

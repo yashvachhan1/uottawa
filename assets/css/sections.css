@@ -527,6 +527,74 @@
   font-weight:400;
 }
 
+/* ---- Latest articles: a carousel ----
+   The row scrolls sideways rather than wrapping, so the whole run of posts
+   sits in one band however many there are. It is a scroll container, so a
+   trackpad, a touchscreen and the arrows all drive the same thing, and it
+   still reads in order with the arrows switched off.
+
+   The cards keep the width the grid gave them, so three stand across the
+   row at the sizes the grid showed three. */
+.carousel{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.carousel__track{
+  display:flex;
+  flex:1 1 auto;
+  min-width:0;
+  overflow-x:auto;
+  /* No scroll snapping, and no scroll-behavior either. Mandatory snapping
+     pulled the row back to whichever card it liked whenever the arrows
+     moved it, and scroll-behavior:smooth stops a script moving the row at
+     all in some browsers - the assignment is simply dropped. The easing is
+     done in the script instead, where it can be relied on. */
+  scrollbar-width:none;
+  /* Room for the card borders and their shadow, which a tight box clips. */
+  padding-bottom:4px;
+}
+.carousel__track::-webkit-scrollbar{ display:none; }
+
+.carousel__track > .article-card{
+  flex:0 0 calc((100% - 40px) / 3);
+}
+
+.carousel__arrow{
+  flex:none;
+  width:44px;
+  height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+  background:var(--white);
+  border:1px solid var(--alto);
+  border-radius:50%;
+  cursor:pointer;
+  transition:background .15s ease, border-color .15s ease;
+}
+.carousel__arrow:hover:not(:disabled){ background:var(--red); border-color:var(--red); }
+.carousel__arrow:focus-visible{ outline:2px solid var(--red); outline-offset:2px; }
+.carousel__arrow:disabled{ opacity:.35; cursor:default; }
+
+.carousel__arrow span{
+  display:block;
+  width:9px;
+  height:9px;
+  border-top:2px solid var(--ink);
+  border-right:2px solid var(--ink);
+}
+.carousel__arrow:hover:not(:disabled) span{ border-color:var(--white); }
+.carousel__arrow--prev span{ transform:translateX(2px) rotate(-135deg); }
+.carousel__arrow--next span{ transform:translateX(-2px) rotate(45deg); }
+
+/* Both arrows off means there is nothing to scroll, and two dead buttons
+   either side of the row say less than nothing. */
+.carousel.is-static .carousel__arrow{ display:none; }
+
 /* ---- News & events: the picture on a card ----
    The card's ratio put the picture at about 125px on this page, which the
    client asked to take to 200px. A height rather than a ratio, because 200

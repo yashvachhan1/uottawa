@@ -66,6 +66,85 @@
     }
   );
 
+  /* ---- Carousel ----------------------------------------------------------
+     The row is a scroll container, so a trackpad and a touchscreen already
+     work. The arrows move it by one card, and switch off at each end. With
+     the filter above it the row can end up short enough to need no arrows
+     at all, so they are checked again whenever it changes. */
+
+  var carouselUpdate = function () {};
+
+  (function () {
+    var root = document.querySelector('[data-carousel]');
+    if (!root) return;
+
+    var track = root.querySelector('[data-carousel-track]');
+    var prev  = root.querySelector('[data-carousel-prev]');
+    var next  = root.querySelector('[data-carousel-next]');
+    if (!track) return;
+
+    function step() {
+      var card = track.querySelector('.article-card:not([hidden])');
+      if (!card) return track.clientWidth;
+      var gap = parseFloat(getComputedStyle(track).columnGap) || 20;
+      return card.getBoundingClientRect().width + gap;
+    }
+
+    carouselUpdate = function () {
+      // A rounding error either way would otherwise leave an arrow live at
+      // the end of the row with nowhere to go.
+      var max = track.scrollWidth - track.clientWidth;
+      var at  = track.scrollLeft;
+
+      root.classList.toggle('is-static', max <= 1);
+      if (prev) prev.disabled = at <= 1;
+      if (next) next.disabled = at >= max - 1;
+    };
+
+    // Eased here rather than by the browser. scrollBy, scrollTo with a
+    // behavior, and scroll-behavior in the stylesheet are each dropped
+    // silently somewhere; assigning scrollLeft is the one that always
+    // lands, so the movement is walked across a few steps by hand.
+    //
+    // On a timer rather than on animation frames: a frame callback does not
+    // run at all while a page is not being painted, and the row would then
+    // never move. A timer keeps running, so the arrows work either way.
+    var animating = null;
+
+    function move(by) {
+      var from = track.scrollLeft;
+      var most = track.scrollWidth - track.clientWidth;
+      var to   = Math.max(0, Math.min(most, from + by));
+
+      if (to === from) return;
+
+      var ms = 300;
+      var began = Date.now();
+
+      if (animating) clearInterval(animating);
+
+      animating = setInterval(function () {
+        var k = Math.min(1, (Date.now() - began) / ms);
+        var eased = 1 - Math.pow(1 - k, 3);
+
+        track.scrollLeft = from + (to - from) * eased;
+
+        if (k >= 1) {
+          clearInterval(animating);
+          animating = null;
+          carouselUpdate();
+        }
+      }, 16);
+    }
+
+    if (prev) prev.addEventListener('click', function () { move( -step() ); });
+    if (next) next.addEventListener('click', function () { move(  step() ); });
+
+    track.addEventListener('scroll', carouselUpdate);
+    window.addEventListener('resize', carouselUpdate);
+    carouselUpdate();
+  })();
+
   /* ---- Dropdown ---------------------------------------------------------
      A native select draws its open list with the operating system, so no
      stylesheet reaches it: the panel arrives in the system font with the
@@ -176,6 +255,11 @@
     var empty    = filter.parentElement.querySelector('[data-filter-empty]');
     var cards    = grid ? grid.querySelectorAll('.article-card') : [];
 
+    var track_scrolled_to_start = function () {
+      var tr = document.querySelector('[data-carousel-track]');
+      if (tr) tr.scrollLeft = 0;
+    };
+
     var apply = function () {
       var want = category ? category.value : '';
       var term = topic ? topic.value.trim().toLowerCase() : '';
@@ -193,6 +277,10 @@
       });
 
       if (empty) empty.hidden = shown !== 0;
+
+      // Fewer cards may mean there is no longer anything to scroll.
+      track_scrolled_to_start();
+      carouselUpdate();
     };
 
     if (category) category.addEventListener('change', apply);
