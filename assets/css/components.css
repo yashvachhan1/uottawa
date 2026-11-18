@@ -333,6 +333,19 @@
   overflow:hidden;
 }
 .article-card__media img{ width:100%; height:100%; object-fit:cover; }
+/* The picture and the title are links now, and neither should look like a
+   link on its own: the card is one thing to click, not three. The title
+   keeps the colour it had and takes an underline only under the pointer. */
+.article-card__media{ text-decoration:none; }
+.article-card__title a{
+  color:inherit;
+  text-decoration:none;
+  border-bottom:0;
+}
+.article-card__title a:hover,
+.article-card__title a:focus-visible{ text-decoration:underline; }
+.article-card__media:focus-visible,
+.article-card__title a:focus-visible{ outline:2px solid var(--red); outline-offset:2px; }
 .article-card__placeholder{ font-size:0.75rem; line-height:1.4; font-weight:400; color:var(--boulder); }
 /* A flat 6px between every part ran the card together. Figma spaces them
    unevenly: the title sits close under its kicker, the rest stand further

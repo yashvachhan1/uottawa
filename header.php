@@ -48,9 +48,17 @@
         <a class="btn btn--outline-dark btn--sm" href="<?php echo esc_url( uottawa_cta_url( 'request' ) ); ?>"><?php esc_html_e( 'Request info', 'uottawa-online' ); ?></a>
       </div>
 
+      <?php
+      // Not on a blog post. The posts are written in English and kept
+      // on the English site, so the switch would offer a French one
+      // that is not there - and the reader would find out by landing
+      // on nothing.
+      if ( ! is_singular( 'post' ) ) :
+      ?>
       <div class="header-lang">
         <a class="btn--lang" href="<?php echo esc_url( uottawa_language_switch_url() ); ?>" rel="noopener" lang="fr" title="Site en français">FR</a>
       </div>
+      <?php endif; ?>
     </div>
   </header>
 
